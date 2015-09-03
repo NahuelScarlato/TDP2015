@@ -71,13 +71,13 @@ public class GUI {
 		lblNewLabel.setBackground(new Color(0, 0, 0));
 		lblNewLabel.setBounds(0, 0, 538, 403);
 		panel.add(lblNewLabel);
-		lblNewLabel.setIcon(new ImageIcon("homero.PNG"));		
+		lblNewLabel.setIcon(new ImageIcon("Imagenes/homero.PNG"));		
 		
 		JButton btnHablar = new JButton("Hablar");
 		btnHablar.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnHablar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lblNewLabel.setIcon(new ImageIcon("cuadro.PNG"));
+				lblNewLabel.setIcon(new ImageIcon("Imagenes/cuadro.PNG"));
 				textPane.setVisible(true);
 				btnHablar.setVisible(false);
 				
