@@ -1,3 +1,5 @@
+package Simpsons;
+
 import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
@@ -12,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
-public class FraseSimpson {
+public class GUI {
 
 	private JFrame frmProyecto;
 
@@ -23,7 +25,7 @@ public class FraseSimpson {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FraseSimpson window = new FraseSimpson();
+					GUI window = new GUI();
 					window.frmProyecto.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +37,7 @@ public class FraseSimpson {
 	/**
 	 * Create the application.
 	 */
-	public FraseSimpson() {
+	public GUI() {
 		initialize();
 	}
 
