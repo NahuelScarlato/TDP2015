@@ -84,8 +84,7 @@ public class GUI {
 			}
 		});
 		btnHablar.setBounds(10, 198, 94, 48);
-		panel.add(btnHablar);		
-		
+		panel.add(btnHablar);			
 		
 		
 	}
