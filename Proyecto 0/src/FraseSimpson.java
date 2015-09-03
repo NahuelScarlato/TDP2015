@@ -46,7 +46,7 @@ public class FraseSimpson {
 		frmProyecto = new JFrame();
 		frmProyecto.setTitle("Proyecto0");
 		frmProyecto.setResizable(false);
-		frmProyecto.setBounds(100, 100, 539, 447);
+		frmProyecto.setBounds(100, 100, 536, 431);
 		frmProyecto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmProyecto.getContentPane().setLayout(null);
 		
@@ -60,14 +60,14 @@ public class FraseSimpson {
 		textPane.setEditable(false);
 		textPane.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		textPane.setOpaque(false);
-		textPane.setBounds(25, 328, 506, 79);
+		textPane.setBounds(17, 324, 506, 79);
 		panel.add(textPane);
 		textPane.setText("No soy un hombre de plegarias, pero si estas en el cielo, salvame por favor superman");
 		textPane.setVisible(false);
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setBackground(new Color(0, 0, 0));
-		lblNewLabel.setBounds(0, 0, 537, 418);
+		lblNewLabel.setBounds(0, 0, 538, 403);
 		panel.add(lblNewLabel);
 		lblNewLabel.setIcon(new ImageIcon("homero.PNG"));		
 		
@@ -77,10 +77,11 @@ public class FraseSimpson {
 			public void actionPerformed(ActionEvent e) {
 				lblNewLabel.setIcon(new ImageIcon("cuadro.PNG"));
 				textPane.setVisible(true);
+				btnHablar.setVisible(false);
 				
 			}
 		});
-		btnHablar.setBounds(5, 198, 94, 48);
+		btnHablar.setBounds(10, 198, 94, 48);
 		panel.add(btnHablar);		
 		
 		
