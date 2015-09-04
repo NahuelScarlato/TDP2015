@@ -67,17 +67,17 @@ public class GUI {
 		textPane.setText("No soy un hombre de plegarias, pero si estas en el cielo, salvame por favor superman");
 		textPane.setVisible(false);
 		
-		JLabel lblNewLabel = new JLabel("New label");
+		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBackground(new Color(0, 0, 0));
 		lblNewLabel.setBounds(0, 0, 538, 403);
 		panel.add(lblNewLabel);
-		lblNewLabel.setIcon(new ImageIcon("homero.PNG"));		
+		lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/Imagen/homero.png")));		
 		
 		JButton btnHablar = new JButton("Hablar");
 		btnHablar.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnHablar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lblNewLabel.setIcon(new ImageIcon("cuadro.PNG"));
+				lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/Imagen/cuadro.png")));
 				textPane.setVisible(true);
 				btnHablar.setVisible(false);
 				
