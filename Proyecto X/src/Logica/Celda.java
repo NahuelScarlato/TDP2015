@@ -8,12 +8,12 @@ public class Celda {
     /**
      * 
      */
-    protected int x;
+    protected int fila;
 
     /**
      * 
      */
-    protected int y;
+    protected int columna;
 
     /**
      * 
@@ -47,87 +47,87 @@ public class Celda {
     protected Bomba miBomba;
 
     /**
-     * @param pu 
-     * @param p 
-     * @param e
+     * 
      */
-    public Celda(PowerUp pu, Pared p, Enemigo e, Bomberman b) {
-        // TODO implement here
+    public Celda(int fila, int columna,Nivel nivel) {
+    	this.fila=fila;
+    	this.columna=columna;
+    	miPowerUp=null;
+    	miNivel=nivel;
+    	miPared=null;
+    	miEnemigo=null;
+    	miBomberman=null;
+    	miBomba=null;
     }
 
     /**
      * @return
      */
     public PowerUp getPowerUp() {
-        // TODO implement here
-        return null;
+        return miPowerUp;
     }
 
     /**
      * @param pu
      */
     public void setPowerUp(PowerUp pu) {
-        // TODO implement here
+        miPowerUp=pu;
     }
 
     /**
      * @return
      */
     public Pared getPared() {
-        // TODO implement here
-        return null;
+        return miPared;
     }
 
     /**
      * @param p
      */
     public void setPared(Pared p) {
-        // TODO implement here
+       miPared=p;
     }
 
     /**
      * @return
      */
     public Bomba getBomba() {
-        // TODO implement here
-        return null;
+        return miBomba;
     }
 
     /**
      * @param b
      */
     public void setBomba(Bomba b) {
-        // TODO implement here
+       miBomba=b;
     }
 
     /**
      * @return
      */
     public Enemigo getEnemigo() {
-        // TODO implement here
-        return null;
+        return miEnemigo;
     }
 
     /**
      * @param e
      */
     public void setEnemigo(Enemigo e) {
-        // TODO implement here
+        miEnemigo=e;
     }
     
     /**
      * @return
      */
     public Bomberman getBomberman() {
-        // TODO implement here
-        return null;
+        return miBomberman;
     }
 
     /**
      * @param e
      */
     public void setBomberman(Bomberman b) {
-        // TODO implement here
+        miBomberman=b;
     }
 
     /**
@@ -135,22 +135,61 @@ public class Celda {
      * @return
      */
     public Celda[] celdasParaExplotar(int r) {
-        // TODO implement here
-        return null;
+        
+    	int total=r*6;
+    	Celda[] exp=new Celda[total];    	
+    	//Algoritmo para conseguir celdas
+        return exp;
     }
 
     /**
      * @param dir
      */
-    public void celdaParaAvanzar(int dir) {
-        // TODO implement here
+    public Celda celdaParaAvanzar(int dir) {
+        switch(dir){
+        case 0:
+        	//Arriba
+        	return miNivel.getCelda(fila-1,columna);
+        case 1:
+        	//Derecha
+        	return miNivel.getCelda(fila,columna+1);
+        case 2:
+        	//Abajo
+        	return miNivel.getCelda(fila+1,columna);
+        case 3:
+        	//Izquierda
+        	return miNivel.getCelda(fila,columna-1);
+        }
+        return null;
     }
 
     /**
      * 
      */
     public void serExplotada() {
-        // TODO implement here
+    	if(miBomberman!=null){
+        	miBomberman.morir();
+        	miBomberman=null;
+        }
+    	
+    	if(miPared!=null){
+        	miPared.serExplotado();
+        	miPared=null;
+        } 
+        
+        if(miEnemigo!=null){
+        	miEnemigo.serExplotado();
+        	miEnemigo=null;
+        }
+        	
+        if(miBomba!=null){
+        	miBomba.explotar();
+        	miBomba=null;
+        }
+        	
+        if(miPowerUp!=null)
+        	miPowerUp=null;
+
     }
 
 }

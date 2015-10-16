@@ -15,7 +15,7 @@ public abstract class PowerUp {
      * @param p
      */
     public PowerUp(int p) {
-        // TODO implement here
+       	puntaje=p;
     }
 
     /**
@@ -27,8 +27,7 @@ public abstract class PowerUp {
      * @return
      */
     public int getPuntaje() {
-        // TODO implement here
-        return 0;
+        return puntaje;
     }
 
 }

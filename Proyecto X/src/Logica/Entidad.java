@@ -11,49 +11,43 @@ public abstract class Entidad {
     protected boolean GMod;
     
     /**
+     * 
+     */
+    protected Celda miCelda;
+    
+    /**
      * Default constructor
      */
     public Entidad() {
+    	GMod=false;
     }
-
-    /**
-     * @param dir
-     */
-    public abstract void avanzar(int dir);
-
-    /**
-     * @return
-     */
-    public abstract int serExplotado();
-
-    /**
-     * @return
-     */
-    public Celda getCelda() {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @param c
-     */
-    public void setCelda(Celda c) {
-        // TODO implement here
-    }
-
+    
     /**
      * @return
      */
     public boolean getGMod() {
-        // TODO implement here
-        return false;
+        return GMod;
     }
 
     /**
      * @param gM
      */
     public void setGMod(boolean gM) {
-        // TODO implement here
+     	GMod=gM;
+    }
+    
+    /**
+     * @return
+     */
+    public Celda getCelda() {
+        return miCelda;
+    }
+
+    /**
+     * @param c
+     */
+    public void setCelda(Celda c) {
+    	miCelda=c;
     }
     
     /**

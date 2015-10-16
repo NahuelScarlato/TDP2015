@@ -10,6 +10,7 @@ public class Altair extends Enemigo {
      */
     public Altair() {
     	super(20);
+    	this.setGMod(true);
     }
 
     /**

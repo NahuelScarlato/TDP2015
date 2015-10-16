@@ -20,17 +20,18 @@ public class Bomberman extends Entidad {
      */
     protected int rangoBombas;
     
-    /**
-     * 
-     */
-    protected Celda miCelda;
-	
+    
+    	
     /**
      * Default constructor
      */
     public Bomberman() {
+    	super();
+    	velocidad=1;
+    	cantBombas=1;
+    	rangoBombas=1;
     }
-
+    
     /**
      * @param dir
      */
@@ -42,52 +43,88 @@ public class Bomberman extends Entidad {
      * 
      */
     public void ponerBomba() {
-        // TODO implement here
+        if(cantBombas>0){
+        	miCelda.setBomba(new Bomba(rangoBombas));
+        	cantBombas--;
+        }
+        //Cuando explota la bomba aumenta la cantidad
     }
 
     /**
      * @return
      */
     public int getVelocidad() {
-        // TODO implement here
-        return 0;
+        return velocidad;
     }
 
     /**
      * @param v
      */
     public void setVelocidad(int v) {
-        // TODO implement here
+        velocidad=v;
+    }
+    
+    /**
+     *
+     */
+    public void aumentarVelocidad() {
+        velocidad++;
     }
 
     /**
      * @return
      */
     public int getCantBombas() {
-        // TODO implement here
-        return 0;
+        return cantBombas;
     }
 
     /**
      * @param cB
      */
     public void setCantBombas(int cB) {
-        // TODO implement here
+        cantBombas=cB;
+    }
+    
+    /**
+     *
+     */
+    public void aumentarCantBombas() {
+        cantBombas++;
+    }
+    
+    /**
+     * @return
+     */
+    public int getRangoBombas() {
+        return rangoBombas;
+    }
+
+    /**
+     * @param rB
+     */
+    public void setRangoBombas(int rB) {
+        rangoBombas=rB;
+    }
+    
+    /**
+     * @param rB
+     */
+    public void aumentarRangoBombas() {
+        rangoBombas*=2;
     }
 
     /**
      * 
      */
     public int serExplotado() {
-		// TODO implement here
-    	return 0;
+		return 0;
     }
     
     /**
      * 
      */
     public void morir() {
-        // TODO implement here
+        
     }
 
 }

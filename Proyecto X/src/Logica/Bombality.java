@@ -16,6 +16,6 @@ public class Bombality extends PowerUp {
      * @param b
      */
     public void activar(Bomberman b) {
-        // TODO implement here
+        b.aumentarCantBombas();        
     }
 }

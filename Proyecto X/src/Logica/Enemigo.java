@@ -19,23 +19,23 @@ public abstract class Enemigo extends Entidad {
      * @param p
      */
     public Enemigo(int p) {
-        // TODO implement here
+        super();
+    	puntaje=p;
     }
 
     /**
      * @return
      */
     public int serExplotado() {
-        // TODO implement here
-        return 0;
+        morir();
+        return puntaje;
     }
 
     /**
      * @return
      */
     public int getPuntaje() {
-        // TODO implement here
-        return 0;
+        return puntaje;
     }
 
     /**

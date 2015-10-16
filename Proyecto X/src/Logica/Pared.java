@@ -25,5 +25,12 @@ public class Pared {
         // TODO implement here
         return 0;
     }
-
+    
+    /**
+     * @return
+     */
+    public int serExplotado() {
+        // TODO implement here
+        return 0;
+    }
 }

@@ -18,7 +18,7 @@ public class Bomba {
     /**
      * Default constructor
      */
-    public Bomba() {
+    public Bomba(int r) {
     }
 
     /**

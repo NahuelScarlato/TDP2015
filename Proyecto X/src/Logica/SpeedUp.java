@@ -16,7 +16,7 @@ public class SpeedUp extends PowerUp {
      * @param b
      */
     public void activar(Bomberman b) {
-        // TODO implement here
+       	b.aumentarVelocidad();
     }
 
 }
