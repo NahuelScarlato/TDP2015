@@ -51,8 +51,8 @@ public class Nivel {
     		}
     	
     	//Seteo bomberman y sirius origen constante
-    	miMatriz[0][0].setBomberman(new Bomberman());
-    	miMatriz[filas][columnas].setEnemigo(new Sirius());
+    	miMatriz[1][1].setBomberman(new Bomberman());
+    	miMatriz[filas-1][columnas-1].setEnemigo(new Sirius());
     	
     	//Falta algoritmo para crear las paredes junto con los powerups y los enemigos
     }
