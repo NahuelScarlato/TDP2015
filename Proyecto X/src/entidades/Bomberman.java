@@ -1,4 +1,7 @@
-package Logica;
+package entidades;
+
+import objetos.Bomba;
+import contenedores.Celda;
 
 /**
  * 
@@ -25,8 +28,8 @@ public class Bomberman extends Entidad {
     /**
      * Default constructor
      */
-    public Bomberman() {
-    	super();
+    public Bomberman(Celda c) {
+    	super(c);
     	velocidad=1;
     	cantBombas=1;
     	rangoBombas=1;
@@ -44,7 +47,7 @@ public class Bomberman extends Entidad {
      */
     public void ponerBomba() {
         if(cantBombas>0){
-        	miCelda.setBomba(new Bomba(rangoBombas));
+        	miCelda.setBomba(new Bomba(rangoBombas,miCelda));
         	cantBombas--;
         }
         //Cuando explota la bomba aumenta la cantidad
@@ -117,7 +120,8 @@ public class Bomberman extends Entidad {
      * 
      */
     public int serExplotado() {
-		return 0;
+		morir();
+    	return 0;
     }
     
     /**

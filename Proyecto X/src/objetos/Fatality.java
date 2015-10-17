@@ -1,14 +1,16 @@
-package Logica;
+package objetos;
+
+import entidades.Bomberman;
 
 /**
  * 
  */
-public class Bombality extends PowerUp {
+public class Fatality extends PowerUp {
 
     /**
      * Default constructor
      */
-    public Bombality() {
+    public Fatality() {
     	super(35);
     }
 
@@ -16,6 +18,7 @@ public class Bombality extends PowerUp {
      * @param b
      */
     public void activar(Bomberman b) {
-        b.aumentarCantBombas();        
+        b.aumentarRangoBombas();
     }
+
 }

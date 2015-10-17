@@ -1,4 +1,6 @@
-package Logica;
+package objetos;
+
+import entidades.Bomberman;
 
 /**
  * 

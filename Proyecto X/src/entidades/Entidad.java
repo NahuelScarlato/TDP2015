@@ -1,4 +1,6 @@
-package Logica;
+package entidades;
+
+import contenedores.Celda;
 
 /**
  * 
@@ -18,8 +20,9 @@ public abstract class Entidad {
     /**
      * Default constructor
      */
-    public Entidad() {
+    public Entidad(Celda c) {
     	GMod=false;
+    	miCelda=c;
     }
     
     /**

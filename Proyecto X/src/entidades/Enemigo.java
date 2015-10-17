@@ -1,4 +1,6 @@
-package Logica;
+package entidades;
+
+import contenedores.Celda;
 
 /**
  * 
@@ -18,8 +20,8 @@ public abstract class Enemigo extends Entidad {
     /**
      * @param p
      */
-    public Enemigo(int p) {
-        super();
+    public Enemigo(int p,Celda c) {
+        super(c);
     	puntaje=p;
     }
 

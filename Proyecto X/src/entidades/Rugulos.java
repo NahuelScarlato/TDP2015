@@ -1,4 +1,6 @@
-package Logica;
+package entidades;
+
+import contenedores.Celda;
 
 /**
  * 
@@ -8,8 +10,8 @@ public class Rugulos extends Enemigo {
     /**
      * Default constructor
      */
-    public Rugulos() {
-    	super(15);
+    public Rugulos(Celda c) {
+    	super(15,c);
     }
 
     /**

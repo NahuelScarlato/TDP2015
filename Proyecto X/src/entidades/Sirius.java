@@ -1,4 +1,6 @@
-package Logica;
+package entidades;
+
+import contenedores.Celda;
 
 /**
  * 
@@ -8,8 +10,8 @@ public class Sirius extends Enemigo {
     /**
      * Default constructor
      */
-    public Sirius() {
-    	super(50);
+    public Sirius(Celda c) {
+    	super(50,c);
     }
 
     /**

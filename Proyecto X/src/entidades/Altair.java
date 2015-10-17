@@ -1,4 +1,6 @@
-package Logica;
+package entidades;
+
+import contenedores.Celda;
 
 /**
  * 
@@ -8,8 +10,8 @@ public class Altair extends Enemigo {
     /**
      * Default constructor
      */
-    public Altair() {
-    	super(20);
+    public Altair(Celda c) {
+    	super(20,c);
     	this.setGMod(true);
     }
 
