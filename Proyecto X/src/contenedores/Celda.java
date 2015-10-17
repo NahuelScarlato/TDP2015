@@ -66,6 +66,14 @@ public class Celda {
     	miBomberman=null;
     	miBomba=null;
     }
+    
+    public int getFila(){
+    	return fila;
+    }
+    
+    public int getColumna(){
+    	return columna;
+    }
 
     /**
      * @return

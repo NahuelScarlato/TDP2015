@@ -1,6 +1,7 @@
 package entidades;
 
 import contenedores.Celda;
+import grafica.EntidadGrafica;
 
 /**
  * 
@@ -11,6 +12,8 @@ public abstract class Entidad {
      * 
      */
     protected boolean GMod;
+    
+    protected EntidadGrafica miGrafico;
     
     /**
      * 
@@ -23,6 +26,7 @@ public abstract class Entidad {
     public Entidad(Celda c) {
     	GMod=false;
     	miCelda=c;
+    	miGrafico=null;
     }
     
     /**
