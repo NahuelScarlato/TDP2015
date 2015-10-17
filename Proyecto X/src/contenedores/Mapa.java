@@ -63,18 +63,20 @@ public class Mapa {
     		}
     	
     	//Seteo bomberman y sirius origen constante
-    	miMatriz[1][1].setBomberman(new Bomberman(miMatriz[1][1]));
+    	Bomberman bomberman=new Bomberman(miMatriz[1][1]);
+    	miMatriz[1][1].setBomberman(bomberman);
     	miMatriz[filas-1][columnas-1].setEnemigo(new Sirius(miMatriz[filas-1][columnas-1]));
     	
-    	crearEnemigos();
     	
+    	miNivel.setEnemigos(crearEnemigos());
+    	miNivel.setBomberman(bomberman);
     	//Falta meter los powerUps y paredes
     }
 
     /**
      * @return
      */
-    private void crearEnemigos() {
+    private Enemigo[] crearEnemigos() {
         Enemigo[] enemigos=new Enemigo[5];
         
         //Creo 3 Rugulos
@@ -105,7 +107,8 @@ public class Mapa {
         		aux.setEnemigo(enemigos[i]);
         		i--;
         	}        	
-        }    
+        }  
+        return enemigos;
     }
 
     /**

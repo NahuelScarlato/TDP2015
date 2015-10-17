@@ -5,7 +5,7 @@ import java.awt.Point;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 
-public abstract class EntidadGrafica {
+public abstract class EntidadGrafica extends Thread{
 	protected JLabel grafico;
 	protected Icon image[];
 	//Tamaño de la imagen
@@ -15,6 +15,7 @@ public abstract class EntidadGrafica {
 	protected int velocidad;
 	
 	protected Point pos;
+	
 	
 	protected EntidadGrafica(int velocidad, int x, int y) {
 		this.pos = new Point(x * this.width, y * this.height);

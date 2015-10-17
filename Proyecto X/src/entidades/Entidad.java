@@ -62,4 +62,6 @@ public abstract class Entidad {
      */
     public abstract void morir();
 
+  
+    
 }

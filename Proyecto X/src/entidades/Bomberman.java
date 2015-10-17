@@ -1,6 +1,7 @@
 package entidades;
 
 import objetos.Bomba;
+import objetos.PowerUp;
 import contenedores.Celda;
 
 /**
@@ -38,9 +39,28 @@ public class Bomberman extends Entidad {
     /**
      * @param dir
      */
-    public void avanzar(int dir) {
-        // TODO implement here
-    }
+	public void avanzar(int dir) {
+		Celda proxima = miCelda.celdaParaAvanzar(dir);
+
+		if (proxima != null) {
+
+			if (proxima.getPared() == null && proxima.getBomba() == null) {
+				proxima.setBomberman(this);
+				if (proxima.getEnemigo() != null) {
+					morir();
+				} else {
+					PowerUp pu = proxima.getPowerUp();
+					if (pu != null) {
+						pu.activar(this);
+						miCelda.getMapa().getNivel().sumarPuntaje(pu.getPuntaje());
+						proxima.setPowerUp(null);
+						
+					}
+				}
+
+			}
+		}
+	}
 
     /**
      * 

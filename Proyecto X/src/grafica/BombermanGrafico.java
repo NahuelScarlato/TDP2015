@@ -11,5 +11,7 @@ public class BombermanGrafico extends EntidadGrafica{
 		this.image[1] = new ImageIcon(this.getClass().getResource("/source/Background.jpg"));
 		this.image[2] = new ImageIcon(this.getClass().getResource("/source/Background.jpg"));
 		this.image[3] = new ImageIcon(this.getClass().getResource("/source/Background.jpg"));
+		
+		
 	}
 }

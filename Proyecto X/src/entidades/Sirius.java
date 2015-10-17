@@ -17,7 +17,7 @@ public class Sirius extends Enemigo {
     /**
      * @param dir
      */
-    public void avanzar(int dir) {
+    public void pensarAvanzar() {
         // TODO implement here
     }
 }

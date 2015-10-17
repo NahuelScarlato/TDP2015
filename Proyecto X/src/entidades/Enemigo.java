@@ -43,9 +43,7 @@ public abstract class Enemigo extends Entidad {
     /**
      * @param dir
      */
-    public void avanzar(int dir){
-    	
-    }
+    public abstract void pensarAvanzar();
     
     /**
      * 

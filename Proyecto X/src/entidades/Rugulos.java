@@ -17,7 +17,7 @@ public class Rugulos extends Enemigo {
     /**
      * @param dir
      */
-    public void pensarAvanzar(int dir) {
+    public void pensarAvanzar() {
         // TODO implement here
     }
 
