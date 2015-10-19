@@ -15,22 +15,22 @@ public class Pared {
      * 
      */
     public Pared() {
-        // TODO implement here
+        puntaje=10;
     }
 
     /**
-     * @return
+     * @return ESTO ESTA DE MAS? 
      */
     public int getPuntaje() {
-        // TODO implement here
-        return 0;
+        
+        return puntaje;
     }
     
     /**
      * @return
      */
     public int serExplotado() {
-        // TODO implement here
-        return 0;
+        
+        return puntaje;
     }
 }

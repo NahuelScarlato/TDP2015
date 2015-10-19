@@ -49,7 +49,7 @@ public abstract class Enemigo extends Entidad {
      * 
      */
     public void morir() {
-        // TODO implement here
+        
     }
 
 }

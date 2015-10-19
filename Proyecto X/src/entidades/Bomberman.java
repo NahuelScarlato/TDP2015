@@ -25,6 +25,20 @@ public class Bomberman extends Entidad {
     protected int rangoBombas;
     
     
+    // agrego jose para el pensar avanzar del siruis
+    private int xactual;
+    private int yactual;
+    
+    public int getX(){
+    	return xactual;
+    }
+    
+    public int getY(){
+    	return yactual;
+    }
+    
+    // fin agrego jose
+    
     	
     /**
      * Default constructor

@@ -9,6 +9,7 @@ import Nivel.Nivel;
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JPanel;
 
 
 
@@ -34,6 +35,8 @@ public class GUI {
 				}
 			}
 		});
+		
+		
 	}
 
 	/**
@@ -42,11 +45,19 @@ public class GUI {
 	public GUI() {
 		
 		frmProyecto = new JFrame();
-		frmProyecto.getContentPane().setBackground(Color.GREEN);
+		frmProyecto.getContentPane().setBackground(Color.WHITE);
 		frmProyecto.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(0, 128, 0));
+		panel.setBounds(0, 0, 450, 346);
+		frmProyecto.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		
 		frmProyecto.setTitle("Proyecto X");
 		frmProyecto.setResizable(false);
-		frmProyecto.setBounds(40, 40, 640, 640);
+		frmProyecto.setBounds(40, 40, 454, 373);
 		frmProyecto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		frmProyecto.addKeyListener(new KeyAdapter() {
@@ -60,6 +71,8 @@ public class GUI {
 		Nivel nivel=new Nivel();
 		Hilo hilo= new Hilo(nivel,this);
 		hilo.start();*/
+		
+		
 	}
 	
 	
