@@ -3,43 +3,17 @@ package entidades;
 import objetos.Bomba;
 import objetos.PowerUp;
 import contenedores.Celda;
+import grafica.BombermanGrafica;
 
 /**
  * 
  */
 public class Bomberman extends Entidad {
 
-    /**
-     * 
-     */
-    protected int velocidad;
-
-    /**
-     * 
-     */
     protected int cantBombas;
 
-    /**
-     * 
-     */
     protected int rangoBombas;
     
-    
-    // agrego jose para el pensar avanzar del siruis
-    private int xactual;
-    private int yactual;
-    
-    public int getX(){
-    	return xactual;
-    }
-    
-    public int getY(){
-    	return yactual;
-    }
-    
-    // fin agrego jose
-    
-    	
     /**
      * Default constructor
      */
@@ -48,6 +22,9 @@ public class Bomberman extends Entidad {
     	velocidad=1;
     	cantBombas=1;
     	rangoBombas=1;
+    	c.setBomberman(this);
+    	setCelda(c);
+    	miGrafico=new BombermanGrafica(velocidad,c.getFila(),c.getColumna());
     }
     
     /**
@@ -60,9 +37,15 @@ public class Bomberman extends Entidad {
 
 			if (proxima.getPared() == null && proxima.getBomba() == null) {
 				proxima.setBomberman(this);
+				
+				miGrafico.mover(dir);
+				setCelda(proxima);
+				
 				if (proxima.getEnemigo() != null) {
-					morir();
-				} else {
+					proxima.setBomberman(this);					
+					morir();					
+				} 
+				else {
 					PowerUp pu = proxima.getPowerUp();
 					if (pu != null) {
 						pu.activar(this);
@@ -87,19 +70,7 @@ public class Bomberman extends Entidad {
         //Cuando explota la bomba aumenta la cantidad
     }
 
-    /**
-     * @return
-     */
-    public int getVelocidad() {
-        return velocidad;
-    }
-
-    /**
-     * @param v
-     */
-    public void setVelocidad(int v) {
-        velocidad=v;
-    }
+    
     
     /**
      *
@@ -162,7 +133,8 @@ public class Bomberman extends Entidad {
      * 
      */
     public void morir() {
-        
+        miCelda.setBomberman(null);
+        miGrafico.morir();
     }
 
 }

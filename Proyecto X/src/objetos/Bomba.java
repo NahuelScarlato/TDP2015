@@ -7,14 +7,8 @@ import contenedores.Celda;
  */
 public class Bomba {
 
-    /**
-     * 
-     */
     protected int rango;
 
-    /**
-     * 
-     */
     protected Celda miCelda;
 	
     /**

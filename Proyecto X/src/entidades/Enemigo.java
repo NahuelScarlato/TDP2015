@@ -7,15 +7,7 @@ import contenedores.Celda;
  */
 public abstract class Enemigo extends Entidad {
 
-    /**
-     * 
-     */
     protected int puntaje;
-    
-    /**
-     * 
-     */
-    protected Celda miCelda;
 
     /**
      * @param p
@@ -49,7 +41,7 @@ public abstract class Enemigo extends Entidad {
      * 
      */
     public void morir() {
-        
+        // TODO implement here}
     }
 
 }

@@ -3,6 +3,7 @@ package entidades;
 import java.util.Random;
 
 import contenedores.Celda;
+import grafica.AltairGrafica;
 
 /**
  * 
@@ -14,6 +15,9 @@ public class Altair extends Enemigo {
      */
     public Altair(Celda c) {
     	super(20,c);
+    	velocidad=1;
+    	c.setEnemigo(this);
+    	miGrafico=new AltairGrafica(velocidad,c.getFila(),c.getColumna());
     	this.setGMod(true);
     }
 
@@ -29,8 +33,11 @@ public class Altair extends Enemigo {
 		if (proxima != null) {
 			//	le saque el  proxima.getPared() == null && del if, 
 			// ya que verificamos q no era intrasitable en el if de arriba
-			if ( proxima.getBomba() == null) 
+			if ( proxima.getBomba() == null) {
 					proxima.setEnemigo(this);
+					setCelda(proxima);
+					miGrafico.mover(dir);
+			}
 				
 			if (proxima.getBomberman() != null) 
 				// debe verificr este esto? osea q encuentra al bomberman y lo mata, o solo se encarga el bomberman de eso? 

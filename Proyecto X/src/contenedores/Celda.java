@@ -1,5 +1,7 @@
 package contenedores;
 
+import java.awt.event.KeyEvent;
+
 import entidades.Bomberman;
 import entidades.Enemigo;
 
@@ -12,45 +14,20 @@ import objetos.PowerUp;
  */
 public class Celda {
 
-    /**
-     * 
-     */
-    protected int fila;
+	public static final int LEFT = KeyEvent.VK_LEFT;
+	public static final int RIGHT = KeyEvent.VK_RIGHT;
+	public static final int UP = KeyEvent.VK_UP;
+	public static final int DOWN = KeyEvent.VK_DOWN;
+	
+	protected int fila;
+	protected int columna;
 
-    /**
-     * 
-     */
-    protected int columna;
-
-    /**
-     * 
-     */
+	protected Mapa miMapa;
+	
     protected PowerUp miPowerUp;
-
-
-    /**
-     * 
-     */
-    protected Mapa miMapa;
-
-    /**
-     * 
-     */
     protected Pared miPared;
-
-    /**
-     * 
-     */
     protected Enemigo miEnemigo;
-    
-    /**
-     * 
-     */
     protected Bomberman miBomberman;
-
-    /**
-     * 
-     */
     protected Bomba miBomba;
 
     /**
@@ -145,7 +122,6 @@ public class Celda {
      */
     public void setBomberman(Bomberman b) {
         miBomberman=b;
-        b.setCelda(this);
     }
     
     /**
@@ -223,16 +199,16 @@ public class Celda {
      */
     public Celda celdaParaAvanzar(int dir) {
         switch(dir){
-        case 0:
+        case UP:
         	//Arriba
         	return miMapa.getCelda(fila-1,columna);
-        case 1:
+        case RIGHT:
         	//Derecha
         	return miMapa.getCelda(fila,columna+1);
-        case 2:
+        case DOWN:
         	//Abajo
         	return miMapa.getCelda(fila+1,columna);
-        case 3:
+        case LEFT:
         	//Izquierda
         	return miMapa.getCelda(fila,columna-1);
         }

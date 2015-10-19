@@ -19,7 +19,7 @@ public class Pared {
     }
 
     /**
-     * @return ESTO ESTA DE MAS? 
+     * @return
      */
     public int getPuntaje() {
         
@@ -30,7 +30,7 @@ public class Pared {
      * @return
      */
     public int serExplotado() {
-        
+        	// falta grafica 
         return puntaje;
     }
 }

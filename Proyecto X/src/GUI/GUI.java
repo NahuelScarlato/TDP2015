@@ -2,22 +2,22 @@ package GUI;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import Nivel.Nivel;
+import entidades.Enemigo;
+import threads.EnemigoThread;
+import threads.Juego;
 
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import javax.swing.JPanel;
-
-
-
 
 
 public class GUI {
 	private JFrame frmProyecto;
-
+	private JLabel fondo;
+	
 	private boolean lock = false;
 	private int direction = -1;
 	
@@ -35,8 +35,6 @@ public class GUI {
 				}
 			}
 		});
-		
-		
 	}
 
 	/**
@@ -45,20 +43,18 @@ public class GUI {
 	public GUI() {
 		
 		frmProyecto = new JFrame();
-		frmProyecto.getContentPane().setBackground(Color.WHITE);
 		frmProyecto.getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 128, 0));
-		panel.setBounds(0, 0, 450, 346);
-		frmProyecto.getContentPane().add(panel);
-		panel.setLayout(null);
-		
-		
-		frmProyecto.setTitle("Proyecto X");
-		frmProyecto.setResizable(false);
-		frmProyecto.setBounds(40, 40, 454, 373);
 		frmProyecto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmProyecto.setResizable(false);
+		frmProyecto.setBounds(20, 20, 936,418);
+		frmProyecto.setTitle("Proyecto X");
+		frmProyecto.setBackground(Color.GREEN);
+				
+		fondo = new JLabel();
+		fondo.setIcon(new ImageIcon(this.getClass().getResource("/source/fondo.png")));
+		frmProyecto.setContentPane(fondo);
+		fondo.setLayout(null);		
 		
 		frmProyecto.addKeyListener(new KeyAdapter() {
 			@Override
@@ -66,25 +62,26 @@ public class GUI {
 				mover(arg0);
 			}
 		});
-		/*
-		// creo el nivel
-		Nivel nivel=new Nivel();
-		Hilo hilo= new Hilo(nivel,this);
-		hilo.start();*/
 		
+		// Creo el nivel
+		Nivel nivel=new Nivel(this);		
+		Juego juego= new Juego(nivel,this);
+				
+		juego.start();
 		
 	}
 	
 	
-	
+	public JFrame getFrame(){
+		return frmProyecto;
+	}
 	
 	protected void mover(KeyEvent key){
 		if(!lock){
 			direction = key.getKeyCode();
 			this.lock = true;
 		}
-	}
-	
+	}	
 	
 	public boolean getLock(){
 		return this.lock;

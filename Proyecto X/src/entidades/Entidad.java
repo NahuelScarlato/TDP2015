@@ -1,5 +1,7 @@
 package entidades;
 
+import javax.swing.JLabel;
+
 import contenedores.Celda;
 import grafica.EntidadGrafica;
 
@@ -8,16 +10,12 @@ import grafica.EntidadGrafica;
  */
 public abstract class Entidad {
 	
-    /**
-     * 
-     */
+	protected int velocidad;
+	
     protected boolean GMod;
     
     protected EntidadGrafica miGrafico;
     
-    /**
-     * 
-     */
     protected Celda miCelda;
     
     /**
@@ -26,7 +24,7 @@ public abstract class Entidad {
     public Entidad(Celda c) {
     	GMod=false;
     	miCelda=c;
-    	miGrafico=null;
+    	miGrafico=null;    	
     }
     
     /**
@@ -58,10 +56,27 @@ public abstract class Entidad {
     }
     
     /**
+     * @return
+     */
+    public int getVelocidad() {
+        return velocidad;
+    }
+
+    /**
+     * @param v
+     */
+    public void setVelocidad(int v) {
+        velocidad=v;
+    }
+    
+    /**
      * 
      */
     public abstract void morir();
-
+    
+    public JLabel getGrafico(){
+    	return miGrafico.getGrafico();    	
+    }
   
     
 }
