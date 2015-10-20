@@ -29,6 +29,9 @@ public class Nivel {
     
     protected Bomberman bomberman;
     
+    //Para cortar el hilo principal
+    protected boolean murio = false;
+    
     /**
      * 
      */
@@ -40,7 +43,7 @@ public class Nivel {
         gui.getFrame().add(bomberman.getGrafico());	
         
         enemigos=miMapa.crearEnemigos();
-        EnemigoThread[] hiloE=new EnemigoThread[enemigos.length];
+        EnemigoThread[] hiloE = new EnemigoThread[enemigos.length];
         
         for(int i=0;i<cantEnemigos-1;i++){			
 			hiloE[i]=new EnemigoThread(enemigos[i]);			
@@ -51,7 +54,13 @@ public class Nivel {
 		}						
     }
     
+    public boolean getMurio(){
+    	return murio;
+    }
     
+    public void setMurio(boolean m){
+    	murio=m;
+    }
     /**
      * @return
      */
@@ -77,6 +86,13 @@ public class Nivel {
         
     }
 
+    
+    public void pausar(){
+		for(int i = 0; i < enemigos.length; i++){
+			enemigos[i].pensarAvanzar();
+		}
+	}
+    
 	public void mover(){
 		for(int i = 0; i < enemigos.length; i++){
 			enemigos[i].pensarAvanzar();

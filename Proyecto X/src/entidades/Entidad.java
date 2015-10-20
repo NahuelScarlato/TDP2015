@@ -78,5 +78,7 @@ public abstract class Entidad {
     	return miGrafico.getGrafico();    	
     }
   
-    
+    public void avanzar(int dir){
+    	miGrafico.mover(dir);
+    }
 }

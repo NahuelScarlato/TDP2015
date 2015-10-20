@@ -107,7 +107,6 @@ public class Celda {
      */
     public void setEnemigo(Enemigo e) {
         miEnemigo=e;
-        e.setCelda(this);
     }
     
     /**

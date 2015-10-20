@@ -38,11 +38,10 @@ public class Bomberman extends Entidad {
 			if (proxima.getPared() == null && proxima.getBomba() == null) {
 				proxima.setBomberman(this);
 				
-				miGrafico.mover(dir);
+				super.avanzar(dir); //Ubicarlo
 				setCelda(proxima);
 				
-				if (proxima.getEnemigo() != null) {
-					proxima.setBomberman(this);					
+				if (proxima.getEnemigo() != null && !GMod) {
 					morir();					
 				} 
 				else {
@@ -134,6 +133,8 @@ public class Bomberman extends Entidad {
      */
     public void morir() {
         miCelda.setBomberman(null);
+        miCelda.getMapa().getNivel().setMurio(true);
+        miCelda=null;
         miGrafico.morir();
     }
 

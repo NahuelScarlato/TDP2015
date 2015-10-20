@@ -35,6 +35,7 @@ public class Altair extends Enemigo {
 			// ya que verificamos q no era intrasitable en el if de arriba
 			if ( proxima.getBomba() == null) {
 					proxima.setEnemigo(this);
+					miCelda.setEnemigo(null);
 					setCelda(proxima);
 					miGrafico.mover(dir);
 			}

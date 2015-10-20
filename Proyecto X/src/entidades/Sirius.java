@@ -32,54 +32,71 @@ public class Sirius extends Enemigo {
 		int yactual= miCelda.getColumna();
 		int xactual=miCelda.getFila();
 		
-			Bomberman aux=this.miCelda.getMapa().getNivel().getBomberman();
+		Bomberman aux=this.miCelda.getMapa().getNivel().getBomberman();
 
-			xabs = Math.abs(xactual - aux.miCelda.getFila());
+		xabs = Math.abs(xactual - aux.miCelda.getFila());
 
-			yabs = Math.abs(yactual -aux.miCelda.getColumna());
-			
-			
+		yabs = Math.abs(yactual -aux.miCelda.getColumna());
+		
+		
 
-			// caso que estan en la misma columna 
-			if (xabs == 0) {
-				if (yactual < aux.miCelda.getColumna()) {
-					dir = 2; // flecha para abajo
-				} else
-					dir = 0; // flecha arriba
-			} else {
-				// caso que estan en la misma fila
-				if (yabs == 0) {
-					if (xactual < aux.miCelda.getFila()) {
-						dir = 1; // flecha para derecha
-					} else
-						dir = 3; // flecha irquierda
-				}
-			}
-
-			// caso normal
-			if (xabs <= yabs) {
+		// caso que estan en la misma columna 
+		if (xabs == 0) {
+			if (yactual < aux.miCelda.getColumna()) {
+				dir = 2; // flecha para abajo
+			} else
+				dir = 0; // flecha arriba
+		} else {
+			// caso que estan en la misma fila
+			if (yabs == 0) {
 				if (xactual < aux.miCelda.getFila()) {
 					dir = 1; // flecha para derecha
 				} else
-					dir = 3; // flecha para izquierda
-			} else {
-				if (yactual < aux.miCelda.getColumna()) {
-					dir = 0; // flecha para arriba
-				} else
-					dir = 2; // flecha para abajo
+					dir = 3; // flecha irquierda
 			}
+		}
 
+		// caso normal
+		if (xabs <= yabs) {
+			if (xactual < aux.miCelda.getFila()) {
+				dir = 1; // flecha para derecha
+			} else
+				dir = 3; // flecha para izquierda
+		} else {
+			if (yactual < aux.miCelda.getColumna()) {
+				dir = 0; // flecha para arriba
+			} else
+				dir = 2; // flecha para abajo
+		}
+		
+		boolean seMovio=false;
+		while (!seMovio) {
+			
+			switch(dir){
+			case 0 :
+				dir = Celda.UP;
+				break;
+			case 1 :
+				dir = Celda.RIGHT;
+				break;
+			case 2 :
+				dir = Celda.DOWN;
+				break;
+			case 3 :
+				dir = Celda.LEFT;
+				break;	
+			}
 			
 			Celda proxima = miCelda.celdaParaAvanzar(dir);
 			
-			boolean seMovio=false;
-		while (!seMovio) {
-
+			
 			if (proxima != null) {
 				seMovio = true;
 				if (proxima.getPared() == null && proxima.getBomba() == null){
 					proxima.setEnemigo(this);
+					miCelda.setEnemigo(null);
 					setCelda(proxima);
+					
 					miGrafico.mover(dir);	
 					}
 
@@ -106,7 +123,6 @@ public class Sirius extends Enemigo {
 							dir = 2;
 					}
 				}
-				proxima = miCelda.celdaParaAvanzar(dir);
 			}
 
 		}

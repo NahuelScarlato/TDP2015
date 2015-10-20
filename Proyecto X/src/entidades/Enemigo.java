@@ -43,5 +43,9 @@ public abstract class Enemigo extends Entidad {
     public void morir() {
         // TODO implement here}
     }
+    
+    public void avanzar(int dir){
+    	// Poner aca el mover el enemigo por las celdas y llamar a super.mover(dir)
+    }
 
 }

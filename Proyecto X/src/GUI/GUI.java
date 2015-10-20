@@ -18,7 +18,7 @@ public class GUI {
 	private JFrame frmProyecto;
 	private JLabel fondo;
 	
-	private boolean lock = false;
+	private volatile boolean lock = false;
 	private int direction = -1;
 	
 	/**
@@ -57,6 +57,7 @@ public class GUI {
 		fondo.setLayout(null);		
 		
 		frmProyecto.addKeyListener(new KeyAdapter() {
+			
 			@Override
 			public void keyReleased(KeyEvent arg0) {
 				mover(arg0);

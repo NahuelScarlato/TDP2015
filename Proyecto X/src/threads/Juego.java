@@ -15,18 +15,23 @@ public class Juego extends Thread{
 	}
 
 	public void run() {
-		while(true){
+		while(!nivel.getMurio()){
+			/*
 			try {
-				//X alguna razon lo necesitamos para mover el bomberman
+				//X alguna razon lo necesitamos el sleep para mover el bomberman
 				Thread.sleep(10);				
 			} catch (InterruptedException e) {}			
 				
+				*/			
 			if(gui.getLock()){
 				nivel.mover(gui.getDirection());
 				gui.toggleLock();
 			}
 			
 		}
+		
+		// Termino el juego y detengo todos los hilos
+		System.out.println("Muriooooo");
 	}
 	
 }
