@@ -62,6 +62,14 @@ public class GUI {
 			}
 		});
 		
+		frmProyecto.addKeyListener(new KeyAdapter() {
+			
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				ponerBomba(arg0);
+			}
+		});
+		
 		// Creo el nivel
 		Nivel nivel=new Nivel(this);		
 		Juego juego= new Juego(nivel,this);
@@ -81,6 +89,10 @@ public class GUI {
 			lock = true;
 		}
 	}	
+	
+	protected void ponerBomba(KeyEvent key){
+		key.getKeyCode();
+	}
 	
 	public boolean getLock(){
 		return this.lock;

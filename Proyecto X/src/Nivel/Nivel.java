@@ -1,9 +1,11 @@
 package Nivel;
 
 import GUI.GUI;
+import contenedores.Celda;
 import contenedores.Mapa;
 import entidades.Bomberman;
 import entidades.Enemigo;
+import objetos.Bomba;
 import objetos.Bombality;
 import objetos.Fatality;
 import objetos.Masacrality;
@@ -28,8 +30,8 @@ public class Nivel {
     
     protected Bomberman bomberman;
     
-    //Para cortar el hilo principal
-    protected boolean murio = false;
+    protected GUI gui;
+    
     
     /**
      * 
@@ -37,6 +39,7 @@ public class Nivel {
     public Nivel(GUI gui) {
         marcador=0;
         miMapa=new Mapa(13,31,this);
+        this.gui=gui;
         
         bomberman=miMapa.crearBomberman();
         gui.getFrame().add(bomberman.getGrafico());	
@@ -46,16 +49,14 @@ public class Nivel {
         for(int i=0;i<cantEnemigos-1;i++){			
 			gui.getFrame().add(enemigos[i].getGrafico());			
 			enemigos[i].start();
-		}						
+		}        
+        
     }
     
-    public boolean getMurio(){
-    	return murio;
+    public void agregarGrafico(Celda c){
+    	gui.getFrame().add(c.getCeldaGrafica().getGrafico());
     }
-    
-    public void setMurio(boolean m){
-    	murio=m;
-    }
+ 
     /**
      * @return
      */
@@ -84,13 +85,15 @@ public class Nivel {
     
     public void cortar(){
 		for(int i = 0; i < enemigos.length; i++){
-			enemigos[i].toggleVivo();
+			if(enemigos[i]!=null)
+				enemigos[i].toggleVivo();
 		}
 	}
     
 	public void mover(){
 		for(int i = 0; i < enemigos.length; i++){
-			enemigos[i].pensarAvanzar();
+			if(enemigos[i]!=null)
+				enemigos[i].pensarAvanzar();
 		}
 	}
 	

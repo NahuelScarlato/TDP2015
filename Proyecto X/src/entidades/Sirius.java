@@ -1,6 +1,6 @@
 package entidades;
 
-import java.util.Random;
+
 
 import contenedores.Celda;
 import grafica.SiriusGrafica;
@@ -24,111 +24,108 @@ public class Sirius extends Enemigo {
      * @param dir
      */
     public void pensarAvanzar() {
-    	int dir = -1;
+		int dir = -1;
 
 		int xabs = -1;
 		int yabs = -1;
 
-		int yactual= miCelda.getColumna();
-		int xactual=miCelda.getFila();
+		int yactual = miCelda.getFila();
+		int xactual = miCelda.getColumna();
 		
-		Bomberman aux=this.miCelda.getMapa().getNivel().getBomberman();
+		Bomberman aux = this.miCelda.getMapa().getNivel().getBomberman();
+	    
+		if(aux!=null){
+			int ybomber=aux.getCelda().getFila();
+		    int xbomber=aux.getCelda().getColumna();
+			
+			xabs = Math.abs(xactual - xbomber);
+	
+			yabs = Math.abs(yactual - ybomber);
+	
+			System.out.println();
+			System.out.println("enemigo");
+			System.out.println("x: "+xactual + "  y: " + yactual);
+			System.out.println("del bomberman");
+			System.out.println("x: "+aux.miCelda.getFila() + "  y : "+ aux.miCelda.getColumna());
 
-		xabs = Math.abs(xactual - aux.miCelda.getFila());
 
-		yabs = Math.abs(yactual -aux.miCelda.getColumna());
+			dir=buscarInteligente(xabs,yabs,xbomber,ybomber,xactual,yactual);
+		
+			super.avanzar(dir);
+		}
+		
+	}
+    
+	private int buscarInteligente(int xabs, int yabs, int xbomber, int ybomber, int xenemigo, int yenemigo){
+		Celda moverse=null;
+		int dir=-1;
 		
 		
-
-		// caso que estan en la misma columna 
-		if (xabs == 0) {
-			if (yactual < aux.miCelda.getColumna()) {
-				dir = 2; // flecha para abajo
-			} else
-				dir = 0; // flecha arriba
-		} else {
-			// caso que estan en la misma fila
-			if (yabs == 0) {
-				if (xactual < aux.miCelda.getFila()) {
-					dir = 1; // flecha para derecha
+			
+			if (xabs == 0) {
+				if (yenemigo < ybomber) {
+					dir = 2; // flecha para abajo
 				} else
-					dir = 3; // flecha irquierda
+					dir = 0; // flecha arriba
+			} 
+			else {
+				// caso que estan en la misma fila
+				if (yabs == 0) {
+					if (xenemigo < xbomber) {
+						dir = 1; // flecha para derecha
+					} else
+						dir = 3; // flecha irquierda
+				}
 			}
-		}
-
+	    
 		// caso normal
-		if (xabs <= yabs) {
-			if (xactual < aux.miCelda.getFila()) {
-				dir = 1; // flecha para derecha
-			} else
-				dir = 3; // flecha para izquierda
-		} else {
-			if (yactual < aux.miCelda.getColumna()) {
-				dir = 0; // flecha para arriba
-			} else
-				dir = 2; // flecha para abajo
-		}
-		
-		boolean seMovio=false;
-		while (!seMovio) {
+		if (xabs != 0 && yabs != 0) {
 			
-			switch(dir){
-			case 0 :
-				dir = Celda.UP;
-				break;
-			case 1 :
-				dir = Celda.RIGHT;
-				break;
-			case 2 :
-				dir = Celda.DOWN;
-				break;
-			case 3 :
-				dir = Celda.LEFT;
-				break;	
+			if (xabs <= yabs) {
+				if (yenemigo < ybomber) {
+					dir = 2; // flecha para derecha
+				} else
+					dir = 0; // flecha para izquierda
 			}
+			else {
+				if (xenemigo < xbomber) {
+					dir = 1; // flecha para arriba
+				} else
+					dir = 3; // flecha para abajo
+			}
+
+		}
 			
-			Celda proxima = miCelda.celdaParaAvanzar(dir);
+			dir=determinarDireccion(dir);
 			
-			Celda actual=miCelda;
+			moverse=miCelda.celdaParaAvanzar(dir);
+			System.out.println("moverse es null? "+(moverse==null));
 			
-			if(miCelda!=actual)
-				seMovio=true;
-			
-			if (proxima != null) {
-				seMovio = true;
-				//Fijate q no se puede mover sobre una bomba ni una pared destruible
-				if (proxima.getPared() == null && proxima.getBomba() == null){
-					proxima.setEnemigo(this);
-					miCelda.setEnemigo(null);
+			while (moverse == null  ) {// ojo pared destruible
+					System.out.println("entro while sirius");
 					
-					super.avanzar(dir);
+				switch (dir) {
+				case Celda.UP:
+					dir = Celda.RIGHT;
+					
+					break;
+				case Celda.LEFT:
+					dir = Celda.UP;
+					break;
+				case Celda.RIGHT:
+					dir = Celda.DOWN;
+					break;
+				case Celda.DOWN:
+					dir = Celda.LEFT;
+					
+					System.out.println("entro al down");
+					break;
 				}
-
-				if (proxima.getBomberman() != null)
-					proxima.getBomberman().morir();
-
-			} else {
-				// caso que no se puede mover sirius
-				Random ran = new Random();
-				int esquivarPared = ran.nextInt(2);
-
-				if (xabs == 0) { 
-					// debera moverse para la izquierda o la derecha
-					if (esquivarPared == 0)
-						dir = 3;
-					else
-						dir = 1;
-				} else {
-					if (yabs == 0) {
-						// debera moverse arriba o abajo
-						if (esquivarPared == 0)
-							dir = 0;
-						else
-							dir = 2;
-					}
-				}
+				moverse=miCelda.celdaParaAvanzar(dir);
+				
 			}
-
-		}
-    }
+		
+		
+	return dir;	
+	}
 }

@@ -83,7 +83,6 @@ public abstract class Entidad extends Thread {
      * 
      */
     public void morir(){
-    	miCelda=null;
     	miGrafico.morir();
     }
     

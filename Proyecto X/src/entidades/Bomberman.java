@@ -37,9 +37,11 @@ public class Bomberman extends Entidad {
 			
 			if (proxima.getPared() == null && proxima.getBomba() == null) {
 				proxima.setBomberman(this);
-				miCelda.setBomberman(null);
+				Celda anterior=miCelda;
 				
 				super.avanzar(dir);
+				
+				anterior.setBomberman(null);
 				
 				if (proxima.getEnemigo() != null && !GMod) {
 					morir();				
@@ -63,12 +65,12 @@ public class Bomberman extends Entidad {
      */
     public void ponerBomba() {
         if(cantBombas>0){
-        	miCelda.setBomba(new Bomba(rangoBombas,miCelda));
+        	Bomba b=new Bomba(rangoBombas,miCelda);
+        	miCelda.setBomba(b);
+        	b.start();        	
         	cantBombas--;
         }
-        //Cuando explota la bomba aumenta la cantidad
     }
-
     
     
     /**
@@ -133,7 +135,7 @@ public class Bomberman extends Entidad {
      */
     public void morir() {
         miCelda.setBomberman(null);
-        miCelda.getMapa().getNivel().setMurio(true);
+        toggleVivo();
         super.morir();
     }
 

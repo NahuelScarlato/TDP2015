@@ -27,25 +27,10 @@ public class Altair extends Enemigo {
     public void pensarAvanzar() {
     	Random ran = new Random();
 		int dir = ran.nextInt(4);
+		
+		dir=determinarDireccion(dir);
 
-		Celda proxima = miCelda.celdaParaAvanzar(dir);
-
-		if (proxima != null) {
-			//	le saque el  proxima.getPared() == null && del if, 
-			// ya que verificamos q no era intrasitable en el if de arriba
-			if ( proxima.getBomba() == null) {
-					proxima.setEnemigo(this);
-					miCelda.setEnemigo(null);
-					
-					super.avanzar(dir);					
-			}
-				
-			if (proxima.getBomberman() != null) 
-				proxima.getBomberman().morir();
-				
-
-			
-		}
+		super.avanzar(dir);
     }
 
 }

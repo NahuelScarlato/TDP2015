@@ -2,9 +2,11 @@ package contenedores;
 
 import java.awt.event.KeyEvent;
 
+import javax.swing.JLabel;
+
 import entidades.Bomberman;
 import entidades.Enemigo;
-
+import grafica.CeldaGrafica;
 import objetos.Bomba;
 import objetos.Pared;
 import objetos.PowerUp;
@@ -29,6 +31,8 @@ public class Celda {
     protected Enemigo miEnemigo;
     protected Bomberman miBomberman;
     protected Bomba miBomba;
+    
+    protected CeldaGrafica miGrafico;
 
     /**
      * 
@@ -129,6 +133,16 @@ public class Celda {
     public Mapa getMapa() {
         return miMapa;
     }
+    
+    public CeldaGrafica getCeldaGrafica(){
+			
+		return miGrafico;
+	}
+	
+	public void setCeldaGrafica(CeldaGrafica cg){
+		miGrafico=cg;
+	}
+    
 
     /**
      * @param r 
@@ -137,41 +151,19 @@ public class Celda {
     public Celda[] celdasParaExplotar(int r) {
         
     	
-    	Celda[] exp=new Celda[(r*4)+1];    	
+    	Celda[] exp=new Celda[(r*4)+1];   	
     	
     	int i=0;    	
-    	//Izquierdas
+    	//Superiores
     	int rango=r;
     	Celda aux=this;
-    	while(rango>=0 ||aux!=null){
+    	while(rango>0 || aux!=null){
     		aux=miMapa.getCelda(fila-1, columna);
     		if(aux!=null){
     			exp[i]=aux;
     			i++;
-    		}
-    		rango--;    		
-    	}
-    	
-    	//Derechas
-    	rango=r;
-    	aux=this;
-    	while(rango>=0 ||aux!=null){
-    		aux=miMapa.getCelda(fila+1, columna);
-    		if(aux!=null){
-    			exp[i]=aux;
-    			i++;
-    		}
-    		rango--;
-    	}
-    	
-    	//Superiores
-    	rango=r;
-    	aux=this;
-    	while(rango>=0 ||aux!=null){
-    		aux=miMapa.getCelda(fila, columna-1);
-    		if(aux!=null){
-    			exp[i]=aux;
-    			i++;
+    			if(aux.getPared()!=null)
+    				aux=null;
     		}
     		rango--;
     	}
@@ -179,11 +171,41 @@ public class Celda {
     	//Inferiores
     	rango=r;
     	aux=this;
-    	while(rango>=0 ||aux!=null){
+    	while(rango>0 || aux!=null){
+    		aux=miMapa.getCelda(fila+1, columna);
+    		if(aux!=null){
+    			exp[i]=aux;
+    			i++;
+    			if(aux.getPared()!=null)
+    				aux=null;
+    		}
+    		rango--;
+    	}
+    	
+    	//Izquierdas
+    	rango=r;
+    	aux=this;
+    	while(rango>0 || aux!=null){
+    		aux=miMapa.getCelda(fila, columna-1);
+    		if(aux!=null){
+    			exp[i]=aux;
+    			i++;
+    			if(aux.getPared()!=null)
+    				aux=null;
+    		}
+    		rango--;
+    	}
+    	
+    	//Derechas
+    	rango=r;
+    	aux=this;
+    	while(rango>0 || aux!=null){
     		aux=miMapa.getCelda(fila, columna+1);
     		if(aux!=null){
     			exp[i]=aux;
     			i++;
+    			if(aux.getPared()!=null)
+    				aux=null;
     		}
     		rango--;
     	}
@@ -222,7 +244,6 @@ public class Celda {
     	
     	if(miBomberman!=null){
         	miBomberman.morir();
-        	miBomberman=null;
         }
     	
     	if(miPared!=null){

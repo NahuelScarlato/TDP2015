@@ -55,11 +55,6 @@ public abstract class Enemigo extends Entidad {
     }
     
     public void avanzar(int dir){
-    	super.avanzar(dir);
-    }    
-    
-    /*Revisar desp de terminar el movimiento del sirius
-    public void avanzar(int dir){
     	Celda proxima = miCelda.celdaParaAvanzar(dir);
 
 		if (proxima != null) {
@@ -73,13 +68,36 @@ public abstract class Enemigo extends Entidad {
 			if (proxima.getBomberman() != null) 
 				proxima.getBomberman().morir();
 		}
-	}
+    }   
     
     private void actualizar(Celda c, int dir){
     	c.setEnemigo(this);
-		miCelda.setEnemigo(null);	
-		super.avanzar(dir);	
-    }
-    */
+    	Celda anterior=miCelda;	
+		
+    	super.avanzar(dir);	
 
+		anterior.setEnemigo(null);
+    }
+    
+    
+    protected int determinarDireccion(int dir){
+    	int dirr=-1;
+    	switch (dir) {
+		case 0:
+			dirr = Celda.UP;
+			break;
+		case 1:
+			dirr = Celda.RIGHT;
+			break;
+		case 2:
+			dirr = Celda.DOWN;
+			break;
+		case 3:
+			dirr = Celda.LEFT;
+			break;
+		}
+    	
+    	return dirr;
+    }
+    
 }

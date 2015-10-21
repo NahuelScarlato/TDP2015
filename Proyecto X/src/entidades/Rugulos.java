@@ -27,33 +27,8 @@ public class Rugulos extends Enemigo {
     	Random ran = new Random();
 		int dir = ran.nextInt(4);
 		
-		switch(dir){
-		case 0 :
-			dir = Celda.UP;
-			break;
-		case 1 :
-			dir = Celda.RIGHT;
-			break;
-		case 2 :
-			dir = Celda.DOWN;
-			break;
-		case 3 :
-			dir = Celda.LEFT;
-			break;	
-		}
+		dir=determinarDireccion(dir);
 
-		Celda proxima = miCelda.celdaParaAvanzar(dir);
-
-		if (proxima != null) {
-			if (proxima.getPared() == null && proxima.getBomba() == null){
-				proxima.setEnemigo(this);
-				miCelda.setEnemigo(null);
-				
-				super.avanzar(dir);	
-				}				
-				
-			if (proxima.getBomberman() != null) 
-				proxima.getBomberman().morir();
-		}
+		super.avanzar(dir);
     }
 }

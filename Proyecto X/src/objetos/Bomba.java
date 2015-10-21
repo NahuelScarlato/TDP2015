@@ -1,5 +1,6 @@
 package objetos;
 
+import grafica.BombaGrafica;
 import contenedores.Celda;
 
 /**
@@ -11,12 +12,15 @@ public class Bomba extends Thread {
 
     protected Celda miCelda;
 	
+    
     /**
      * Default constructor
      */
     public Bomba(int r,Celda c) {
     	rango=r;
     	miCelda=c;
+    	c.setCeldaGrafica(new BombaGrafica(c.getFila(),c.getColumna()));
+    	miCelda.getMapa().getNivel().agregarGrafico(c);
     }
     
     @Override
@@ -39,7 +43,7 @@ public class Bomba extends Thread {
         	puntos+=exp[i].serExplotada();
         	i++;
         }
-        
+        miCelda.getMapa().getNivel().getBomberman().aumentarCantBombas();
         miCelda.getMapa().getNivel().sumarPuntaje(puntos);
     }
 

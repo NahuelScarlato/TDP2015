@@ -1,42 +1,27 @@
 package grafica;
 
-import java.awt.Point;
-
 import javax.swing.Icon;
 import javax.swing.JLabel;
 
 import contenedores.Celda;
 
-public abstract class EntidadGrafica{
-	protected JLabel grafico;
+public abstract class EntidadGrafica extends Grafica{
 	protected Icon image[];
 	protected Icon moving[];
-	protected Icon morir;
 	
-	//Tamaño de la imagen
-	protected final int width = 30;
-	protected final int height = 30;
-	
-	protected int velocidad;
-	
-	protected Point pos;
-	
+	protected int velocidad;	
 	
 	protected EntidadGrafica(int velocidad, int x, int y) {
-		pos = new Point(y*height,x*width);
+		super(x,y);
 		this.velocidad = velocidad;
-		
-		this.image = new Icon[4];
-		this.moving = new Icon[4];
+		image = new Icon[4];
+		moving = new Icon[4];
+		grafico=new JLabel(image[0]);
 	}
 	
 	public int getVelocidad() {
 		return velocidad;
-	}
-
-	public Point getPos() {
-		return pos;
-	}
+	}	
 	
 	protected void changeIcon(int dir){
 		int direccion = -1;
@@ -117,23 +102,6 @@ public abstract class EntidadGrafica{
 		catch (InterruptedException e){
 			e.printStackTrace();			
 		}
-	}
-	
-	public void morir(){
-		grafico.setIcon(morir);
-	}
-	
-	public JLabel getGrafico(){
-		//if(this.grafico == null){
-			this.grafico = new JLabel(image[0]);
-			this.grafico.setBounds(this.pos.x, this.pos.y, width, height);
-		//}
-		
-		return this.grafico;
-	}
-	
-	public void setGrafico(JLabel l){
-		grafico=l;
 	}
 
 }

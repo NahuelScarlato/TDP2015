@@ -15,17 +15,14 @@ public class Juego extends Thread{
 
 	public void run() {
 		while(nivel.getBomberman().getVivo()){
-					
+			
+			
 			if(gui.getLock()){
 				nivel.mover(gui.getDirection());
 				gui.toggleLock();
-			}
-			
-		}
-		
+			}			
+		}		
 		nivel.cortar();
-		// Termino el juego y detengo todos los hilos
-		System.out.println("Muriooooo");
 	}
 	
 }
