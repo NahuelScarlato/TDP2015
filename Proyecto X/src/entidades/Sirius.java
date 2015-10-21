@@ -89,16 +89,20 @@ public class Sirius extends Enemigo {
 			
 			Celda proxima = miCelda.celdaParaAvanzar(dir);
 			
+			Celda actual=miCelda;
+			
+			if(miCelda!=actual)
+				seMovio=true;
 			
 			if (proxima != null) {
 				seMovio = true;
+				//Fijate q no se puede mover sobre una bomba ni una pared destruible
 				if (proxima.getPared() == null && proxima.getBomba() == null){
 					proxima.setEnemigo(this);
 					miCelda.setEnemigo(null);
-					setCelda(proxima);
 					
-					miGrafico.mover(dir);	
-					}
+					super.avanzar(dir);
+				}
 
 				if (proxima.getBomberman() != null)
 					proxima.getBomberman().morir();

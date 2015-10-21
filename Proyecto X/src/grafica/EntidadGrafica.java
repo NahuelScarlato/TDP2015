@@ -119,7 +119,9 @@ public abstract class EntidadGrafica{
 		}
 	}
 	
-	public abstract void morir();
+	public void morir(){
+		grafico.setIcon(morir);
+	}
 	
 	public JLabel getGrafico(){
 		//if(this.grafico == null){

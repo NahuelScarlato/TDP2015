@@ -48,8 +48,8 @@ public class Rugulos extends Enemigo {
 			if (proxima.getPared() == null && proxima.getBomba() == null){
 				proxima.setEnemigo(this);
 				miCelda.setEnemigo(null);
-				setCelda(proxima);
-				miGrafico.mover(dir);	
+				
+				super.avanzar(dir);	
 				}				
 				
 			if (proxima.getBomberman() != null) 

@@ -5,8 +5,6 @@ import java.awt.EventQueue;
 import javax.swing.*;
 
 import Nivel.Nivel;
-import entidades.Enemigo;
-import threads.EnemigoThread;
 import threads.Juego;
 
 import java.awt.Color;
@@ -52,7 +50,7 @@ public class GUI {
 		frmProyecto.setBackground(Color.GREEN);
 				
 		fondo = new JLabel();
-		fondo.setIcon(new ImageIcon(this.getClass().getResource("/source/fondo.png")));
+		fondo.setIcon(new ImageIcon(this.getClass().getResource("/source/fondoBase.png")));
 		frmProyecto.setContentPane(fondo);
 		fondo.setLayout(null);		
 		
@@ -80,7 +78,7 @@ public class GUI {
 	protected void mover(KeyEvent key){
 		if(!lock){
 			direction = key.getKeyCode();
-			this.lock = true;
+			lock = true;
 		}
 	}	
 	

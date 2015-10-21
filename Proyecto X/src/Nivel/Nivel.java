@@ -9,7 +9,6 @@ import objetos.Fatality;
 import objetos.Masacrality;
 import objetos.PowerUp;
 import objetos.SpeedUp;
-import threads.EnemigoThread;
 
 /**
  * 
@@ -43,14 +42,10 @@ public class Nivel {
         gui.getFrame().add(bomberman.getGrafico());	
         
         enemigos=miMapa.crearEnemigos();
-        EnemigoThread[] hiloE = new EnemigoThread[enemigos.length];
         
         for(int i=0;i<cantEnemigos-1;i++){			
-			hiloE[i]=new EnemigoThread(enemigos[i]);			
-			
-			gui.getFrame().add(enemigos[i].getGrafico());
-			
-			hiloE[i].start();
+			gui.getFrame().add(enemigos[i].getGrafico());			
+			enemigos[i].start();
 		}						
     }
     
@@ -87,9 +82,9 @@ public class Nivel {
     }
 
     
-    public void pausar(){
+    public void cortar(){
 		for(int i = 0; i < enemigos.length; i++){
-			enemigos[i].pensarAvanzar();
+			enemigos[i].toggleVivo();
 		}
 	}
     

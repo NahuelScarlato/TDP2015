@@ -5,7 +5,7 @@ import contenedores.Celda;
 /**
  * 
  */
-public class Bomba {
+public class Bomba extends Thread {
 
     protected int rango;
 
@@ -18,7 +18,15 @@ public class Bomba {
     	rango=r;
     	miCelda=c;
     }
-
+    
+    @Override
+	public void run() {
+		try {
+			Thread.sleep(3000);			
+			explotar();
+		} catch (InterruptedException e) {}		
+	}
+    
     /**
      * 
      */

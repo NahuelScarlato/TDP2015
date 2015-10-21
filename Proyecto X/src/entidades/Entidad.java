@@ -8,7 +8,7 @@ import grafica.EntidadGrafica;
 /**
  * 
  */
-public abstract class Entidad {
+public abstract class Entidad extends Thread {
 	
 	protected int velocidad;
 	
@@ -18,6 +18,8 @@ public abstract class Entidad {
     
     protected Celda miCelda;
     
+    protected volatile boolean vivo=true;
+    
     /**
      * Default constructor
      */
@@ -26,6 +28,14 @@ public abstract class Entidad {
     	miCelda=c;
     	miGrafico=null;    	
     }
+    
+    public boolean getVivo(){
+    	return vivo;    	
+    }
+    
+    public void toggleVivo(){
+    	vivo=!vivo;
+    }    
     
     /**
      * @return
@@ -72,13 +82,17 @@ public abstract class Entidad {
     /**
      * 
      */
-    public abstract void morir();
+    public void morir(){
+    	miCelda=null;
+    	miGrafico.morir();
+    }
     
     public JLabel getGrafico(){
     	return miGrafico.getGrafico();    	
     }
   
     public void avanzar(int dir){
+    	miCelda=miCelda.celdaParaAvanzar(dir);
     	miGrafico.mover(dir);
     }
 }

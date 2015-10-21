@@ -16,7 +16,17 @@ public abstract class Enemigo extends Entidad {
         super(c);
     	puntaje=p;
     }
-
+    
+    @Override
+	public void run() {
+		while(vivo){
+			try {
+				Thread.sleep(1000);
+				pensarAvanzar();
+			} catch (InterruptedException e) {}
+		}
+	}
+    
     /**
      * @return
      */
@@ -45,7 +55,31 @@ public abstract class Enemigo extends Entidad {
     }
     
     public void avanzar(int dir){
-    	// Poner aca el mover el enemigo por las celdas y llamar a super.mover(dir)
+    	super.avanzar(dir);
+    }    
+    
+    /*Revisar desp de terminar el movimiento del sirius
+    public void avanzar(int dir){
+    	Celda proxima = miCelda.celdaParaAvanzar(dir);
+
+		if (proxima != null) {
+			if(proxima.getBomba() == null)
+				if (proxima.getPared() == null)
+					actualizar(proxima,dir);				
+				else
+					if(GMod)
+						actualizar(proxima,dir);						
+				
+			if (proxima.getBomberman() != null) 
+				proxima.getBomberman().morir();
+		}
+	}
+    
+    private void actualizar(Celda c, int dir){
+    	c.setEnemigo(this);
+		miCelda.setEnemigo(null);	
+		super.avanzar(dir);	
     }
+    */
 
 }

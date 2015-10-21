@@ -2,7 +2,6 @@ package threads;
 
 import GUI.GUI;
 import Nivel.Nivel;
-import entidades.Enemigo;;
 
 public class Juego extends Thread{
 	
@@ -15,14 +14,8 @@ public class Juego extends Thread{
 	}
 
 	public void run() {
-		while(!nivel.getMurio()){
-			/*
-			try {
-				//X alguna razon lo necesitamos el sleep para mover el bomberman
-				Thread.sleep(10);				
-			} catch (InterruptedException e) {}			
-				
-				*/			
+		while(nivel.getBomberman().getVivo()){
+					
 			if(gui.getLock()){
 				nivel.mover(gui.getDirection());
 				gui.toggleLock();
@@ -30,6 +23,7 @@ public class Juego extends Thread{
 			
 		}
 		
+		nivel.cortar();
 		// Termino el juego y detengo todos los hilos
 		System.out.println("Muriooooo");
 	}
