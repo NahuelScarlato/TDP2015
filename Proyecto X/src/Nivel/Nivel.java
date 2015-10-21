@@ -57,32 +57,7 @@ public class Nivel {
     	gui.getFrame().add(c.getCeldaGrafica().getGrafico());
     }
  
-    /**
-     * @return
-     */
-    private void crearPowerUps() {
-    	PowerUp[] powerUps=new PowerUp[11];
         
-        //Creao 4 SpeedUp
-        int s;
-        for(s=0;s<4;s++)
-        	powerUps[s]=new SpeedUp();
-        //Creo 3 Fatality
-        int f;
-        for(f=0;f<3;f++)
-        	powerUps[f+s]=new Fatality();
-        //Creao 3 Bombality
-        int b;
-        for(b=0;b<3;b++)
-        	powerUps[b+f+s]=new Bombality();
-        //Creo 1 Masacrality
-        int m;
-        for(m=0;m<1;m++)
-        	powerUps[m+b+f+s]=new Masacrality();        
-        
-    }
-
-    
     public void cortar(){
 		for(int i = 0; i < enemigos.length; i++){
 			if(enemigos[i]!=null)
@@ -129,5 +104,14 @@ public class Nivel {
 
     public Bomberman getBomberman(){
     	return bomberman;
+    }
+    
+    // para el prototipo agregamos los seteter y getters para probar los power ups
+    public void setGUI(GUI gui){
+    	this.gui=gui;
+    }
+    
+    public GUI getGUI(){
+    	return gui;
     }
 }
