@@ -22,7 +22,7 @@ public class Bomba extends Thread {
     public Bomba(int r,Celda c) {
     	rango=r;
     	miCelda=c;
-    	c.setCeldaGrafica(new BombaGrafica(c.getFila(),c.getColumna()));
+    	c.setCeldaGrafica(new BombaGrafica(c.getFila(),c.getColumna(),r));
     	miCelda.getMapa().getNivel().agregarGrafico(c);
     }
     
