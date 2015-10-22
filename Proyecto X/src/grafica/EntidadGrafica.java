@@ -16,7 +16,15 @@ public abstract class EntidadGrafica extends Grafica{
 		this.velocidad = velocidad;
 		image = new Icon[4];
 		moving = new Icon[4];
-		grafico=new JLabel(image[0]);
+	}
+	
+	public JLabel getGrafico(){
+		if(this.grafico == null){
+			this.grafico = new JLabel(image[0]);
+			this.grafico.setBounds(this.pos.x, this.pos.y, width, height);
+		}
+		
+		return this.grafico;
 	}
 	
 	public int getVelocidad() {
