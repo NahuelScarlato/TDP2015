@@ -8,14 +8,15 @@ import entidades.Bomberman;
 public class Bombality extends PowerUp {
 
     /**
-     * Default constructor
+     * Construye un objeto de tipo Bombality con un puntaje predefinido.
      */
     public Bombality() {
     	super(35);
     }
 
     /**
-     * @param b
+     * Aumenta la cantidad de bombas que puede colocar el bomberman.
+     * @param b Bomberman.
      */
     public void activar(Bomberman b) {
         b.aumentarCantBombas();        

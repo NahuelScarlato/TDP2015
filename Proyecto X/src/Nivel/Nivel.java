@@ -1,6 +1,7 @@
 package Nivel;
 
 import GUI.GUI;
+
 import contenedores.Celda;
 import contenedores.Mapa;
 import entidades.Bomberman;
@@ -51,13 +52,21 @@ public class Nivel {
 			enemigos[i].start();
 		}        
         
+        
+        
     }
     
+    /**
+     * 
+     * @param c Celda.
+     */
     public void agregarGrafico(Celda c){
     	gui.getFrame().add(c.getCeldaGrafica().getGrafico());
     }
  
-        
+    /**
+     *
+     */ 
     public void cortar(){
 		for(int i = 0; i < enemigos.length; i++){
 			if(enemigos[i]!=null)
@@ -65,6 +74,10 @@ public class Nivel {
 		}
 	}
     
+    /**
+     * 
+     * @return.
+     */
 	public void mover(){
 		for(int i = 0; i < enemigos.length; i++){
 			if(enemigos[i]!=null)
@@ -72,36 +85,62 @@ public class Nivel {
 		}
 	}
 	
+	
+	/**
+     * 
+     * @param dir int.
+     */
 	public void mover(int dir){
 		bomberman.avanzar(dir);
 	}
     
     /**
-     * @return
+     * Retorna el puntaje acumulado.
+     * @return marcador int.
      */
     public int getMarcador() {
         return marcador;
     }
 
     /**
-     * @param m
+     * Actualiza el contador en su valor actual mas un m, que es pasado por parametro.
+     * @param m int.
      */
     public void sumarPuntaje(int m) {
         marcador+=m;
     }
     
+    
+    /**
+   	 * Actualiza enemigos.
+   	 * @param ene Enemigo[], arreglo de enemigos.
+    */
     public void setEnemigos(Enemigo[] ene){
     	enemigos=ene;
     }
 
+    
+    /**
+   	 * Retorna el los enemigos del nivel.
+   	 * @return enemigos Enemigo[], arreglo de enemigos.
+   	*/
     public Enemigo[] getEnemigos(){
     	return enemigos;
     }
     
+    
+    /**
+   	 * Actualiza el valor del bomberman.
+   	 * @param b Bomberman.
+   	 */
     public void setBomberman(Bomberman b){
     	bomberman=b;
     }
 
+    /**
+	 * Retorna el bomberman.
+	 * @return bomberman Bomberman.
+	*/
     public Bomberman getBomberman(){
     	return bomberman;
     }
@@ -110,6 +149,7 @@ public class Nivel {
     public void setGUI(GUI gui){
     	this.gui=gui;
     }
+    
     
     public GUI getGUI(){
     	return gui;

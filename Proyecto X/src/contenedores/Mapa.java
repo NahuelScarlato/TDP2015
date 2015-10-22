@@ -5,6 +5,7 @@ import java.util.Random;
 import objetos.Bombality;
 import objetos.Fatality;
 import objetos.Masacrality;
+import objetos.Pared;
 import objetos.PowerUp;
 import objetos.SpeedUp;
 import Nivel.Nivel;
@@ -48,6 +49,10 @@ public class Mapa {
     		}
     	
     	//Falta meter los powerUps y paredes
+    	
+    	
+    	
+    	
     }
     
     public Bomberman crearBomberman(){

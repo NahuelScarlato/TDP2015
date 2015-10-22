@@ -11,7 +11,9 @@ import grafica.SiriusGrafica;
 public class Sirius extends Enemigo {
 
     /**
-     * Default constructor
+     * Construye un objeto de tipo Sirius con un puntaje predefinido y con su respectiva celda pasada por parametro.
+     * Inicializa su velocidad y su grafico con valores predefinidos.
+     * @param c Celda.
      */
     public Sirius(Celda c) {
     	super(50,c);
@@ -21,7 +23,7 @@ public class Sirius extends Enemigo {
     }
 
     /**
-     * @param dir
+     * Avanza por el mapa de tal manera que siempre busca alcanzar bomberman.
      */
     public void pensarAvanzar() {
 		int dir = -1;
@@ -56,6 +58,17 @@ public class Sirius extends Enemigo {
 		
 	}
     
+    
+    /**
+	 * Busca el camino mas corto hacia el bomberman.
+	 * @param int xabs , diferencia absoluta de las coordenadas X del Sirius y el bomberman. 
+	 * @param int yabs, diferencia absoluta de las coordenadas Y del Sirius y el bomberman
+	 * @param int xbomber, posicion del bomberman en la coordenada X.
+	 * @param int ybomber, posicion del bomberman en la coordenada Y.
+	 * @param int xenemigo,posicion del Sirius en la coordenada X.
+	 * @param int yenemigo,posicion del Sirius en la coordenada Y.
+	 * @return dir int, direccion a avanzar.
+	 */
 	private int buscarInteligente(int xabs, int yabs, int xbomber, int ybomber, int xenemigo, int yenemigo){
 		Celda moverse=null;
 		int dir=-1;

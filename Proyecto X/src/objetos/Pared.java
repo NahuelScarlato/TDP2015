@@ -12,14 +12,15 @@ public class Pared {
 
 
     /**
-     * 
+     * Construye un objeto de tipo Pared con un puntaje predefinido.
      */
     public Pared() {
         puntaje=10;
     }
 
     /**
-     * @return
+     * Retorna el valor de explotar una pared.
+     * @return puntaje int.
      */
     public int getPuntaje() {
         
@@ -27,7 +28,8 @@ public class Pared {
     }
     
     /**
-     * @return
+     * Retorna el puntaje obtenido por explotar una pared.
+     * @return puntaje int.
      */
     public int serExplotado() {
         	// falta grafica 

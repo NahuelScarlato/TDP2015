@@ -10,8 +10,10 @@ public abstract class Enemigo extends Entidad {
     protected int puntaje;
 
     /**
-     * @param p
-     */
+	 * Crea un enemigo con un puntaje y su respectiva celda. Ambos pasados por parámetro.
+	 * @param p int, puntaje del enemigo.
+	 * @param c Celda, celda del enemigo.
+	 */
     public Enemigo(int p,Celda c) {
         super(c);
     	puntaje=p;
@@ -28,7 +30,9 @@ public abstract class Enemigo extends Entidad {
 	}
     
     /**
-     * @return
+     * Destruye al enemigo.
+     * Retorna el valor de eliminar al enemigo.
+     * @return puntaje int.
      */
     public int serExplotado() {
         morir();
@@ -36,14 +40,15 @@ public abstract class Enemigo extends Entidad {
     }
 
     /**
-     * @return
+     * Retorna el puntaje de eliminar a un enemigo.
+     * @return puntaje int.
      */
     public int getPuntaje() {
         return puntaje;
     }
 
     /**
-     * @param dir
+     * 
      */
     public abstract void pensarAvanzar();
     
@@ -54,6 +59,11 @@ public abstract class Enemigo extends Entidad {
         // TODO implement here}
     }
     
+    
+    /**
+	 * Enemigo avanza hacia una celda.
+	 * @param dir int, direccion a moverse. 
+	 */
     public void avanzar(int dir){
     	Celda proxima = miCelda.celdaParaAvanzar(dir);
 
@@ -70,6 +80,12 @@ public abstract class Enemigo extends Entidad {
 		}
     }   
     
+    
+    /**
+	 * Elimina el enemigo de su celda anterior y lo coloca en su nueva Celda
+	 * @param c Celda. 
+	 * @param dir int.
+	 */
     private void actualizar(Celda c, int dir){
     	c.setEnemigo(this);
     	Celda anterior=miCelda;	
@@ -80,6 +96,11 @@ public abstract class Enemigo extends Entidad {
     }
     
     
+    /**
+	 * Determina que direccion tomar.
+	 * @param dir int, direccion a descodificar. 
+	 * @return dirr int, direccion a avanzar.
+	 */
     protected int determinarDireccion(int dir){
     	int dirr=-1;
     	switch (dir) {

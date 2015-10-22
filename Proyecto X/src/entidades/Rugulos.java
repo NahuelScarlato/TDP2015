@@ -11,7 +11,9 @@ import grafica.RugulosGrafica;
 public class Rugulos extends Enemigo {
 
     /**
-     * Default constructor
+     * Construye un objeto de tipo Rugulos con un puntaje predefinido y su respectiva celda, pasada por parametro.
+     * Inicializa su velocidad y su grafico con valores predefinidos.
+     * @param c Celda.
      */
     public Rugulos(Celda c) {
     	super(15,c);
@@ -21,7 +23,7 @@ public class Rugulos extends Enemigo {
     }
 
     /**
-     * @param dir
+     * Avanza recorriendo aleatoriamente el mapa.
      */
     public void pensarAvanzar() {
     	Random ran = new Random();
