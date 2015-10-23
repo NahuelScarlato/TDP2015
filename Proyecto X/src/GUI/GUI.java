@@ -11,7 +11,10 @@ import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-
+/**
+ * Interefaz grafica del usuario.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
+ */
 public class GUI {
 	private JFrame frmProyecto;
 	private JLabel fondo;
@@ -20,7 +23,7 @@ public class GUI {
 	private int direction = -1;
 	
 	/**
-	 * Launch the application.
+	 * Comienzo de la aplicacion.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -36,7 +39,7 @@ public class GUI {
 	}
 
 	/**
-	 * Create the application.
+	 * Crea la aplicacion.
 	 */
 	public GUI() {
 		
@@ -62,13 +65,6 @@ public class GUI {
 			}
 		});
 		
-		frmProyecto.addKeyListener(new KeyAdapter() {
-			
-			@Override
-			public void keyReleased(KeyEvent arg0) {
-				ponerBomba(arg0);
-			}
-		});
 		
 		// Creo el nivel
 		Nivel nivel=new Nivel(this);		
@@ -78,11 +74,18 @@ public class GUI {
 		
 	}
 	
-	
+	/**
+	 * Retorna el frame.
+	 * @return frmProyecto JLabel.
+	 */
 	public JFrame getFrame(){
 		return frmProyecto;
 	}
 	
+	/**
+	 * Modifica el atributo direccion segun lock.
+	 * @param key KeyEvent.
+	 */
 	protected void mover(KeyEvent key){
 		if(!lock){
 			direction = key.getKeyCode();
@@ -90,21 +93,25 @@ public class GUI {
 		}
 	}	
 	
-	protected void ponerBomba(KeyEvent key){
-		if(!lock){
-			direction = key.getKeyCode();
-			lock = true;
-		}		
-	}
-	
+	/**
+	 * Retorna el atributo lock.
+	 * @return lock boolean.
+	 */
 	public boolean getLock(){
 		return this.lock;
 	}
 	
+	/**
+	 * Cambia el estado del atributo lock por su negacion.
+	 */
 	public void toggleLock(){
 		this.lock = !this.lock;
 	}
 	
+	/**
+	 * Retorna el atributo direction.
+	 * @return direction int.
+	 */
 	public int getDirection(){
 		return this.direction;
 	}

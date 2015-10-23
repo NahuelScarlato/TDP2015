@@ -5,6 +5,10 @@ import javax.swing.JLabel;
 
 import contenedores.Celda;
 
+/**
+ * Representa una Grafica de tipo EntidadGrafica.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
+ */
 public abstract class EntidadGrafica extends Grafica{
 	protected Icon image[];
 	protected Icon moving[];
@@ -12,6 +16,12 @@ public abstract class EntidadGrafica extends Grafica{
 	
 	protected int velocidad;	
 	
+	/**
+	 * Construye una Grafica de tipo EntidadGrafica, con su velocidad y posicion (x,y). 
+	 * @param velocidad int.
+	 * @param x int.
+	 * @param y int.
+	 */
 	protected EntidadGrafica(int velocidad, int x, int y) {
 		super(x,y);
 		this.velocidad = velocidad;
@@ -28,14 +38,25 @@ public abstract class EntidadGrafica extends Grafica{
 		return this.grafico;
 	}
 	
+	/**
+    * Retorna el valor del atributo velocidad.
+    * @return velocidad int.
+    */
 	public int getVelocidad() {
 		return velocidad;
 	}	
 	
+	/**
+	 * Cambia el atributo grafico por el definido de morir.
+     */
 	public void morir(){
 		grafico.setIcon(morir);
 	}
 	
+	/**
+	* Cambia la imagen del grafico dependiendo de un entero dir,pasado por parametro.
+	* @param dir int.
+    */
 	protected void changeIcon(int dir){
 		int direccion = -1;
 		
@@ -57,6 +78,11 @@ public abstract class EntidadGrafica extends Grafica{
 		this.grafico.setIcon(this.image[direccion]);
 	}
 	
+	
+	/**
+	 * Cambia la imagen del grafico dependiendo de un entero dir,pasado por parametro.
+	 *@param dir int.
+     */
 	protected void changeMoving(int dir){
 		int direccion = -1;
 		
@@ -78,6 +104,11 @@ public abstract class EntidadGrafica extends Grafica{
 		this.grafico.setIcon(this.moving[direccion]);
 	}
 	
+	
+	/**
+	 * Cambia la imagen del grafico realizando la transicion entre celdas de forma dinamica.
+	 *@param dir int.
+     */
 	public void mover(int dir){
 		
 		this.changeMoving(dir);

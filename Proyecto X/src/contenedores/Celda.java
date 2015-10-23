@@ -2,8 +2,6 @@ package contenedores;
 
 import java.awt.event.KeyEvent;
 
-import javax.swing.JLabel;
-
 import entidades.Bomberman;
 import entidades.Enemigo;
 import grafica.CeldaGrafica;
@@ -12,7 +10,8 @@ import objetos.Pared;
 import objetos.PowerUp;
 
 /**
- * 
+ * Representa un contenedor para componentes logicos.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
  */
 public class Celda {
 
@@ -37,7 +36,10 @@ public class Celda {
     protected CeldaGrafica miGrafico;
 
     /**
-     * 
+     * Construye una celda vacia,con su respectivo mapa,numero de fila y numero de columna.
+     * @param fila int.
+     * @param columna int.
+     * @param mapa Mapa.
      */
     public Celda(int fila, int columna,Mapa mapa) {
     	this.fila=fila;
@@ -50,104 +52,133 @@ public class Celda {
     	miBomba=null;
     }
     
+    /*
+     * Retorna el numero de fila de la celda.
+     * @return fila int.
+     */
     public int getFila(){
     	return fila;
     }
     
+    
+    /*
+     * Retorna el numero de columna de la celda.
+     * @return columna int.
+     */
     public int getColumna(){
     	return columna;
     }
 
     /**
-     * @return
+     * Retorna el PowerUp de la celda. Retorna null en caso de que la celda no contenga uno.
+     * @return miPowerUp PowerUp.
      */
     public PowerUp getPowerUp() {
         return miPowerUp;
     }
 
     /**
-     * @param pu
+     * Modifica el PowerUp con un PowerUp pasado por parametro.
+     * @param pu PowerUp.
      */
     public void setPowerUp(PowerUp pu) {
         miPowerUp=pu;
     }
 
     /**
-     * @return
+     * Retorna la pared. Retorna null en caso de que la celda no contenga una pared.
+     * @return miPared Pared.
      */
     public Pared getPared() {
         return miPared;
     }
 
     /**
-     * @param p
+     * Modifica la Pared con una Pared pasada por parametro.
+     * @param p Pared.
      */
     public void setPared(Pared p) {
        miPared=p;
     }
 
     /**
-     * @return
+     * Retorna la bomba. Retorna null en caso de que no tengo una bomba.
+     * @return miBomba Bomba
      */
     public Bomba getBomba() {
         return miBomba;
     }
 
     /**
-     * @param b
+     * Modifica la bomba con una bomba pasado por parametro.
+     * @param b Bomba.
      */
     public void setBomba(Bomba b) {
        miBomba=b;
     }
 
     /**
-     * @return
+     * Retorna el enemigo. Retorna null en caso de que no tenga un enemigo.
+     * @return miEnemigo Enemigo.
      */
     public Enemigo getEnemigo() {
         return miEnemigo;
     }
 
     /**
-     * @param e
+     * Modifica el enemigo con un enemigo pasado por parametro.
+     * @param e Enemigo.
      */
     public void setEnemigo(Enemigo e) {
         miEnemigo=e;
     }
     
     /**
-     * @return
+     * Retona el bomberman. Retorna null en caso de que no tenga un bomberman.
+     * @return miBomberman Bomberman.
      */
     public Bomberman getBomberman() {
         return miBomberman;
     }
 
     /**
-     * @param e
+     * Modifica el bomberman con un bomberman que es pasado por parametro.
+     * @param b Bomberman.
      */
     public void setBomberman(Bomberman b) {
         miBomberman=b;
     }
     
     /**
-     * @return
+     * Retorna el mapa.
+     * @return miMapa Mapa.
      */
     public Mapa getMapa() {
         return miMapa;
     }
     
+    /*
+     * Retorna el grafico.
+     * @return miGrafico CeldaGrafica.
+     */
     public CeldaGrafica getCeldaGrafica(){
 			
 		return miGrafico;
 	}
 	
+    /*
+     * Modifica el grafico con un grafico que es pasado por parametro.
+     * @param cg CeldaGrafica.
+     */
 	public void setCeldaGrafica(CeldaGrafica cg){
 		miGrafico=cg;
 	}
     
 
-    /**
-     * @param r 
-     * @return
+    /** 
+     * Retorna la celdas que se encuentran dentro del rango r que deben explotar.
+     * @param r int.
+     * @return exp Celda[].
      */
     public Celda[] celdasParaExplotar(int r) {
         
@@ -225,7 +256,9 @@ public class Celda {
     }
 
     /**
-     * @param dir
+     * Retorna la celda a avanzar, dpeendiendo de la direcion, que es pasada por parametro.
+     * @param dir int.
+     * @return Celda.
      */
     public Celda celdaParaAvanzar(int dir) {
         switch(dir){
@@ -246,7 +279,8 @@ public class Celda {
     }
 
     /**
-     * 
+     * Explota el contenido de la celda y retorna su respectivo puntaje.
+     * @return puntos int.
      */
     public int serExplotada() {
     	miGrafico.explotar();

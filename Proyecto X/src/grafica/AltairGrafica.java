@@ -2,8 +2,18 @@ package grafica;
 
 import javax.swing.ImageIcon;
 
+/**
+ * Representa una EntidadGrafica de tipo AltairGrafica.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
+ */
 public class AltairGrafica extends EntidadGrafica{
 
+	/**
+	 * Construye una EntidadGrafica de tipo AltairGrafica, con su velocidad y posicion (x,y). 
+	 * @param velocidad int.
+	 * @param x int.
+	 * @param y int.
+	 */
 	public AltairGrafica(int velocidad, int x, int y) {
 		super(velocidad, x, y);
 		

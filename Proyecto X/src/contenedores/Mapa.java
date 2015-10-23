@@ -5,7 +5,6 @@ import java.util.Random;
 import objetos.Bombality;
 import objetos.Fatality;
 import objetos.Masacrality;
-import objetos.Pared;
 import objetos.PowerUp;
 import objetos.SpeedUp;
 import Nivel.Nivel;
@@ -17,7 +16,8 @@ import entidades.Sirius;
 import contenedores.Celda;
 
 /**
- * 
+ * Representa un contenedor para celdas.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
  */
 public class Mapa {
 
@@ -29,7 +29,12 @@ public class Mapa {
     protected Nivel miNivel;
 
     /**
+     * Crea una matriz de filas filas y columnas columnas.
+     * Inicializa su nivel,filas y columnas con valores pasados por parametro.
      * 
+     * @param filas int.
+     * @param columnas int.
+     * @param nivel Nivel.
      */
     public Mapa(int filas, int columnas,Nivel nivel) {
     	miMatriz=new Celda[filas][columnas];
@@ -55,12 +60,20 @@ public class Mapa {
     	
     }
     
+    /**
+    * Crea el bomberman, lo ubica en una celda predefinida y lo retorna.
+    * @return b Bomberman.
+    */
     public Bomberman crearBomberman(){
     	Bomberman b=new Bomberman(miMatriz[1][1]);
     	miMatriz[1][1].setBomberman(b);
     	return b;
     }
     
+    /**
+     * Crea los enemigos, los ubica en una celda apropiada y los retorna. 
+     * @return enemigos Enemigo[].
+     */
     public Enemigo[] crearEnemigos(){
     	Enemigo[] enemigos=new Enemigo[6];
         
@@ -81,7 +94,7 @@ public class Mapa {
     }
     
     /**
-     * @return
+     * Crea los power up y los ubica en celdas apropiadas.
      */
     public void crearPowerUps() {
     	PowerUp[] powerUps=new PowerUp[11];
@@ -119,8 +132,10 @@ public class Mapa {
     }
     
    
-    
-    // temporal para creacion de power y para probar el prototipo
+   /**
+    * Busca una celda no nula aleatoria, sin enemigos y la retorna.
+    * @return aux Celda
+    */
     private Celda buscarCeldaPU(){
         Random nR = new Random();
         int rndF;
@@ -140,6 +155,10 @@ public class Mapa {
     	return aux;
     }
     
+    /**
+     * Busca una celda no nula aleatoria, sin enemigos, en el cuadrante inferior derecho y la retorna.
+     * @return aux Celda.
+     */
     private Celda buscarCelda(){
         Random nR = new Random();
         int rndF;
@@ -160,27 +179,37 @@ public class Mapa {
     }
     
     /**
-     * @param x 
-     * @param y 
-     * @return
+     * Retorna la celda que se encuentra en la posicion (x,y).
+     * @param x int.
+     * @param y int.
+     * @return miMatriz[x][y] Celda.
      */
     public Celda getCelda(int x, int y) {
         return miMatriz[x][y];
     }
     
+    /**
+     * Retorna la cantidad de filas.
+     * @return filas int.
+     */
     public int getFilas(){
     	return filas;
     }
     
+    /**
+     * Retorna la cantidad de columnas.
+     * @return columnas int.
+     */
     public int getColumnas(){
     	return columnas;
     }
     
+    /**
+     * Retorna el nivel del mapa.
+     * @return miNivel Nivel.
+     */
     public Nivel getNivel(){
     	return miNivel;
     }
-    
-    public void setNivel(Nivel n){
-    	miNivel=n;
-    }
+  
 }

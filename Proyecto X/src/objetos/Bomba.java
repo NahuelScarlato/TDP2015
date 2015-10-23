@@ -4,7 +4,8 @@ import grafica.BombaGrafica;
 import contenedores.Celda;
 
 /**
- * 
+ * Representa una bomba.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
  */
 public class Bomba extends Thread {
 
@@ -16,8 +17,8 @@ public class Bomba extends Thread {
     /**
 	 * Crea una bomba con un rango  y un celda, ambos pasados por parámetro.
 	 * Crea e inicializa la grafica de la bomba.
-	 * @param r int,  rango de la bomba. 
-	 * @param c Celda, celda donde se coloca la bomba.
+	 * @param r int. 
+	 * @param c Celda.
 	 */
     public Bomba(int r,Celda c) {
     	rango=r;
@@ -28,8 +29,8 @@ public class Bomba extends Thread {
     
     
     /**
-	 * 
-	*/
+	 * Inicia el hilo, lo duerme por 3 segundos y explota la bomba.
+	 */
     @Override
 	public void run() {
 		try {
@@ -73,7 +74,7 @@ public class Bomba extends Thread {
     }
 
     /**
-	 * Actualiza celda de la bomba.
+	 * Modifica celda de la bomba.
 	 * @param c Celda. 
 	*/
     public void setCelda(Celda c) {

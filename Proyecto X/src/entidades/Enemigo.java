@@ -3,28 +3,34 @@ package entidades;
 import contenedores.Celda;
 
 /**
- * 
+ * Representa una Entidad de tipo Enemigo.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
  */
 public abstract class Enemigo extends Entidad {
 
     protected int puntaje;
 
     /**
-	 * Crea un enemigo con un puntaje y su respectiva celda. Ambos pasados por parámetro.
-	 * @param p int, puntaje del enemigo.
-	 * @param c Celda, celda del enemigo.
+	 * Crea un enemigo con un puntaje y una celda. Ambos pasados por parametro.
+	 * @param p int.
+	 * @param c Celda.
 	 */
     public Enemigo(int p,Celda c) {
         super(c);
     	puntaje=p;
     }
     
+    /**
+     * Inicializa el hilo y mueve al enemigo en intervalos de 1 segundo, mientras este vivo.
+     */
     @Override
 	public void run() {
 		while(vivo){
 			try {
 				Thread.sleep(1000);
-				pensarAvanzar();
+				if(vivo)
+					pensarAvanzar();
+				
 			} catch (InterruptedException e) {}
 		}
 	}
@@ -40,7 +46,7 @@ public abstract class Enemigo extends Entidad {
     }
 
     /**
-     * Retorna el puntaje de eliminar a un enemigo.
+     * Retorna el puntaje de un enemigo.
      * @return puntaje int.
      */
     public int getPuntaje() {
@@ -48,21 +54,22 @@ public abstract class Enemigo extends Entidad {
     }
 
     /**
-     * 
+     * Realiza el movimiento del enemigo.
      */
     public abstract void pensarAvanzar();
     
     /**
-     * 
+     * Elimina el enemigo.
      */
     public void morir() {
-        // TODO implement here}
+    	miCelda.setEnemigo(null);
+        toggleVivo();
+        super.morir();
     }
     
-    
     /**
-	 * Enemigo avanza hacia una celda.
-	 * @param dir int, direccion a moverse. 
+	 * Mueve al enemigo, si es posible, dependiendo de la direccion pasada por parametro.
+	 * @param dir int. 
 	 */
     public void avanzar(int dir){
     	Celda proxima = miCelda.celdaParaAvanzar(dir);
@@ -97,9 +104,9 @@ public abstract class Enemigo extends Entidad {
     
     
     /**
-	 * Determina que direccion tomar.
-	 * @param dir int, direccion a descodificar. 
-	 * @return dirr int, direccion a avanzar.
+	 * Determina que direccion tomar y la retorna.
+	 * @param dir int. 
+	 * @return dirr int.
 	 */
     protected int determinarDireccion(int dir){
     	int dirr=-1;

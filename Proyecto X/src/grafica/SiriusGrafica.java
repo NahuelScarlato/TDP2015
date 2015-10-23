@@ -2,8 +2,18 @@ package grafica;
 
 import javax.swing.ImageIcon;
 
+/**
+ * Representa una EntidadGrafica de tipo SiriusGrafica.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
+ */
 public class SiriusGrafica extends EntidadGrafica{
 
+	/**
+	 * Construye una EntidadGrafica de tipo SiriusGrafica, con su velocidad y posicion (x,y). 
+	 * @param velocidad int.
+	 * @param x int.
+	 * @param y int.
+	 */
 	public SiriusGrafica(int velocidad, int x, int y) {
 		super(velocidad, x, y);
 		

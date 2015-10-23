@@ -1,15 +1,12 @@
 package objetos;
 
 /**
- * 
+ * Representa una bomba.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
  */
 public class Pared {
 
-    /**
-     * 
-     */
     protected int puntaje;
-
 
     /**
      * Construye un objeto de tipo Pared con un puntaje predefinido.
@@ -23,7 +20,6 @@ public class Pared {
      * @return puntaje int.
      */
     public int getPuntaje() {
-        
         return puntaje;
     }
     
@@ -32,7 +28,6 @@ public class Pared {
      * @return puntaje int.
      */
     public int serExplotado() {
-        	// falta grafica 
         return puntaje;
     }
 }

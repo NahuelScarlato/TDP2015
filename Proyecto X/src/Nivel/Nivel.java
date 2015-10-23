@@ -9,21 +9,14 @@ import contenedores.Mapa;
 import entidades.Bomberman;
 import entidades.Enemigo;
 import grafica.CeldaGrafica;
-import objetos.Bomba;
-import objetos.Bombality;
-import objetos.Fatality;
-import objetos.Masacrality;
-import objetos.PowerUp;
-import objetos.SpeedUp;
 
 /**
- * 
+ * Representa un nivel.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
  */
 public class Nivel {
 
-    /**
-     * 
-     */
+   
     protected int marcador;
     
     protected Mapa miMapa;
@@ -38,7 +31,9 @@ public class Nivel {
     
     
     /**
-     * 
+     * Construye un nivel con una gui asociada pasada por parametro.
+     * Crea su bomberman, power ups, los respectivos enemigos e inicia los hilos de los enemigos.
+     * @param gui GUI.
      */
     public Nivel(GUI gui) {
         marcador=0;
@@ -59,7 +54,7 @@ public class Nivel {
     }
     
     /**
-     * 
+     * Agrega la grafica de la celda pasada por prametro al contenedor.
      * @param c Celda.
      */
     public void agregarGrafico(Celda c){
@@ -69,7 +64,7 @@ public class Nivel {
     }
  
     /**
-     *
+     * Termina la ejecucion de los hilos de los enemigos.
      */ 
     public void cortar(){
 		for(int i = 0; i < enemigos.length; i++){
@@ -79,8 +74,7 @@ public class Nivel {
 	}
     
     /**
-     * 
-     * @return.
+     * Dispara el movimiento de cada enemigo.
      */
 	public void mover(){
 		for(int i = 0; i < enemigos.length; i++){
@@ -91,7 +85,7 @@ public class Nivel {
 	
 	
 	/**
-     * 
+     * Dispara el movimiento del bomberman o el de poner una bomba.
      * @param dir int.
      */
 	public void mover(int dir){
@@ -110,13 +104,12 @@ public class Nivel {
     }
 
     /**
-     * Actualiza el contador en su valor actual mas un m, que es pasado por parametro.
+     * Aumenta el puntaje actual con m pasado por parametro.
      * @param m int.
      */
     public void sumarPuntaje(int m) {
         marcador+=m;
-    }
-    
+    }    
     
     /**
    	 * Actualiza enemigos.
@@ -125,16 +118,14 @@ public class Nivel {
     public void setEnemigos(Enemigo[] ene){
     	enemigos=ene;
     }
-
     
     /**
-   	 * Retorna el los enemigos del nivel.
+   	 * Retorna el arreglo enemigos.
    	 * @return enemigos Enemigo[], arreglo de enemigos.
    	*/
     public Enemigo[] getEnemigos(){
     	return enemigos;
-    }
-    
+    }    
     
     /**
    	 * Actualiza el valor del bomberman.
@@ -152,12 +143,10 @@ public class Nivel {
     	return bomberman;
     }
     
-    // para el prototipo agregamos los seteter y getters para probar los power ups
-    public void setGUI(GUI gui){
-    	this.gui=gui;
-    }
-    
-    
+    /**
+     * Retorna la gui.
+     * @return gui GUI.
+     */
     public GUI getGUI(){
     	return gui;
     }

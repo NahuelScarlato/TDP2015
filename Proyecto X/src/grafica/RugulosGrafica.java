@@ -2,8 +2,18 @@ package grafica;
 
 import javax.swing.ImageIcon;
 
+/**
+ * Representa una EntidadGrafica de tipo RugulosGrafica.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
+ */
 public class RugulosGrafica extends EntidadGrafica {
 
+	/**
+	 * Construye una EntidadGrafica de tipo RugulosGrafica, con su velocidad y posicion (x,y). 
+	 * @param velocidad int.
+	 * @param x int.
+	 * @param y int.
+	 */
 	public RugulosGrafica(int velocidad, int x, int y) {
 		super(velocidad, x, y);
 		

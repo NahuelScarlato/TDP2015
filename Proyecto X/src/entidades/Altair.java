@@ -6,12 +6,14 @@ import contenedores.Celda;
 import grafica.AltairGrafica;
 
 /**
- * 
+ * Representa una Enemigo de tipo Altair.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
  */
 public class Altair extends Enemigo {
 
     /**
-     * Default constructor
+     * Construye un Enemigo de tipo Altair, con un puntaje y velocidad predefinido.
+     * Inserta el enemigo en la celda pasada por parametro.
      */
     public Altair(Celda c) {
     	super(20,c);
@@ -22,7 +24,7 @@ public class Altair extends Enemigo {
     }
 
     /**
-     * @param dir
+     * Determina de manera aleatoria cual sera su siguiente movimiento y lo realiza.
      */
     public void pensarAvanzar() {
     	Random ran = new Random();

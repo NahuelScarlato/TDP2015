@@ -6,7 +6,8 @@ import contenedores.Celda;
 import grafica.EntidadGrafica;
 
 /**
- * 
+ * Representa una entidad dinamica independiente.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
  */
 public abstract class Entidad extends Thread {
 	
@@ -21,7 +22,8 @@ public abstract class Entidad extends Thread {
     protected volatile boolean vivo=true;
     
     /**
-     * Default constructor
+     * Construye una Entidad con GMod en falso e inicializa su celda con la pasada por parametro.
+     * @param c Celda.
      */
     public Entidad(Celda c) {
     	GMod=false;
@@ -29,67 +31,87 @@ public abstract class Entidad extends Thread {
     	miGrafico=null;    	
     }
     
+    /**
+     * Retorna verdadero en caso de que el bomberman siga vivo, falso en caso contrario.
+     * @return vivo boolean.
+     */
     public boolean getVivo(){
     	return vivo;    	
     }
     
+    /**
+     * Cambia el estado del atributo vivo por su negacion.
+     */
     public void toggleVivo(){
     	vivo=!vivo;
     }    
     
     /**
-     * @return
+     * Retorna verdadero en caso de que el modo dios este actico, falso en caso contrario-
+     * @return GMod boolean.
      */
     public boolean getGMod() {
         return GMod;
     }
 
     /**
-     * @param gM
+     * Cambia el estado del atributo GMod por su negacion.
      */
     public void toggleGMod() {
      	GMod=!GMod;
     }
     
     /**
-     * @return
+     * Retorna la la celda de la entidad.
+     * @return miCelda Celda.
      */
     public Celda getCelda() {
         return miCelda;
     }
 
     /**
-     * @param c
+     * Modifica la celda de la entidad con una celda pasado por parametro.
+     * @param c Celda.
      */
     public void setCelda(Celda c) {
     	miCelda=c;
     }
     
     /**
-     * @return
+     * Retorna el atributo velocidad.
+     * @return velocidad int.
      */
     public int getVelocidad() {
         return velocidad;
     }
 
     /**
-     * @param v
+     * Modifica la velocidad con un entero pasado por parametro.
+     * @param v int.
      */
     public void setVelocidad(int v) {
         velocidad=v;
     }
     
     /**
-     * 
+     * Cambia miGrafico con imagen correspondiente de la entidad.
      */
     public void morir(){
     	miGrafico.morir();
     }
     
+    /**
+     * Retorna el grafico de la entidad.
+     * @return miGrafico JLabel.
+     */
     public JLabel getGrafico(){
     	return miGrafico.getGrafico();    	
     }
   
+    /**
+     * Actualiza el movimiento de miGrafico y modifica la celda de la entidad por la avanzada.
+     * @param dir int.
+     */
     public void avanzar(int dir){
     	miCelda=miCelda.celdaParaAvanzar(dir);
     	miGrafico.mover(dir);

@@ -4,20 +4,19 @@ import contenedores.Celda;
 import entidades.Bomberman;
 
 /**
- * 
+ * Representa un PowerUp.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
  */
 public abstract class PowerUp {
 
-    /**
-     * 
-     */
     protected int puntaje;
     
     protected Celda miCelda;
 
     /**
-     * Crea un objeto de tipo PowerUp con su respectivo puntaje, pasado por parametro.
+     * Construye un objeto de tipo PowerUp con un puntaje predefinido y una celda pasada por parametro.
      * @param p int.
+     * @param c Celda.
      */
     public PowerUp(int p,Celda c) {
        	puntaje=p;
@@ -31,7 +30,7 @@ public abstract class PowerUp {
     public abstract void activar(Bomberman b);
 
     /**
-     * Retorna el valor de destruir un enemigo.
+     * Retorna el puntaje de obtener el power up.
      * @return puntaje int.
      */
     public int getPuntaje() {

@@ -6,7 +6,8 @@ import contenedores.Celda;
 import grafica.BombermanGrafica;
 
 /**
- * 
+ * Representa una Entidad de tipo Bomberman.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
  */
 public class Bomberman extends Entidad {
 
@@ -15,7 +16,9 @@ public class Bomberman extends Entidad {
     protected int rangoBombas;
     
     /**
-     * Default constructor
+     * Construye un bomberman con velocidad, cantidad de bombas y rango de bombas con sus valores predefinidos.
+     * Inicializa su celda con una celda c, pasada por parametro y crea la grafica apropiada. 
+     * @param c Celda.
      */
     public Bomberman(Celda c) {
     	super(c);
@@ -28,14 +31,15 @@ public class Bomberman extends Entidad {
     }
     
     /**
-     * @param dir
+     * Mueve al bomberman, si es posible, dependiendo de la direccion pasada por parametro.
+     * @param dir int.
      */
 	public void avanzar(int dir) {
 		Celda proxima = miCelda.celdaParaAvanzar(dir);
 
 		if (proxima != null) {
 			
-			if (proxima.getPared() == null && proxima.getBomba() == null) {
+			if ((proxima.getBomba() == null) && (GMod || proxima.getPared() == null)) {
 				proxima.setBomberman(this);
 				Celda anterior=miCelda;
 				
@@ -61,78 +65,57 @@ public class Bomberman extends Entidad {
 	}
 
     /**
-     * 
-     */
+    * Crea una bomba y la setea en la celda actual.
+    */
     public void ponerBomba() {
         if(cantBombas>0 || GMod){
         	Bomba b=new Bomba(rangoBombas,miCelda);
         	miCelda.setBomba(b);
         	b.start();
-        	if(!GMod)
-        		cantBombas--;
+        	cantBombas--;
         }
     }
     
     
     /**
-     *
+     * Aumenta en 1 la velocidad del bomberman.
      */
     public void aumentarVelocidad() {
         velocidad++;
     }
 
     /**
-     * @return
+     * Devuelve la cantidad actual de bombas del bomberman.
+     * @return cantBombas int.
      */
     public int getCantBombas() {
         return cantBombas;
     }
 
     /**
-     * @param cB
-     */
-    public void setCantBombas(int cB) {
-        cantBombas=cB;
-    }
-    
-    /**
-     *
+     * Aumenta la cantidad de bombas en 1.
      */
     public void aumentarCantBombas() {
         cantBombas++;
     }
     
     /**
-     * @return
+     * Retorna el rango de explosion de una bomba.
+     * @return rangoBombas int.
      */
     public int getRangoBombas() {
         return rangoBombas;
     }
 
     /**
-     * @param rB
-     */
-    public void setRangoBombas(int rB) {
-        rangoBombas=rB;
-    }
-    
-    /**
-     * @param rB
+     * Duplica el atributo rangoBombas.
      */
     public void aumentarRangoBombas() {
         rangoBombas*=2;
     }
 
     /**
-     * 
-     */
-    public int serExplotado() {
-		morir();
-    	return 0;
-    }
-    
-    /**
-     * 
+     * Elimina el bomberman.
      */
     public void morir() {
         miCelda.setBomberman(null);

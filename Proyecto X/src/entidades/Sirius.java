@@ -6,12 +6,13 @@ import contenedores.Celda;
 import grafica.SiriusGrafica;
 
 /**
- * 
+ * Representa una Enemigo de tipo Sirius.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
  */
 public class Sirius extends Enemigo {
 
     /**
-     * Construye un objeto de tipo Sirius con un puntaje predefinido y con su respectiva celda pasada por parametro.
+     * Construye un objeto de tipo Sirius con un puntaje predefinido y con la celda pasada por parametro.
      * Inicializa su velocidad y su grafico con valores predefinidos.
      * @param c Celda.
      */
@@ -23,7 +24,7 @@ public class Sirius extends Enemigo {
     }
 
     /**
-     * Avanza por el mapa de tal manera que siempre busca alcanzar bomberman.
+     * Determina su siguiente movimiento para alcanzar al bomberman y lo realiza.
      */
     public void pensarAvanzar() {
 		int dir = -1;
@@ -101,13 +102,12 @@ public class Sirius extends Enemigo {
 		dir = determinarDireccion(dir);
 
 		moverse = miCelda.celdaParaAvanzar(dir);
-
-		while (moverse == null) {// ojo pared destruible
+		
+		while (moverse == null) {
 			
 			switch (dir) {
 			case Celda.UP:
 				dir = Celda.RIGHT;
-
 				break;
 			case Celda.LEFT:
 				dir = Celda.UP;
