@@ -75,15 +75,11 @@ public abstract class Enemigo extends Entidad {
     	Celda proxima = miCelda.celdaParaAvanzar(dir);
 
 		if (proxima != null) {
-			if(proxima.getBomba() == null)
-				if (proxima.getPared() == null)
-					actualizar(proxima,dir);				
-				else
-					if(GMod)
-						actualizar(proxima,dir);						
-				
-			if (proxima.getBomberman() != null && !proxima.getBomberman().getGMod()) 
-				proxima.getBomberman().morir();
+			if((proxima.getBomba() == null) && (GMod || proxima.getPared() == null)){
+				actualizar(proxima,dir);						
+				if (proxima.getBomberman() != null && !proxima.getBomberman().getGMod()) 
+					proxima.getBomberman().morir();
+			}
 		}
     }   
     
@@ -95,11 +91,9 @@ public abstract class Enemigo extends Entidad {
 	 */
     private void actualizar(Celda c, int dir){
     	c.setEnemigo(this);
-    	Celda anterior=miCelda;	
+    	miCelda.setEnemigo(null);
 		
     	super.avanzar(dir);	
-
-		anterior.setEnemigo(null);
     }
     
     

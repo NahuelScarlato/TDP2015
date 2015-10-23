@@ -41,11 +41,9 @@ public class Bomberman extends Entidad {
 			
 			if ((proxima.getBomba() == null) && (GMod || proxima.getPared() == null)) {
 				proxima.setBomberman(this);
-				Celda anterior=miCelda;
+				miCelda.setBomberman(null);
 				
 				super.avanzar(dir);
-				
-				anterior.setBomberman(null);
 				
 				if (proxima.getEnemigo() != null && !GMod) {
 					morir();				

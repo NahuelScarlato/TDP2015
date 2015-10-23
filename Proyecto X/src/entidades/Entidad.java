@@ -43,7 +43,7 @@ public abstract class Entidad extends Thread {
      * Cambia el estado del atributo vivo por su negacion.
      */
     public void toggleVivo(){
-    	vivo=!vivo;
+    	vivo=false;
     }    
     
     /**

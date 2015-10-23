@@ -91,8 +91,8 @@ public class Nivel {
 	public void mover(int dir){
 		if(dir==Celda.B)
 			bomberman.ponerBomba();
-		
-		bomberman.avanzar(dir);
+		else
+			bomberman.avanzar(dir);
 	}
     
     /**
