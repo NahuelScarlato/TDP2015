@@ -26,6 +26,7 @@ public class SpeedUp extends PowerUp {
      */
     public void activar(Bomberman b) {
        	b.aumentarVelocidad();
+       	miCelda.getCeldaGrafica().getGrafico().setIcon(null);
     }
 
 }

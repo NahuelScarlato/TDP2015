@@ -25,6 +25,7 @@ public class Bombality extends PowerUp {
      * @param b Bomberman.
      */
     public void activar(Bomberman b) {
-        b.aumentarCantBombas();        
+        b.aumentarCantBombas();  
+        miCelda.getCeldaGrafica().getGrafico().setIcon(null);
     }
 }

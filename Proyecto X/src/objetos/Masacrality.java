@@ -28,6 +28,7 @@ public class Masacrality extends PowerUp {
      */
     public void activar(Bomberman b) {
         b.toggleGMod();
+        miCelda.getCeldaGrafica().getGrafico().setIcon(null);
         new MiniContador(b);
     }
 
