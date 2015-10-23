@@ -28,7 +28,7 @@ public class MiniContador extends Thread{
 		
 		try {
 			Thread.sleep(5000);
-			bomberman.toggleVivo();
+			bomberman.toggleGMod();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

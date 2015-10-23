@@ -1,6 +1,8 @@
 package objetos;
 
+import contenedores.Celda;
 import entidades.Bomberman;
+import grafica.BombalityGrafica;
 
 /**
  * 
@@ -10,8 +12,10 @@ public class Bombality extends PowerUp {
     /**
      * Construye un objeto de tipo Bombality con un puntaje predefinido.
      */
-    public Bombality() {
-    	super(35);
+    public Bombality(Celda c) {
+    	super(35,c);
+    	c.setCeldaGrafica(new BombalityGrafica(c.getFila(),c.getColumna()));
+    	miCelda.getMapa().getNivel().agregarGrafico(c);
     }
 
     /**

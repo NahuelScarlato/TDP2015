@@ -88,29 +88,32 @@ public class Mapa {
         
         //Creao 4 SpeedUp
         int s;
+        Celda aux;
         for(s=0;s<4;s++){
-        	powerUps[s]=new SpeedUp();
-        	Celda aux= buscarCeldaPU();
+        	aux= buscarCeldaPU();
+        	powerUps[s]=new SpeedUp(aux);        	
         	aux.setPowerUp(powerUps[s]);
-        	getNivel().getGUI().getFrame().add(aux.getCeldaGrafica().getGrafico());
         }
         //Creo 3 Fatality
         int f;
         for(f=0;f<3;f++){
-        	powerUps[f+s]=new Fatality();
-        	buscarCeldaPU().setPowerUp(powerUps[s+f]);	
+        	aux=buscarCeldaPU();        	
+        	powerUps[f+s]=new Fatality(aux);
+        	aux.setPowerUp(powerUps[s+f]);        		
         }
         //Creao 3 Bombality
         int b;
         for(b=0;b<3;b++){
-        	powerUps[b+f+s]=new Bombality();
-        	buscarCeldaPU().setPowerUp(powerUps[s+b+f]);	
+        	aux=buscarCeldaPU();
+        	powerUps[b+f+s]=new Bombality(aux);
+        	aux.setPowerUp(powerUps[s+b+f]);
         }
         //Creo 1 Masacrality
         int m;
         for(m=0;m<1;m++){
-        	powerUps[m+b+f+s]=new Masacrality();   
-        	buscarCeldaPU().setPowerUp(powerUps[s+b+f+m]);	
+        	aux=buscarCeldaPU();
+        	powerUps[m+b+f+s]=new Masacrality(aux);   
+        	aux.setPowerUp(powerUps[s+b+f]);
         }
         
     }
@@ -125,8 +128,8 @@ public class Mapa {
 		Celda aux;
 		boolean encontro=false;
     	do{
-    		rndF= nR.nextInt();
-        	rndC= nR.nextInt();
+    		rndF= nR.nextInt(filas-1);
+        	rndC= nR.nextInt(columnas-1);
         	aux=miMatriz[rndF][rndC];
         	if(aux!=null)
         		if(aux.getEnemigo()==null)

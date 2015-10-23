@@ -18,7 +18,7 @@ public class Altair extends Enemigo {
     	velocidad=1;
     	c.setEnemigo(this);
     	miGrafico=new AltairGrafica(velocidad,c.getFila(),c.getColumna());
-    	this.setGMod(true);
+    	this.toggleGMod();
     }
 
     /**

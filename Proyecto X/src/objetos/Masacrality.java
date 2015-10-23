@@ -1,7 +1,9 @@
 package objetos;
 
+import contenedores.Celda;
 import entidades.Bomberman;
-
+import grafica.MasacralityGrafica;
+import threads.MiniContador;
 /**
  * 
  */
@@ -10,8 +12,11 @@ public class Masacrality extends PowerUp {
     /**
      * Construye un objeto de tipo Masacrality con puntaje predefinido
      */
-    public Masacrality() {
-    	super(50);
+    public Masacrality(Celda c) {
+    	super(50,c);
+    	c.setCeldaGrafica(new MasacralityGrafica(c.getFila(),c.getColumna()));
+    	miCelda.getMapa().getNivel().agregarGrafico(c);
+    	
     }
 
     /**
@@ -19,8 +24,8 @@ public class Masacrality extends PowerUp {
      * @param b Bomberman.
      */
     public void activar(Bomberman b) {
-        b.setGMod(true);
-        //Tenemos q ver como apagarlo...
+        b.toggleGMod();
+        new MiniContador(b);
     }
 
 }

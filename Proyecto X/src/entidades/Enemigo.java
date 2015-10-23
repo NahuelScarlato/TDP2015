@@ -75,7 +75,7 @@ public abstract class Enemigo extends Entidad {
 					if(GMod)
 						actualizar(proxima,dir);						
 				
-			if (proxima.getBomberman() != null) 
+			if (proxima.getBomberman() != null && !proxima.getBomberman().getGMod()) 
 				proxima.getBomberman().morir();
 		}
     }   

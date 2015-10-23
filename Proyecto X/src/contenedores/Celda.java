@@ -20,6 +20,8 @@ public class Celda {
 	public static final int RIGHT = KeyEvent.VK_RIGHT;
 	public static final int UP = KeyEvent.VK_UP;
 	public static final int DOWN = KeyEvent.VK_DOWN;
+
+	public static final int B = KeyEvent.VK_B;
 	
 	protected int fila;
 	protected int columna;
@@ -96,7 +98,6 @@ public class Celda {
      */
     public void setBomba(Bomba b) {
        miBomba=b;
-       b.setCelda(this);
     }
 
     /**
@@ -156,9 +157,11 @@ public class Celda {
     	int i=0;    	
     	//Superiores
     	int rango=r;
+    	int f=fila;
+    	int c=columna;
     	Celda aux=this;
-    	while(rango>0 || aux!=null){
-    		aux=miMapa.getCelda(fila-1, columna);
+    	while(rango>0 && aux!=null){
+    		aux=miMapa.getCelda(--f, c);
     		if(aux!=null){
     			exp[i]=aux;
     			i++;
@@ -169,10 +172,12 @@ public class Celda {
     	}
     	
     	//Inferiores
+    	f=fila;
+    	c=columna;
     	rango=r;
     	aux=this;
-    	while(rango>0 || aux!=null){
-    		aux=miMapa.getCelda(fila+1, columna);
+    	while(rango>0 && aux!=null){
+    		aux=miMapa.getCelda(++f, c);
     		if(aux!=null){
     			exp[i]=aux;
     			i++;
@@ -183,10 +188,12 @@ public class Celda {
     	}
     	
     	//Izquierdas
+    	f=fila;
+    	c=columna;
     	rango=r;
     	aux=this;
-    	while(rango>0 || aux!=null){
-    		aux=miMapa.getCelda(fila, columna-1);
+    	while(rango>0 && aux!=null){
+    		aux=miMapa.getCelda(f, --c);
     		if(aux!=null){
     			exp[i]=aux;
     			i++;
@@ -197,10 +204,12 @@ public class Celda {
     	}
     	
     	//Derechas
+    	f=fila;
+    	c=columna;
     	rango=r;
     	aux=this;
-    	while(rango>0 || aux!=null){
-    		aux=miMapa.getCelda(fila, columna+1);
+    	while(rango>0 && aux!=null){
+    		aux=miMapa.getCelda(f, ++c);
     		if(aux!=null){
     			exp[i]=aux;
     			i++;
@@ -240,6 +249,8 @@ public class Celda {
      * 
      */
     public int serExplotada() {
+    	miGrafico.explotar();
+    	
     	int puntos=0;
     	
     	if(miBomberman!=null){

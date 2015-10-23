@@ -1,5 +1,6 @@
 package objetos;
 
+import contenedores.Celda;
 import entidades.Bomberman;
 
 /**
@@ -11,14 +12,16 @@ public abstract class PowerUp {
      * 
      */
     protected int puntaje;
-
+    
+    protected Celda miCelda;
 
     /**
      * Crea un objeto de tipo PowerUp con su respectivo puntaje, pasado por parametro.
      * @param p int.
      */
-    public PowerUp(int p) {
+    public PowerUp(int p,Celda c) {
        	puntaje=p;
+       	miCelda=c;
     }
 
     /**

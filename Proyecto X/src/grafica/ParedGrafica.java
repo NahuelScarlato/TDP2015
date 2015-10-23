@@ -11,9 +11,6 @@ public class ParedGrafica extends CeldaGrafica {
 		super(x, y);
 
 		image = new ImageIcon(getClass().getResource(null));
-		morir = new ImageIcon(getClass().getResource(null));// Falta agregar
-															// imagen y
-															// direccion
 
 	}
 }

@@ -8,6 +8,7 @@ import contenedores.Celda;
 public abstract class EntidadGrafica extends Grafica{
 	protected Icon image[];
 	protected Icon moving[];
+	protected Icon morir;
 	
 	protected int velocidad;	
 	
@@ -30,6 +31,10 @@ public abstract class EntidadGrafica extends Grafica{
 	public int getVelocidad() {
 		return velocidad;
 	}	
+	
+	public void morir(){
+		grafico.setIcon(morir);
+	}
 	
 	protected void changeIcon(int dir){
 		int direccion = -1;

@@ -45,14 +45,21 @@ public class Bomba extends Thread {
 	 * Actualiza marcador y cantidad de bombas del bomberman.	 
 	 */
     public void explotar() {
-        Celda[] exp=miCelda.celdasParaExplotar(rango);
-        miCelda.setBomba(null);
+    	
+        miCelda.getCeldaGrafica().explotar();
+    	Celda[] exp=miCelda.celdasParaExplotar(rango);
+        
         int i=0;
         int puntos=0;
         while(exp[i]!=null){
+        	exp[i].setCeldaGrafica(new BombaGrafica(exp[i].getFila(),exp[i].getColumna(),rango));
+        	exp[i].getMapa().getNivel().agregarGrafico(exp[i]);
+        	
         	puntos+=exp[i].serExplotada();
         	i++;
         }
+        
+        miCelda.setBomba(null);
         miCelda.getMapa().getNivel().getBomberman().aumentarCantBombas();
         miCelda.getMapa().getNivel().sumarPuntaje(puntos);
     }

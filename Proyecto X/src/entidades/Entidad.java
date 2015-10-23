@@ -47,8 +47,8 @@ public abstract class Entidad extends Thread {
     /**
      * @param gM
      */
-    public void setGMod(boolean gM) {
-     	GMod=gM;
+    public void toggleGMod() {
+     	GMod=!GMod;
     }
     
     /**

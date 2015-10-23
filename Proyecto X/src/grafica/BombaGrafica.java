@@ -1,7 +1,6 @@
 package grafica;
 
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 public class BombaGrafica extends CeldaGrafica {
 	
@@ -21,10 +20,6 @@ public class BombaGrafica extends CeldaGrafica {
         case 8:
         	image = new ImageIcon(getClass().getResource("/source/Objetos/Bomba/Bomba4.png"));
         	break;
-        }
-		
-		morir = new ImageIcon(getClass().getResource("/source/Objetos/Bomba/Explosion.gif"));
-		
-		grafico=new JLabel(image);
+        }		
 	}
 }

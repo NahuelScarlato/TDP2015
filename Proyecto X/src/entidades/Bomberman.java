@@ -64,11 +64,12 @@ public class Bomberman extends Entidad {
      * 
      */
     public void ponerBomba() {
-        if(cantBombas>0){
+        if(cantBombas>0 || GMod){
         	Bomba b=new Bomba(rangoBombas,miCelda);
         	miCelda.setBomba(b);
-        	b.start();        	
-        	cantBombas--;
+        	b.start();
+        	if(!GMod)
+        		cantBombas--;
         }
     }
     

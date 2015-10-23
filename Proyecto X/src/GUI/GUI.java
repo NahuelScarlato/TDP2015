@@ -91,7 +91,10 @@ public class GUI {
 	}	
 	
 	protected void ponerBomba(KeyEvent key){
-		key.getKeyCode();
+		if(!lock){
+			direction = key.getKeyCode();
+			lock = true;
+		}		
 	}
 	
 	public boolean getLock(){

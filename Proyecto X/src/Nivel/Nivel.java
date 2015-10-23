@@ -1,11 +1,14 @@
 package Nivel;
 
+import javax.swing.JLabel;
+
 import GUI.GUI;
 
 import contenedores.Celda;
 import contenedores.Mapa;
 import entidades.Bomberman;
 import entidades.Enemigo;
+import grafica.CeldaGrafica;
 import objetos.Bomba;
 import objetos.Bombality;
 import objetos.Fatality;
@@ -43,17 +46,16 @@ public class Nivel {
         this.gui=gui;
         
         bomberman=miMapa.crearBomberman();
-        gui.getFrame().add(bomberman.getGrafico());	
+        this.gui.getFrame().add(bomberman.getGrafico());	
         
         enemigos=miMapa.crearEnemigos();
         
         for(int i=0;i<cantEnemigos-1;i++){			
-			gui.getFrame().add(enemigos[i].getGrafico());			
+			this.gui.getFrame().add(enemigos[i].getGrafico());			
 			enemigos[i].start();
-		}        
+		}
         
-        
-        
+        miMapa.crearPowerUps();
     }
     
     /**
@@ -61,7 +63,9 @@ public class Nivel {
      * @param c Celda.
      */
     public void agregarGrafico(Celda c){
-    	gui.getFrame().add(c.getCeldaGrafica().getGrafico());
+    	CeldaGrafica cAux=c.getCeldaGrafica();
+    	JLabel aux=cAux.getGrafico();
+    	gui.getFrame().add(aux);
     }
  
     /**
@@ -91,6 +95,9 @@ public class Nivel {
      * @param dir int.
      */
 	public void mover(int dir){
+		if(dir==Celda.B)
+			bomberman.ponerBomba();
+		
 		bomberman.avanzar(dir);
 	}
     
