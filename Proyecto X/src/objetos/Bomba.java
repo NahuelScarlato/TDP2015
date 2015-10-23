@@ -61,6 +61,8 @@ public class Bomba extends Thread {
         }
         
         miCelda.setBomba(null);
+        puntos+=miCelda.serExplotada();
+        
         miCelda.getMapa().getNivel().getBomberman().aumentarCantBombas();
         miCelda.getMapa().getNivel().sumarPuntaje(puntos);
     }
