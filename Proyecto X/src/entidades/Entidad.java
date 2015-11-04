@@ -96,8 +96,8 @@ public abstract class Entidad extends Thread {
     /**
      * Cambia miGrafico con imagen correspondiente de la entidad.
      */
-    public void morir(){
-    	miGrafico.morir();
+    public void morir(Entidad e){
+    	miGrafico.morir(e);
     }
     
     /**

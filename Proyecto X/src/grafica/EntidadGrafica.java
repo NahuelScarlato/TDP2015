@@ -4,6 +4,8 @@ import javax.swing.Icon;
 import javax.swing.JLabel;
 
 import contenedores.Celda;
+import entidades.Entidad;
+import threads.GraficaMorir;
 
 /**
  * Representa una Grafica de tipo EntidadGrafica.
@@ -49,8 +51,9 @@ public abstract class EntidadGrafica extends Grafica{
 	/**
 	 * Cambia el atributo grafico por el definido de morir.
      */
-	public void morir(){
+	public void morir(Entidad e){
 		grafico.setIcon(morir);
+		new GraficaMorir(e);
 	}
 	
 	/**

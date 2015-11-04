@@ -17,16 +17,16 @@ public class AltairGrafica extends EntidadGrafica{
 	public AltairGrafica(int velocidad, int x, int y) {
 		super(velocidad, x, y);
 		
-		image[0] = new ImageIcon(getClass().getResource("/source/Sirius/parado-espalda.png"));
-		image[1] = new ImageIcon(getClass().getResource("/source/Sirius/parado-frente.png"));
-		image[2] = new ImageIcon(getClass().getResource("/source/Sirius/parado-izquierda.png"));
-		image[3] = new ImageIcon(getClass().getResource("/source/Sirius/parado-derecha.png"));
+		image[0] = new ImageIcon(getClass().getResource("/source/Altair/EspaldaParado.png"));
+		image[1] = new ImageIcon(getClass().getResource("/source/Altair/FrenteParado.png"));
+		image[2] = new ImageIcon(getClass().getResource("/source/Altair/IzquierdaParado.png"));
+		image[3] = new ImageIcon(getClass().getResource("/source/Altair/DerechaParado.png"));
 		
-		moving[0] = new ImageIcon(getClass().getResource("/source/Sirius/camina-espalda.gif"));
-		moving[1] = new ImageIcon(getClass().getResource("/source/Sirius/camina-frente.gif"));
-		moving[2] = new ImageIcon(getClass().getResource("/source/Sirius/camina-izquierda.gif"));
-		moving[3] = new ImageIcon(getClass().getResource("/source/Sirius/camina-derecha.gif"));
+		moving[0] = new ImageIcon(getClass().getResource("/source/Altair/EspaldaCamina.gif"));
+		moving[1] = new ImageIcon(getClass().getResource("/source/Altair/FrenteCamina.gif"));
+		moving[2] = new ImageIcon(getClass().getResource("/source/Altair/IzquierdaCamina.gif"));
+		moving[3] = new ImageIcon(getClass().getResource("/source/Altair/DerechaCamina.gif"));
 		
-		morir = new ImageIcon(getClass().getResource("/source/Sirius/morir.gif"));
+		morir = new ImageIcon(getClass().getResource("/source/Altair/morir.gif"));
 	}
 }

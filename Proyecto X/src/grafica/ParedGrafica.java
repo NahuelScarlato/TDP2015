@@ -17,7 +17,7 @@ public class ParedGrafica extends CeldaGrafica {
 	public ParedGrafica(int x, int y) {
 		super(x, y);
 
-		image = new ImageIcon(getClass().getResource(null));
+		image = new ImageIcon(getClass().getResource("/source/Objetos/ParedDestruible.png"));
 
 	}
 }

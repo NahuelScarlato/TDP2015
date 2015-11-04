@@ -283,7 +283,7 @@ public class Celda {
      * @return puntos int.
      */
     public int serExplotada() {
-    	miGrafico.explotar();
+    	miGrafico.explotar(this);
     	
     	int puntos=0;
     	

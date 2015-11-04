@@ -47,7 +47,6 @@ public class Bomba extends Thread {
 	 */
     public void explotar() {
     	
-        miCelda.getCeldaGrafica().explotar();
     	Celda[] exp=miCelda.celdasParaExplotar(rango);
         
         int i=0;

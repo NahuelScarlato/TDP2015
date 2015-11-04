@@ -28,8 +28,8 @@ public abstract class Enemigo extends Entidad {
 		while(vivo){
 			try {
 				Thread.sleep(1000);
-				if(vivo)
-					pensarAvanzar();
+				//if(vivo)
+					//pensarAvanzar();
 				
 			} catch (InterruptedException e) {}
 		}
@@ -64,7 +64,7 @@ public abstract class Enemigo extends Entidad {
     public void morir() {
     	miCelda.setEnemigo(null);
         toggleVivo();
-        super.morir();
+        super.morir(this);
     }
     
     /**

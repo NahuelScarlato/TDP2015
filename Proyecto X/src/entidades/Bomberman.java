@@ -118,7 +118,7 @@ public class Bomberman extends Entidad {
     public void morir() {
         miCelda.setBomberman(null);
         toggleVivo();
-        super.morir();
+        super.morir(this);
     }
 
 }

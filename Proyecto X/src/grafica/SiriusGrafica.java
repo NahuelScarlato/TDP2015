@@ -17,15 +17,15 @@ public class SiriusGrafica extends EntidadGrafica{
 	public SiriusGrafica(int velocidad, int x, int y) {
 		super(velocidad, x, y);
 		
-		image[0] = new ImageIcon(getClass().getResource("/source/Sirius/parado-espalda.png"));
-		image[1] = new ImageIcon(getClass().getResource("/source/Sirius/parado-frente.png"));
-		image[2] = new ImageIcon(getClass().getResource("/source/Sirius/parado-izquierda.png"));
-		image[3] = new ImageIcon(getClass().getResource("/source/Sirius/parado-derecha.png"));
+		image[0] = new ImageIcon(getClass().getResource("/source/Sirius/EspaldaParado.png"));
+		image[1] = new ImageIcon(getClass().getResource("/source/Sirius/FrenteParado.png"));
+		image[2] = new ImageIcon(getClass().getResource("/source/Sirius/IzquierdaParado.png"));
+		image[3] = new ImageIcon(getClass().getResource("/source/Sirius/DerechaParado.png"));
 		
-		moving[0] = new ImageIcon(getClass().getResource("/source/Sirius/camina-espalda.gif"));
-		moving[1] = new ImageIcon(getClass().getResource("/source/Sirius/camina-frente.gif"));
-		moving[2] = new ImageIcon(getClass().getResource("/source/Sirius/camina-izquierda.gif"));
-		moving[3] = new ImageIcon(getClass().getResource("/source/Sirius/camina-derecha.gif"));
+		moving[0] = new ImageIcon(getClass().getResource("/source/Sirius/EspaldaCamina.gif"));
+		moving[1] = new ImageIcon(getClass().getResource("/source/Sirius/FrenteCamina.gif"));
+		moving[2] = new ImageIcon(getClass().getResource("/source/Sirius/IzquierdaCamina.gif"));
+		moving[3] = new ImageIcon(getClass().getResource("/source/Sirius/DerechaCamina.gif"));
 		
 		morir = new ImageIcon(getClass().getResource("/source/Sirius/morir.gif"));
 	}

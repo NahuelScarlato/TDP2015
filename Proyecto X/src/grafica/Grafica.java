@@ -6,6 +6,9 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import contenedores.Celda;
+import threads.GraficaExplosion;
+
 /**
  * Representa la parte grafica.
  * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
@@ -41,8 +44,9 @@ public abstract class Grafica {
 	/**
      * Cambia el grafico asociado por el definido de explotar.
      */
-	public void explotar(){
+	public void explotar(Celda c){
 		grafico.setIcon(explotar);
+		new GraficaExplosion(c);
 	}
 	
 	/**

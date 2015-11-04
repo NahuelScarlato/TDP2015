@@ -49,8 +49,10 @@ public class Mapa {
     		for(int c=0;c<columnas;c++){
     			if(f==0 || c==0 || f==(filas-1) || c==(columnas-1))
     				miMatriz[f][c]=null;
-    			else
+    			else{
     				miMatriz[f][c]=new Celda(f,c,this);
+    				
+    			}
     		}
     	
     	//Falta meter los powerUps y paredes
