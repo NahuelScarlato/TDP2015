@@ -5,6 +5,7 @@ import java.util.Random;
 import objetos.Bombality;
 import objetos.Fatality;
 import objetos.Masacrality;
+import objetos.Pared;
 import objetos.PowerUp;
 import objetos.SpeedUp;
 import Nivel.Nivel;
@@ -93,6 +94,23 @@ public class Mapa {
 		    enemigos[a+r]=new Altair(buscarCelda());
         
         return enemigos;
+    }
+    
+    /**
+     * Crea las paredes y las ubica en celdas apropiadas.
+     */
+    public Celda[] crearParedes() {
+    	Celda[] paredes=new Celda[70];
+    	int p=0;
+    	for(int i=1;i<11;i++)
+    		for(int j=1;j<29;j++)
+    			if(i%2==0 && j%2==0){
+    				miMatriz[i][j].setPared(new Pared(miMatriz[i][j]));
+    				paredes[p]=miMatriz[i][j];
+    				p++;
+    			}
+    	
+    	return paredes;
     }
     
     /**

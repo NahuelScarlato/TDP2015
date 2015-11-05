@@ -1,5 +1,8 @@
 package objetos;
 
+import contenedores.Celda;
+import grafica.ParedGrafica;
+
 /**
  * Representa una bomba.
  * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
@@ -7,12 +10,17 @@ package objetos;
 public class Pared {
 
     protected int puntaje;
+    
+    protected Celda miCelda;
 
     /**
      * Construye un objeto de tipo Pared con un puntaje predefinido.
      */
-    public Pared() {
+    public Pared(Celda c) {
         puntaje=10;
+        miCelda=c;
+        c.setCeldaGrafica(new ParedGrafica(c.getFila(),c.getColumna()));
+    	miCelda.getMapa().getNivel().agregarGrafico(c);        
     }
 
     /**

@@ -50,6 +50,8 @@ public class Nivel {
 			enemigos[i].start();
 		}
         
+        Celda[] paredes=miMapa.crearParedes();
+        
         miMapa.crearPowerUps();
     }
     
