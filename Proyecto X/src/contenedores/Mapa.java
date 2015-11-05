@@ -2,6 +2,10 @@ package contenedores;
 
 import java.util.Random;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import objetos.Bombality;
 import objetos.Fatality;
 import objetos.Masacrality;
@@ -14,6 +18,9 @@ import entidades.Bomberman;
 import entidades.Enemigo;
 import entidades.Rugulos;
 import entidades.Sirius;
+import grafica.CeldaGrafica;
+import grafica.ParedGrafica;
+import grafica.ParedIndestructibleGrafica;
 import contenedores.Celda;
 
 /**
@@ -51,7 +58,13 @@ public class Mapa {
     			if(f==0 || c==0 || f==(filas-1) || c==(columnas-1))
     				miMatriz[f][c]=null;
     			else{
-    				miMatriz[f][c]=new Celda(f,c,this);
+    				if(f%2==0 && c%2==0){
+						miMatriz[f][c] = null;
+    				}
+    				else  {
+    					miMatriz[f][c]=new Celda(f,c,this);
+    				}
+    				
     				
     			}
     		}
@@ -99,16 +112,47 @@ public class Mapa {
     /**
      * Crea las paredes y las ubica en celdas apropiadas.
      */
-    public Celda[] crearParedes() {
-    	Celda[] paredes=new Celda[70];
-    	int p=0;
-    	for(int i=1;i<11;i++)
+	public void crearParedesIndestructibles() {
+    	   	
+		for(int i=1;i<11;i++)
     		for(int j=1;j<29;j++)
     			if(i%2==0 && j%2==0){
-    				miMatriz[i][j].setPared(new Pared(miMatriz[i][j]));
-    				paredes[p]=miMatriz[i][j];
-    				p++;
+    				miMatriz[i][j]=new Celda(i, j, this);
+    						
+    				miMatriz[i][j].setCeldaGrafica(new ParedIndestructibleGrafica(i,j));
+    				
+    				CeldaGrafica cAux=miMatriz[i][j].getCeldaGrafica();
+    				JLabel aux=cAux.getGrafico();
+    		    	miNivel.getGUI().getFrame().add(aux);
+    		    	
+    		    	miMatriz[i][j]=null;
     			}
+    	
+    }
+	
+    
+    
+    /**
+     * Crea las paredes y las ubica en celdas apropiadas.
+     */
+	public Celda[] crearParedesDestruibles() {
+    	Celda[] paredes=new Celda[125];
+    	int p=0;
+    	
+        Random nR = new Random();
+        int rndF;
+ 		int rndC;
+    	
+    	while(p<125){
+    		rndF= nR.nextInt(filas-1);
+         	rndC= nR.nextInt(columnas-1);
+    		if(miMatriz[rndF][rndC]!=null && ( (rndF!=1 && rndC!=1) && (rndF!=1 && rndC!=2) || (rndF!=2 && rndC!=1) ) ){
+	    		miMatriz[rndF][rndC].setPared(new Pared(miMatriz[rndF][rndC]));
+	    		paredes[p]=miMatriz[rndF][rndC];
+	    		p++;
+	    		
+	    	}
+	    }
     	
     	return paredes;
     }

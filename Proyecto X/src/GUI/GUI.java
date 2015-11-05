@@ -1,6 +1,9 @@
 package GUI;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Point;
+import java.awt.TextField;
 
 import javax.swing.*;
 
@@ -17,7 +20,8 @@ import java.awt.event.KeyEvent;
  */
 public class GUI {
 	private JFrame frmProyecto;
-	private JLabel fondo;
+	private JPanelConFondo panelJuego;
+	private TextField textField_Puntaje;
 	
 	private volatile boolean lock = false;
 	private int direction = -1;
@@ -41,21 +45,66 @@ public class GUI {
 	/**
 	 * Crea la aplicacion.
 	 */
-	public GUI() {
+public GUI() {
 		
 		frmProyecto = new JFrame();
+		frmProyecto.setResizable(false);
+		frmProyecto.setTitle("Proyecto X");
+		frmProyecto.getContentPane().setBackground(Color.GREEN);
+		frmProyecto.setBounds(50, 50, 936,512);
+		frmProyecto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmProyecto.getContentPane().setLayout(null);
 		
-		frmProyecto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmProyecto.setResizable(false);
-		frmProyecto.setBounds(20, 20, 936,418);
-		frmProyecto.setTitle("Proyecto X");
-		frmProyecto.setBackground(Color.GREEN);
-				
-		fondo = new JLabel();
-		fondo.setIcon(new ImageIcon(this.getClass().getResource("/source/fondoBase.png")));
-		frmProyecto.setContentPane(fondo);
-		fondo.setLayout(null);		
+		JPanel panelPrincipal = new JPanel();
+		panelPrincipal.setBounds(0, 0, 930, 483);
+		panelPrincipal.setForeground(Color.BLACK);
+		panelPrincipal.setBackground(Color.GRAY);
+		frmProyecto.getContentPane().add(panelPrincipal);
+		panelPrincipal.setLayout(null);
+		
+		panelJuego = new JPanelConFondo();
+		panelJuego.setOpaque(false);
+		panelJuego.setBounds(0, 91, 930,391);
+		panelJuego.setBackground(new Color(34, 139, 34));
+		panelJuego.setLayout(null);
+		panelPrincipal.add(panelJuego);
+		
+		
+		
+		JPanel panelUsuario = new JPanel();
+		panelUsuario.setBounds(0, 0, 930, 90);
+		panelPrincipal.add(panelUsuario);
+		panelUsuario.setLayout(null);
+			
+		JLabel lblPuntaje = new JLabel("Puntaje :");
+		lblPuntaje.setBounds(39, 11, 123, 49);
+		lblPuntaje.setFont(new Font("Arial", Font.PLAIN, 30));
+		panelUsuario.add(lblPuntaje);
+		
+		
+		
+		JLabel lblTiempo = new JLabel("Tiempo :");
+		lblTiempo.setBounds(575, 11, 116, 49);
+		lblTiempo.setFont(new Font("Arial", Font.PLAIN, 30));
+		panelUsuario.add(lblTiempo);
+		
+		textField_Puntaje = new TextField();
+		textField_Puntaje.setLocation(new Point(10, 10));
+		textField_Puntaje.setFont(new Font("Dialog", Font.PLAIN, 30));
+		textField_Puntaje.setText("    0");
+		textField_Puntaje.setEnabled(false);
+		textField_Puntaje.setBounds(168, 11, 116, 49);
+		textField_Puntaje.setEditable(false);
+		
+		panelUsuario.add(textField_Puntaje);
+		
+		TextField textField_3 = new TextField();
+		textField_3.setBounds(697, 11, 116, 49);
+		textField_3.setEnabled(false);
+		textField_3.setEditable(false);
+		panelUsuario.add(textField_3);
+		
+		
 		
 		frmProyecto.addKeyListener(new KeyAdapter() {
 			
@@ -63,23 +112,22 @@ public class GUI {
 			public void keyPressed(KeyEvent arg0) {
 				mover(arg0);
 			}
-		});
-		
+		});	
 		
 		// Creo el nivel
-		Nivel nivel=new Nivel(this);		
+		Nivel nivel=new Nivel(this);
+		
 		Juego juego= new Juego(nivel,this);
 				
 		juego.start();
-		
 	}
 	
 	/**
 	 * Retorna el frame.
 	 * @return frmProyecto JLabel.
 	 */
-	public JFrame getFrame(){
-		return frmProyecto;
+	public JPanel getFrame(){
+		return panelJuego;
 	}
 	
 	/**
@@ -114,5 +162,9 @@ public class GUI {
 	 */
 	public int getDirection(){
 		return this.direction;
+	}
+	
+	public TextField getMarcadorGUI(){
+		return textField_Puntaje;
 	}
 }

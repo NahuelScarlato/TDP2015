@@ -1,6 +1,7 @@
 package grafica;
 
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
@@ -34,4 +35,19 @@ public abstract class CeldaGrafica extends Grafica {
 		return this.grafico;
 	}
 
+	
+	// agregue apra mostrar indestrutibles
+	public void setGrafico(JLabel i){
+		grafico=i;
+	}
+	
+public void ponerEnBlanco(){
+		
+		image = new ImageIcon(getClass().getResource("/source/Objetos/ParedIndestructible.png"));
+		System.out.println(this.getClass());
+		
+		this.grafico = new JLabel(image);
+		//this.grafico.setBounds(0, 0, 100, 100);
+		
+	}
 }

@@ -52,6 +52,7 @@ public class Bomba extends Thread {
         int i=0;
         int puntos=0;
         while(exp[i]!=null){
+        	 
         	exp[i].setCeldaGrafica(new BombaGrafica(exp[i].getFila(),exp[i].getColumna(),rango));
         	exp[i].getMapa().getNivel().agregarGrafico(exp[i]);
         	

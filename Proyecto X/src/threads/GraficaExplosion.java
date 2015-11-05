@@ -23,6 +23,7 @@ public class GraficaExplosion extends Thread{
 		try {
 			Thread.sleep(950);
 			c.getCeldaGrafica().getGrafico().setIcon(null);
+        	
 			
 		} catch (InterruptedException e) {			
 			e.printStackTrace();

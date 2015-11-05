@@ -36,6 +36,7 @@ public class Pared {
      * @return puntaje int.
      */
     public int serExplotado() {
+    	
         return puntaje;
     }
 }

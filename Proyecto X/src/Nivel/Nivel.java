@@ -43,6 +43,13 @@ public class Nivel {
         bomberman=miMapa.crearBomberman();
         this.gui.getFrame().add(bomberman.getGrafico());	
         
+        miMapa.crearParedesIndestructibles();
+        
+        Celda[] paredes=miMapa.crearParedesDestruibles();
+       
+        
+        miMapa.crearPowerUps();
+        
         enemigos=miMapa.crearEnemigos();
         
         for(int i=0;i<cantEnemigos-1;i++){			
@@ -50,9 +57,7 @@ public class Nivel {
 			enemigos[i].start();
 		}
         
-        Celda[] paredes=miMapa.crearParedes();
-        
-        miMapa.crearPowerUps();
+      
     }
     
     /**
@@ -63,6 +68,7 @@ public class Nivel {
     	CeldaGrafica cAux=c.getCeldaGrafica();
     	JLabel aux=cAux.getGrafico();
     	gui.getFrame().add(aux);
+    	
     }
  
     /**
@@ -111,6 +117,7 @@ public class Nivel {
      */
     public void sumarPuntaje(int m) {
         marcador+=m;
+        gui.getMarcadorGUI().setText("    "+marcador);
     }    
     
     /**
