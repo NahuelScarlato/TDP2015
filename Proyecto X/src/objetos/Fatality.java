@@ -16,8 +16,7 @@ public class Fatality extends PowerUp {
      */
     public Fatality(Celda c) {
     	super(35,c);
-    	c.setCeldaGrafica(new FatalityGrafica(c.getFila(),c.getColumna()));
-    	miCelda.getMapa().getNivel().agregarGrafico(c);
+    	grafica=new FatalityGrafica(c.getFila(),c.getColumna());
     }
 
     /**

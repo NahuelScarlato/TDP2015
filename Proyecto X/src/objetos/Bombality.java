@@ -16,8 +16,7 @@ public class Bombality extends PowerUp {
      */
     public Bombality(Celda c) {
     	super(35,c);
-    	c.setCeldaGrafica(new BombalityGrafica(c.getFila(),c.getColumna()));
-    	miCelda.getMapa().getNivel().agregarGrafico(c);
+    	grafica=new BombalityGrafica(c.getFila(),c.getColumna());
     }
 
     /**

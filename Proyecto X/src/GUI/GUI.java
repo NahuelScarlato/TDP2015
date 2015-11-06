@@ -20,7 +20,7 @@ import java.awt.event.KeyEvent;
  */
 public class GUI {
 	private JFrame frmProyecto;
-	private JPanelConFondo panelJuego;
+	private JLayeredPane panelJuego;
 	private TextField textField_Puntaje;
 	
 	private volatile boolean lock = false;
@@ -35,6 +35,9 @@ public class GUI {
 				try {
 					GUI window = new GUI();
 					window.frmProyecto.setVisible(true);
+					
+					
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -62,13 +65,6 @@ public GUI() {
 		frmProyecto.getContentPane().add(panelPrincipal);
 		panelPrincipal.setLayout(null);
 		
-		panelJuego = new JPanelConFondo();
-		panelJuego.setOpaque(false);
-		panelJuego.setBounds(0, 91, 930,391);
-		panelJuego.setBackground(new Color(34, 139, 34));
-		panelJuego.setLayout(null);
-		panelPrincipal.add(panelJuego);
-		
 		
 		
 		JPanel panelUsuario = new JPanel();
@@ -89,12 +85,13 @@ public GUI() {
 		panelUsuario.add(lblTiempo);
 		
 		textField_Puntaje = new TextField();
+		textField_Puntaje.setEnabled(false);
+		textField_Puntaje.setForeground(Color.RED);
+		textField_Puntaje.setEditable(false);
 		textField_Puntaje.setLocation(new Point(10, 10));
 		textField_Puntaje.setFont(new Font("Dialog", Font.PLAIN, 30));
-		textField_Puntaje.setText("    0");
-		textField_Puntaje.setEnabled(false);
+		textField_Puntaje.setText(" 0");
 		textField_Puntaje.setBounds(168, 11, 116, 49);
-		textField_Puntaje.setEditable(false);
 		
 		panelUsuario.add(textField_Puntaje);
 		
@@ -103,6 +100,13 @@ public GUI() {
 		textField_3.setEnabled(false);
 		textField_3.setEditable(false);
 		panelUsuario.add(textField_3);
+		
+		panelJuego = new JLayeredPane();
+		panelJuego.setOpaque(false);
+		panelJuego.setBounds(0, 91, 930,391);
+		panelJuego.setBackground(new Color(34, 139, 34));
+		panelJuego.setLayout(null);
+		panelPrincipal.add(panelJuego);
 		
 		
 		
@@ -126,7 +130,7 @@ public GUI() {
 	 * Retorna el frame.
 	 * @return frmProyecto JLabel.
 	 */
-	public JPanel getFrame(){
+	public JLayeredPane getFrame(){
 		return panelJuego;
 	}
 	

@@ -2,7 +2,6 @@ package contenedores;
 
 import java.util.Random;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -18,9 +17,7 @@ import entidades.Bomberman;
 import entidades.Enemigo;
 import entidades.Rugulos;
 import entidades.Sirius;
-import grafica.CeldaGrafica;
 import grafica.ParedGrafica;
-import grafica.ParedIndestructibleGrafica;
 import contenedores.Celda;
 
 /**
@@ -56,23 +53,17 @@ public class Mapa {
     	for(int f=0;f<filas;f++)
     		for(int c=0;c<columnas;c++){
     			if(f==0 || c==0 || f==(filas-1) || c==(columnas-1))
-    				miMatriz[f][c]=null;
+    				crearIndestructible(f,c);
     			else{
     				if(f%2==0 && c%2==0){
-						miMatriz[f][c] = null;
+						crearIndestructible(f,c);
     				}
     				else  {
     					miMatriz[f][c]=new Celda(f,c,this);
-    				}
-    				
-    				
+    					miNivel.agregarGrafico(miMatriz[f][c]);
+    				}    						
     			}
     		}
-    	
-    	//Falta meter los powerUps y paredes
-    	
-    	
-    	
     	
     }
     
@@ -83,6 +74,7 @@ public class Mapa {
     public Bomberman crearBomberman(){
     	Bomberman b=new Bomberman(miMatriz[1][1]);
     	miMatriz[1][1].setBomberman(b);
+    	miNivel.agregarEntidadGrafico(b);
     	return b;
     }
     
@@ -95,42 +87,39 @@ public class Mapa {
         
     	//Creo Sirius
         enemigos[0]=new Sirius(miMatriz[filas-2][columnas-2]);
-        
+        miMatriz[filas-2][columnas-2].setEnemigo(enemigos[0]);
+        miNivel.agregarEntidadGrafico(enemigos[0]);
         //Creo 3 Rugulos
         int r;
-        for(r=1;r<3;r++)
-        	enemigos[r]=new Rugulos(buscarCelda());        
+        for(r=1;r<3;r++){
+        	Celda aux=buscarCelda();
+        	enemigos[r]=new Rugulos(aux);
+        	aux.setEnemigo(enemigos[r]);
+        	miNivel.agregarEntidadGrafico(enemigos[r]);
+        }
         
         //Creo 2 Altair
         int a;
-        for(a=0;a<2;a++)
-		    enemigos[a+r]=new Altair(buscarCelda());
+        for(a=0;a<2;a++){
+        	Celda aux=buscarCelda();
+		    enemigos[a+r]=new Altair(aux);
+		    aux.setEnemigo(enemigos[a+r]);
+		    miNivel.agregarEntidadGrafico(enemigos[a+r]);
+		}
         
         return enemigos;
     }
     
     /**
-     * Crea las paredes y las ubica en celdas apropiadas.
-     */
-	public void crearParedesIndestructibles() {
-    	   	
-		for(int i=1;i<11;i++)
-    		for(int j=1;j<29;j++)
-    			if(i%2==0 && j%2==0){
-    				miMatriz[i][j]=new Celda(i, j, this);
-    						
-    				miMatriz[i][j].setCeldaGrafica(new ParedIndestructibleGrafica(i,j));
-    				
-    				CeldaGrafica cAux=miMatriz[i][j].getCeldaGrafica();
-    				JLabel aux=cAux.getGrafico();
-    		    	miNivel.getGUI().getFrame().add(aux);
-    		    	
-    		    	miMatriz[i][j]=null;
-    			}
+     * Crea pared indestructible.
+     */	
+    private void crearIndestructible(int x, int y){
+    	JLabel aux=new JLabel(new ImageIcon(getClass().getResource("/source/Objetos/ParedIndestructible.png")));
+		aux.setBounds(y*30, x*30, 30, 30);
+    	miNivel.getGUI().getFrame().add(aux);
     	
+    	miMatriz[x][y]=null;
     }
-	
-    
     
     /**
      * Crea las paredes y las ubica en celdas apropiadas.
@@ -146,9 +135,13 @@ public class Mapa {
     	while(p<125){
     		rndF= nR.nextInt(filas-1);
          	rndC= nR.nextInt(columnas-1);
-    		if(miMatriz[rndF][rndC]!=null && ( (rndF!=1 && rndC!=1) && (rndF!=1 && rndC!=2) || (rndF!=2 && rndC!=1) ) ){
+    		if(miMatriz[rndF][rndC]!=null && (rndF>1 && rndC>1)){
 	    		miMatriz[rndF][rndC].setPared(new Pared(miMatriz[rndF][rndC]));
 	    		paredes[p]=miMatriz[rndF][rndC];
+	    		
+	    		miMatriz[rndF][rndC].setCeldaGrafica(new ParedGrafica(rndF,rndC));
+	    		miNivel.agregarGrafico(miMatriz[rndF][rndC]);
+	    		
 	    		p++;
 	    		
 	    	}
@@ -160,35 +153,35 @@ public class Mapa {
     /**
      * Crea los power up y los ubica en celdas apropiadas.
      */
-    public void crearPowerUps() {
+    public void crearPowerUps(Celda [] paredes) {
     	PowerUp[] powerUps=new PowerUp[11];
         
         //Creao 4 SpeedUp
         int s;
         Celda aux;
         for(s=0;s<4;s++){
-        	aux= buscarCeldaPU();
+        	aux= buscarCeldaPU(paredes);
         	powerUps[s]=new SpeedUp(aux);        	
         	aux.setPowerUp(powerUps[s]);
         }
         //Creo 3 Fatality
         int f;
         for(f=0;f<3;f++){
-        	aux=buscarCeldaPU();        	
+        	aux=buscarCeldaPU(paredes);        	
         	powerUps[f+s]=new Fatality(aux);
         	aux.setPowerUp(powerUps[s+f]);        		
         }
         //Creao 3 Bombality
         int b;
         for(b=0;b<3;b++){
-        	aux=buscarCeldaPU();
+        	aux=buscarCeldaPU(paredes);
         	powerUps[b+f+s]=new Bombality(aux);
         	aux.setPowerUp(powerUps[s+b+f]);
         }
         //Creo 1 Masacrality
         int m;
         for(m=0;m<1;m++){
-        	aux=buscarCeldaPU();
+        	aux=buscarCeldaPU(paredes);
         	powerUps[m+b+f+s]=new Masacrality(aux);   
         	aux.setPowerUp(powerUps[s+b+f]);
         }
@@ -200,21 +193,19 @@ public class Mapa {
     * Busca una celda no nula aleatoria, sin enemigos y la retorna.
     * @return aux Celda
     */
-    private Celda buscarCeldaPU(){
+    private Celda buscarCeldaPU(Celda [] paredes){
         Random nR = new Random();
-        int rndF;
-		int rndC;
-		Celda aux;
+        int rnd=nR.nextInt(paredes.length);
+		
+		Celda aux=null;
 		boolean encontro=false;
-    	do{
-    		rndF= nR.nextInt(filas-1);
-        	rndC= nR.nextInt(columnas-1);
-        	aux=miMatriz[rndF][rndC];
-        	if(aux!=null)
-        		if(aux.getEnemigo()==null)
-        			encontro=true;
-    	}
-    	while(!encontro);
+		while(!encontro){
+        	
+        	if(paredes[rnd]!=null) {
+        		aux=paredes[rnd];
+        		encontro=true;
+        	}
+    	}    	
     	
     	return aux;
     }

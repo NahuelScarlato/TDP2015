@@ -1,7 +1,6 @@
 package objetos;
 
 import contenedores.Celda;
-import grafica.ParedGrafica;
 
 /**
  * Representa una bomba.
@@ -19,8 +18,8 @@ public class Pared {
     public Pared(Celda c) {
         puntaje=10;
         miCelda=c;
-        c.setCeldaGrafica(new ParedGrafica(c.getFila(),c.getColumna()));
-    	miCelda.getMapa().getNivel().agregarGrafico(c);        
+        //c.setCeldaGrafica(new ParedGrafica(c.getFila(),c.getColumna()));
+    	//miCelda.getMapa().getNivel().agregarGrafico(c);
     }
 
     /**

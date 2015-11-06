@@ -16,8 +16,7 @@ public class SpeedUp extends PowerUp {
      */
     public SpeedUp(Celda c) {
     	super(30,c);
-    	c.setCeldaGrafica(new SpeedUpGrafica(c.getFila(),c.getColumna()));
-    	miCelda.getMapa().getNivel().agregarGrafico(c);
+    	grafica=new SpeedUpGrafica(c.getFila(),c.getColumna());
     }
 
     /**

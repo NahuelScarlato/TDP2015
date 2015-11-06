@@ -45,8 +45,10 @@ public abstract class Grafica {
      * Cambia el grafico asociado por el definido de explotar.
      */
 	public void explotar(Celda c){
-		grafico.setIcon(explotar);
-		new GraficaExplosion(c);
+		JLabel nuevo=new JLabel(explotar);
+		nuevo.setBounds(this.pos.x, this.pos.y, width, height);
+		c.getMapa().getNivel().getGUI().getFrame().add(nuevo,1);
+		new GraficaExplosion(c,nuevo);
 	}
 	
 	/**

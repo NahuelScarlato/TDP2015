@@ -26,6 +26,7 @@ public class Juego extends Thread{
 	 * Inicia el hilo, ejecuta el movimiento del bomberman y los enemigos mientras el bomberman este vivo.
      */
 	public void run() {
+		
 		while(nivel.getBomberman().getVivo()){
 			
 			if(gui.getLock()){

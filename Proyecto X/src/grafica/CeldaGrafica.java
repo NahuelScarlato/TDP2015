@@ -35,13 +35,12 @@ public abstract class CeldaGrafica extends Grafica {
 		return this.grafico;
 	}
 
-	
-	// agregue apra mostrar indestrutibles
-	public void setGrafico(JLabel i){
-		grafico=i;
+	public void changeIcon(Icon i){
+		image=i;
 	}
 	
-public void ponerEnBlanco(){
+	
+	public void ponerEnBlanco(){
 		
 		image = new ImageIcon(getClass().getResource("/source/Objetos/ParedIndestructible.png"));
 		System.out.println(this.getClass());

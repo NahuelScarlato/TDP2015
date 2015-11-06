@@ -1,17 +1,22 @@
 package threads;
 
+import javax.swing.JLabel;
+
 import contenedores.Celda;
 
 public class GraficaExplosion extends Thread{
 	
 	protected Celda c;
 	
+	protected JLabel label;
+	
 	/**
 	 * Construye un contador con un bomberman pasado por parametro.
 	 * @param b Bomberman.
 	 */
-	public GraficaExplosion(Celda c) {
+	public GraficaExplosion(Celda c,JLabel label) {
 		this.c=c;
+		this.label=label;
 		start();
 	}
 		
@@ -21,9 +26,8 @@ public class GraficaExplosion extends Thread{
 	public void run(){
 		
 		try {
-			Thread.sleep(950);
-			c.getCeldaGrafica().getGrafico().setIcon(null);
-        	
+			Thread.sleep(1050);
+			c.getMapa().getNivel().getGUI().getFrame().remove(label);        	
 			
 		} catch (InterruptedException e) {			
 			e.printStackTrace();

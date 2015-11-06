@@ -2,6 +2,7 @@ package objetos;
 
 import contenedores.Celda;
 import entidades.Bomberman;
+import grafica.CeldaGrafica;
 
 /**
  * Representa un PowerUp.
@@ -12,6 +13,8 @@ public abstract class PowerUp {
     protected int puntaje;
     
     protected Celda miCelda;
+    
+    protected CeldaGrafica grafica;
 
     /**
      * Construye un objeto de tipo PowerUp con un puntaje predefinido y una celda pasada por parametro.
@@ -36,5 +39,10 @@ public abstract class PowerUp {
     public int getPuntaje() {
         return puntaje;
     }
+    
+    public CeldaGrafica getGraficaPU(){
+    	return grafica;
+    }
+    	
 
 }

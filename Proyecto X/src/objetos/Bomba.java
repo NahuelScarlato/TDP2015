@@ -12,6 +12,8 @@ public class Bomba extends Thread {
     protected int rango;
 
     protected Celda miCelda;
+    
+    protected BombaGrafica grafica;
 	
     
     /**
@@ -23,8 +25,7 @@ public class Bomba extends Thread {
     public Bomba(int r,Celda c) {
     	rango=r;
     	miCelda=c;
-    	c.setCeldaGrafica(new BombaGrafica(c.getFila(),c.getColumna(),r));
-    	miCelda.getMapa().getNivel().agregarGrafico(c);
+    	grafica=new BombaGrafica(c.getFila(),c.getColumna(),r);
     }
     
     
@@ -35,8 +36,11 @@ public class Bomba extends Thread {
 	public void run() {
 		try {
 			Thread.sleep(3000);			
+			
 			explotar();
-		} catch (InterruptedException e) {}		
+		} catch (InterruptedException e) {
+			
+		}		
 	}
     
     
@@ -51,22 +55,22 @@ public class Bomba extends Thread {
         
         int i=0;
         int puntos=0;
+
+        miCelda.setBomba(null);
+        
         while(exp[i]!=null){
-        	 
-        	exp[i].setCeldaGrafica(new BombaGrafica(exp[i].getFila(),exp[i].getColumna(),rango));
-        	exp[i].getMapa().getNivel().agregarGrafico(exp[i]);
-        	
         	puntos+=exp[i].serExplotada();
         	i++;
         }
         
-        miCelda.setBomba(null);
+        miCelda.getMapa().getNivel().getGUI().getFrame().remove(grafica.getGrafico());  
         puntos+=miCelda.serExplotada();
         
         miCelda.getMapa().getNivel().getBomberman().aumentarCantBombas();
         miCelda.getMapa().getNivel().sumarPuntaje(puntos);
     }
-
+    
+    
     /**
      * Retorna la celda de la bomba.
      * @return miCelda Celda.
@@ -81,6 +85,10 @@ public class Bomba extends Thread {
 	*/
     public void setCelda(Celda c) {
         miCelda=c;
+    }
+    
+    public BombaGrafica getGraficaB(){
+    	return grafica;
     }
 
 }

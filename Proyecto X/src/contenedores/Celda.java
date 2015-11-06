@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import entidades.Bomberman;
 import entidades.Enemigo;
 import grafica.CeldaGrafica;
+import grafica.TransitableGrafica;
 import objetos.Bomba;
 import objetos.Pared;
 import objetos.PowerUp;
@@ -50,6 +51,7 @@ public class Celda {
     	miEnemigo=null;
     	miBomberman=null;
     	miBomba=null;
+    	miGrafico=new TransitableGrafica(fila,columna);
     }
     
     /*
@@ -171,6 +173,7 @@ public class Celda {
      * @param cg CeldaGrafica.
      */
 	public void setCeldaGrafica(CeldaGrafica cg){
+		miMapa.getNivel().getGUI().getFrame().remove(this.getCeldaGrafica().getGrafico());
 		miGrafico=cg;
 	}
     
@@ -283,18 +286,14 @@ public class Celda {
      * @return puntos int.
      */
     public int serExplotada() {
-    	miGrafico.explotar(this);
+    	
+    	miGrafico.explotar(this);   	
     	
     	int puntos=0;
     	
     	if(miBomberman!=null){
         	miBomberman.morir();
-        }
-    	
-    	if(miPared!=null){
-        	puntos+=miPared.serExplotado();
-        	miPared=null;
-        } 
+        }    	
         
         if(miEnemigo!=null){
         	puntos+=miEnemigo.serExplotado();
@@ -302,12 +301,32 @@ public class Celda {
         }
         	
         if(miBomba!=null){
-        	miBomba.explotar();
-        	miBomba=null;
+        	miBomba.interrupt();
+        	miBomba.explotar();       	
+        	
         }
         	
         if(miPowerUp!=null)
-        	miPowerUp=null;
+        	if(miPared==null){
+        		miPowerUp=null;
+        		setCeldaGrafica(new TransitableGrafica(fila,columna));
+        		miMapa.getNivel().agregarGrafico(this);
+        	}
+        
+        if(miPared!=null){
+        	puntos+=miPared.serExplotado();
+        	//Si hay una pared con powerup debo cambir la grafica x la del powerup.
+        	if(miPowerUp!=null){
+        		setCeldaGrafica(miPowerUp.getGraficaPU());
+        		miMapa.getNivel().agregarGrafico(this);
+        	}
+        	//Si hay una pared sin powerup debo cambiar la grafica x la celda vacia.
+        	else{
+        		setCeldaGrafica(new TransitableGrafica(fila, columna));
+        		miMapa.getNivel().agregarGrafico(this);
+        	}
+        	miPared=null;
+        } 
         
         return puntos;
 

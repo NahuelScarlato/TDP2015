@@ -22,7 +22,7 @@ public class GraficaMorir extends Thread{
 		
 		try {
 			Thread.sleep(450);
-			e.getGrafico().setIcon(null);
+			e.getGrafico().getGrafico().setIcon(null);
 			
 		} catch (InterruptedException e) {			
 			e.printStackTrace();

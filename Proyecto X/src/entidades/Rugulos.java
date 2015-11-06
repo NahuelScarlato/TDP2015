@@ -19,7 +19,6 @@ public class Rugulos extends Enemigo {
     public Rugulos(Celda c) {
     	super(15,c);
     	velocidad=1;
-    	c.setEnemigo(this);
     	miGrafico=new RugulosGrafica(velocidad,c.getFila(),c.getColumna());
     }
 

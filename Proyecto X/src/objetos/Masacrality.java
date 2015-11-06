@@ -17,8 +17,7 @@ public class Masacrality extends PowerUp {
      */
     public Masacrality(Celda c) {
     	super(50,c);
-    	c.setCeldaGrafica(new MasacralityGrafica(c.getFila(),c.getColumna()));
-    	miCelda.getMapa().getNivel().agregarGrafico(c);
+    	grafica=new MasacralityGrafica(c.getFila(),c.getColumna());
     	
     }
 

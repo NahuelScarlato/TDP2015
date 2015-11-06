@@ -2,13 +2,16 @@ package Nivel;
 
 import javax.swing.JLabel;
 
+import objetos.Bomba;
 import GUI.GUI;
-
 import contenedores.Celda;
 import contenedores.Mapa;
 import entidades.Bomberman;
 import entidades.Enemigo;
+import entidades.Entidad;
+import grafica.BombaGrafica;
 import grafica.CeldaGrafica;
+import grafica.EntidadGrafica;
 
 /**
  * Representa un nivel.
@@ -37,26 +40,21 @@ public class Nivel {
      */
     public Nivel(GUI gui) {
         marcador=0;
-        miMapa=new Mapa(13,31,this);
+        
         this.gui=gui;
+        miMapa=new Mapa(13,31,this);
         
-        bomberman=miMapa.crearBomberman();
-        this.gui.getFrame().add(bomberman.getGrafico());	
+        bomberman=miMapa.crearBomberman();        
+                
+        Celda[] paredes=miMapa.crearParedesDestruibles();       
         
-        miMapa.crearParedesIndestructibles();
-        
-        Celda[] paredes=miMapa.crearParedesDestruibles();
-       
-        
-        miMapa.crearPowerUps();
+        miMapa.crearPowerUps(paredes);
         
         enemigos=miMapa.crearEnemigos();
         
         for(int i=0;i<cantEnemigos-1;i++){			
-			this.gui.getFrame().add(enemigos[i].getGrafico());			
 			enemigos[i].start();
-		}
-        
+		}        
       
     }
     
@@ -70,7 +68,29 @@ public class Nivel {
     	gui.getFrame().add(aux);
     	
     }
+    
+    /**
+     * Agrega la grafica de la celda pasada por prametro al contenedor.
+     * @param c Celda.
+     */
+    public void agregarEntidadGrafico(Entidad e){
+    	EntidadGrafica cAux=e.getGrafico();
+    	JLabel aux=cAux.getGrafico();
+    	gui.getFrame().add(aux,2);
+    	
+    }
  
+    /**
+     * Agrega la grafica de la celda pasada por prametro al contenedor.
+     * @param c Celda.
+     */
+    public void agregarBombaGrafico(Bomba b){
+    	BombaGrafica cAux=b.getGraficaB();
+    	JLabel aux=cAux.getGrafico();
+    	gui.getFrame().add(aux,1);
+    	
+    }
+    
     /**
      * Termina la ejecucion de los hilos de los enemigos.
      */ 

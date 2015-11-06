@@ -1,7 +1,5 @@
 package entidades;
 
-import javax.swing.JLabel;
-
 import contenedores.Celda;
 import grafica.EntidadGrafica;
 
@@ -104,8 +102,9 @@ public abstract class Entidad extends Thread {
      * Retorna el grafico de la entidad.
      * @return miGrafico JLabel.
      */
-    public JLabel getGrafico(){
-    	return miGrafico.getGrafico();    	
+    public EntidadGrafica getGrafico(){
+    	//return miGrafico.getGrafico();    	
+    	return miGrafico;
     }
   
     /**
