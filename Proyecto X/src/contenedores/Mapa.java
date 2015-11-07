@@ -135,7 +135,7 @@ public class Mapa {
     	while(p<125){
     		rndF= nR.nextInt(filas-1);
          	rndC= nR.nextInt(columnas-1);
-    		if(miMatriz[rndF][rndC]!=null && (rndF>1 && rndC>1)){
+    		if(miMatriz[rndF][rndC]!=null && CeldaValida(rndF,rndC) ){
 	    		miMatriz[rndF][rndC].setPared(new Pared(miMatriz[rndF][rndC]));
 	    		paredes[p]=miMatriz[rndF][rndC];
 	    		
@@ -150,6 +150,23 @@ public class Mapa {
     	return paredes;
     }
     
+	/**
+	 * Retorna verdadero en caso de que el par de enteros sean la posicion de una celda valida
+	 * para insertar una pared destruible, falso en caso contrario.
+	 * @param x Int.
+	 * @param y Int.
+	 * @return es Boolean.
+	 */
+	private boolean CeldaValida(int x, int y){
+		boolean es=true;
+		
+		if (x==1 || x==2 || x==10 || x==11)
+			if ( y==1 || y==2 || y==28 || y==29 )
+				es=false;
+					
+		return es;
+	}
+	
     /**
      * Crea los power up y los ubica en celdas apropiadas.
      */
