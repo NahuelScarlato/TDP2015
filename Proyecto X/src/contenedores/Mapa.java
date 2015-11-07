@@ -242,7 +242,7 @@ public class Mapa {
         	rndC= nR.nextInt(15);
         	aux=miMatriz[filas-rndF-1][columnas-rndC-1];
         	if(aux!=null)
-        		if(aux.getEnemigo()==null)
+        		if(aux.getEnemigo()==null && aux.getPared()==null)
         			encontro=true;
     	}
     	while(!encontro);
