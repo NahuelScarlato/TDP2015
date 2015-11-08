@@ -13,8 +13,7 @@ public class Bomba extends Thread {
 
     protected Celda miCelda;
     
-    protected BombaGrafica grafica;
-	
+    protected BombaGrafica grafica;	
     
     /**
 	 * Crea una bomba con un rango  y un celda, ambos pasados por parámetro.

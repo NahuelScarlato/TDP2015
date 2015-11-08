@@ -27,7 +27,7 @@ public class Juego extends Thread{
      */
 	public void run() {
 		
-		while(nivel.getBomberman().getVivo() || nivel.getCantP()!=0){
+		while(nivel.getBomberman().getVivo() && nivel.getCantP()!=0){
 			
 			if(gui.getLock()){
 				nivel.mover(gui.getDirection());

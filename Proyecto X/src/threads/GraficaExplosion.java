@@ -26,7 +26,7 @@ public class GraficaExplosion extends Thread{
 	public void run(){
 		
 		try {
-			Thread.sleep(1050);
+			Thread.sleep(1000);
 			c.getMapa().getNivel().getGUI().getFrame().remove(label);        	
 			
 		} catch (InterruptedException e) {			
