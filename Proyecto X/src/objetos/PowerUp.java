@@ -3,6 +3,7 @@ package objetos;
 import contenedores.Celda;
 import entidades.Bomberman;
 import grafica.CeldaGrafica;
+import grafica.TransitableGrafica;
 
 /**
  * Representa un PowerUp.
@@ -30,7 +31,11 @@ public abstract class PowerUp {
      * Activa el beneficio del PowerUp.
      * @param b Bomberman.
      */
-    public abstract void activar(Bomberman b);
+    public void activar(Bomberman b){
+    	miCelda.setCeldaGrafica(new TransitableGrafica(miCelda.getFila(),miCelda.getColumna()));
+		miCelda.getMapa().getNivel().agregarGrafico(miCelda);
+		miCelda.getMapa().getNivel().sumarPuntaje(puntaje);
+    }
 
     /**
      * Retorna el puntaje de obtener el power up.

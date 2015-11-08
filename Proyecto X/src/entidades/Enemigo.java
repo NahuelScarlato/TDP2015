@@ -27,7 +27,7 @@ public abstract class Enemigo extends Entidad {
 	public void run() {
 		while(vivo){
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(500);
 				if(vivo)
 					pensarAvanzar();
 				

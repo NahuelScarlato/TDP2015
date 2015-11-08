@@ -102,8 +102,7 @@ public abstract class Entidad extends Thread {
      * Retorna el grafico de la entidad.
      * @return miGrafico JLabel.
      */
-    public EntidadGrafica getGrafico(){
-    	//return miGrafico.getGrafico();    	
+    public EntidadGrafica getGrafico(){   	
     	return miGrafico;
     }
   
@@ -113,6 +112,6 @@ public abstract class Entidad extends Thread {
      */
     public void avanzar(int dir){
     	miCelda=miCelda.celdaParaAvanzar(dir);
-    	miGrafico.mover(dir);
+    	miGrafico.mover(dir,velocidad);
     }
 }

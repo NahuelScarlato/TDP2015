@@ -14,9 +14,7 @@ import threads.GraficaMorir;
 public abstract class EntidadGrafica extends Grafica{
 	protected Icon image[];
 	protected Icon moving[];
-	protected Icon morir;
-	
-	protected int velocidad;	
+	protected Icon morir;	
 	
 	/**
 	 * Construye una Grafica de tipo EntidadGrafica, con su velocidad y posicion (x,y). 
@@ -24,29 +22,20 @@ public abstract class EntidadGrafica extends Grafica{
 	 * @param x int.
 	 * @param y int.
 	 */
-	protected EntidadGrafica(int velocidad, int x, int y) {
+	protected EntidadGrafica(int x, int y) {
 		super(x,y);
-		this.velocidad = velocidad;
 		image = new Icon[4];
 		moving = new Icon[4];
 	}
 	
 	public JLabel getGrafico(){
-		if(this.grafico == null){
-			this.grafico = new JLabel(image[0]);
-			this.grafico.setBounds(this.pos.x, this.pos.y, width, height);
+		if(grafico == null){
+			grafico = new JLabel(image[1]);
+			grafico.setBounds(pos.x, pos.y, width, height);
 		}
 		
-		return this.grafico;
+		return grafico;
 	}
-	
-	/**
-    * Retorna el valor del atributo velocidad.
-    * @return velocidad int.
-    */
-	public int getVelocidad() {
-		return velocidad;
-	}	
 	
 	/**
 	 * Cambia el atributo grafico por el definido de morir.
@@ -78,7 +67,7 @@ public abstract class EntidadGrafica extends Grafica{
 				break;
 		}
 		
-		this.grafico.setIcon(this.image[direccion]);
+		grafico.setIcon(image[direccion]);
 	}
 	
 	
@@ -104,7 +93,7 @@ public abstract class EntidadGrafica extends Grafica{
 				break;
 		}
 		
-		this.grafico.setIcon(this.moving[direccion]);
+		grafico.setIcon(moving[direccion]);
 	}
 	
 	
@@ -112,33 +101,33 @@ public abstract class EntidadGrafica extends Grafica{
 	 * Cambia la imagen del grafico realizando la transicion entre celdas de forma dinamica.
 	 *@param dir int.
      */
-	public void mover(int dir){
+	public void mover(int dir,int velocidad){
 		
 		this.changeMoving(dir);
 		
 		try {
 			switch (dir){
 				case Celda.UP: // Arriba
-					for(int i = 0; i < this.height; i += this.velocidad){
-						this.grafico.setBounds(this.pos.x, this.pos.y -= this.velocidad, width, height);
+					for(int i = 0; i < height; i += velocidad){
+						grafico.setBounds(pos.x, pos.y -= velocidad, width, height);
 						Thread.sleep(10);
 					}
 					break;
 				case Celda.DOWN: // Abajo
-					for(int i = 0; i < this.height; i += this.velocidad){
-						this.grafico.setBounds(this.pos.x, this.pos.y += this.velocidad, width, height);
+					for(int i = 0; i < height; i += velocidad){
+						grafico.setBounds(pos.x, pos.y += velocidad, width, height);
 						Thread.sleep(10);
 					}
 					break;
 				case Celda.RIGHT: // Derecha
-					for(int i = 0; i < this.width; i += this.velocidad){
-						this.grafico.setBounds(this.pos.x += this.velocidad, this.pos.y, width, height);
+					for(int i = 0; i < width; i += velocidad){
+						grafico.setBounds(pos.x += velocidad, pos.y, width, height);
 						Thread.sleep(10);
 					}
 					break;
 				case Celda.LEFT: // Izquierda
-					for(int i = 0; i < this.width; i += this.velocidad){
-						this.grafico.setBounds(this.pos.x -= this.velocidad, this.pos.y, width, height);
+					for(int i = 0; i < width; i += velocidad){
+						grafico.setBounds(pos.x -= velocidad, pos.y, width, height);
 						Thread.sleep(10);
 					}
 					break;				

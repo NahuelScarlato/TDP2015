@@ -14,8 +14,8 @@ public class BombermanGrafica extends EntidadGrafica{
 	 * @param x int.
 	 * @param y int.
 	 */
-	public BombermanGrafica(int velocidad, int x, int y) {
-		super(velocidad, x, y);
+	public BombermanGrafica(int x, int y) {
+		super(x, y);
 		
 		image[0] = new ImageIcon(getClass().getResource("/source/Bomberman/EspaldaParado.png"));
 		image[1] = new ImageIcon(getClass().getResource("/source/Bomberman/FrenteParado.png"));

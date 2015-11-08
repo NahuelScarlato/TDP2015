@@ -18,8 +18,8 @@ public class Sirius extends Enemigo {
      */
     public Sirius(Celda c) {
     	super(50,c);
-    	velocidad=1;
-    	miGrafico=new SiriusGrafica(velocidad,c.getFila(),c.getColumna());
+    	velocidad=3;
+    	miGrafico=new SiriusGrafica(c.getFila(),c.getColumna());
     }
 
     /**

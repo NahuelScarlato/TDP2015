@@ -4,7 +4,6 @@ import objetos.Bomba;
 import objetos.PowerUp;
 import contenedores.Celda;
 import grafica.BombermanGrafica;
-import grafica.TransitableGrafica;
 
 /**
  * Representa una Entidad de tipo Bomberman.
@@ -24,9 +23,9 @@ public class Bomberman extends Entidad {
     public Bomberman(Celda c) {
     	super(c);
     	velocidad=1;
-    	cantBombas=2;
+    	cantBombas=1;
     	rangoBombas=1;
-    	miGrafico=new BombermanGrafica(velocidad,c.getFila(),c.getColumna());
+    	miGrafico=new BombermanGrafica(c.getFila(),c.getColumna());
     }
     
     /**
@@ -51,11 +50,7 @@ public class Bomberman extends Entidad {
 					PowerUp pu = proxima.getPowerUp();
 					if (pu != null) {
 						pu.activar(this);
-						miCelda.getMapa().getNivel().sumarPuntaje(pu.getPuntaje());
-						proxima.setPowerUp(null);
-						miCelda.setCeldaGrafica(new TransitableGrafica(miCelda.getFila(),miCelda.getColumna()));
-						miCelda.getMapa().getNivel().agregarGrafico(miCelda);
-						
+						proxima.setPowerUp(null);						
 					}
 				}
 
@@ -81,7 +76,7 @@ public class Bomberman extends Entidad {
      * Aumenta en 1 la velocidad del bomberman.
      */
     public void aumentarVelocidad() {
-        velocidad++;
+        velocidad*=2;
     }
 
     /**

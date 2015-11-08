@@ -18,8 +18,6 @@ public class Pared {
     public Pared(Celda c) {
         puntaje=10;
         miCelda=c;
-        //c.setCeldaGrafica(new ParedGrafica(c.getFila(),c.getColumna()));
-    	//miCelda.getMapa().getNivel().agregarGrafico(c);
     }
 
     /**
@@ -35,7 +33,7 @@ public class Pared {
      * @return puntaje int.
      */
     public int serExplotado() {
-    	
+    	miCelda.getMapa().getNivel().disminuirCantP();
         return puntaje;
     }
 }

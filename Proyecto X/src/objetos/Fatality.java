@@ -25,7 +25,7 @@ public class Fatality extends PowerUp {
      */
     public void activar(Bomberman b) {
         b.aumentarRangoBombas();
-        miCelda.getCeldaGrafica().getGrafico().setIcon(null);
+        super.activar(b);
     }
 
 }

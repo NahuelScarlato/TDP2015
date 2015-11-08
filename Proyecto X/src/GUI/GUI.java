@@ -2,7 +2,6 @@ package GUI;
 
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Point;
 import java.awt.TextField;
 
 import javax.swing.*;
@@ -22,6 +21,7 @@ public class GUI {
 	private JFrame frmProyecto;
 	private JLayeredPane panelJuego;
 	private TextField textField_Puntaje;
+	private TextField textField_Tiempo;
 	
 	private volatile boolean lock = false;
 	private int direction = -1;
@@ -72,34 +72,34 @@ public GUI() {
 		panelPrincipal.add(panelUsuario);
 		panelUsuario.setLayout(null);
 			
-		JLabel lblPuntaje = new JLabel("Puntaje :");
+		JLabel lblPuntaje = new JLabel("Puntaje");
 		lblPuntaje.setBounds(39, 11, 123, 49);
 		lblPuntaje.setFont(new Font("Arial", Font.PLAIN, 30));
 		panelUsuario.add(lblPuntaje);
 		
 		
 		
-		JLabel lblTiempo = new JLabel("Tiempo :");
+		JLabel lblTiempo = new JLabel("Tiempo");
 		lblTiempo.setBounds(575, 11, 116, 49);
 		lblTiempo.setFont(new Font("Arial", Font.PLAIN, 30));
 		panelUsuario.add(lblTiempo);
 		
 		textField_Puntaje = new TextField();
 		textField_Puntaje.setEnabled(false);
-		textField_Puntaje.setForeground(Color.RED);
 		textField_Puntaje.setEditable(false);
-		textField_Puntaje.setLocation(new Point(10, 10));
-		textField_Puntaje.setFont(new Font("Dialog", Font.PLAIN, 30));
+		textField_Puntaje.setFont(new Font("Dialog", Font.PLAIN, 40));
 		textField_Puntaje.setText(" 0");
 		textField_Puntaje.setBounds(168, 11, 116, 49);
 		
 		panelUsuario.add(textField_Puntaje);
 		
-		TextField textField_3 = new TextField();
-		textField_3.setBounds(697, 11, 116, 49);
-		textField_3.setEnabled(false);
-		textField_3.setEditable(false);
-		panelUsuario.add(textField_3);
+		textField_Tiempo = new TextField();
+		textField_Tiempo.setBounds(690, 11, 180, 49);
+		textField_Tiempo.setEnabled(false);
+		textField_Tiempo.setEditable(false);
+		textField_Tiempo.setFont(new Font("Dialog", Font.PLAIN, 40));
+		textField_Tiempo.setText(" 00:00:00 ");
+		panelUsuario.add(textField_Tiempo);
 		
 		panelJuego = new JLayeredPane();
 		panelJuego.setOpaque(false);
@@ -170,5 +170,9 @@ public GUI() {
 	
 	public TextField getMarcadorGUI(){
 		return textField_Puntaje;
+	}
+	
+	public TextField getMarcadorTiempo(){
+		return textField_Tiempo;
 	}
 }

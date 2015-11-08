@@ -26,9 +26,9 @@ public class Nivel {
 
     protected Enemigo[] enemigos;
     
-    protected int cantEnemigos=6;
-    
     protected Bomberman bomberman;
+    
+    protected int cantParedes;
     
     protected GUI gui;
     
@@ -46,13 +46,15 @@ public class Nivel {
         
         bomberman=miMapa.crearBomberman();        
                 
-        Celda[] paredes=miMapa.crearParedesDestruibles();       
+        Celda[] paredes=miMapa.crearParedesDestruibles();
+        
+        cantParedes=paredes.length;
         
         miMapa.crearPowerUps(paredes);
         
         enemigos=miMapa.crearEnemigos();
         
-        for(int i=0;i<cantEnemigos-1;i++){			
+        for(int i=0;i<enemigos.length-1;i++){			
 			enemigos[i].start();
 		}        
       
@@ -129,6 +131,18 @@ public class Nivel {
      */
     public int getMarcador() {
         return marcador;
+    }
+    
+    /**
+     * Retorna cantidad actual de paredes destruibles sin destruir.
+     * @return cantParedes int.
+     */
+    public int getCantP(){
+    	return cantParedes;
+    }
+    
+    public void disminuirCantP(){
+    	cantParedes--;
     }
 
     /**

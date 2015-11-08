@@ -14,8 +14,8 @@ public class RugulosGrafica extends EntidadGrafica {
 	 * @param x int.
 	 * @param y int.
 	 */
-	public RugulosGrafica(int velocidad, int x, int y) {
-		super(velocidad, x, y);
+	public RugulosGrafica(int x, int y) {
+		super(x, y);
 		
 		image[0] = new ImageIcon(getClass().getResource("/source/Rugulos/EspaldaParado.png"));
 		image[1] = new ImageIcon(getClass().getResource("/source/Rugulos/FrenteParado.png"));

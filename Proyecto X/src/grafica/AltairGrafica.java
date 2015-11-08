@@ -14,8 +14,8 @@ public class AltairGrafica extends EntidadGrafica{
 	 * @param x int.
 	 * @param y int.
 	 */
-	public AltairGrafica(int velocidad, int x, int y) {
-		super(velocidad, x, y);
+	public AltairGrafica(int x, int y) {
+		super(x, y);
 		
 		image[0] = new ImageIcon(getClass().getResource("/source/Altair/EspaldaParado.png"));
 		image[1] = new ImageIcon(getClass().getResource("/source/Altair/FrenteParado.png"));
