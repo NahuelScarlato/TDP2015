@@ -20,8 +20,12 @@ import java.awt.event.KeyEvent;
 public class GUI {
 	private JFrame frmProyecto;
 	private JLayeredPane panelJuego;
-	private TextField textField_Puntaje;
-	private TextField textField_Tiempo;
+	private JLabel textField_Puntaje;
+	private JLabel textField_Tiempo;
+	private JLabel lblSpe;
+	private JLabel lblFat;
+	private JLabel lblBom;
+	private JLabel lblMasImg;
 	
 	private volatile boolean lock = false;
 	private int direction = -1;
@@ -54,12 +58,12 @@ public GUI() {
 		frmProyecto.setResizable(false);
 		frmProyecto.setTitle("Proyecto X");
 		frmProyecto.getContentPane().setBackground(Color.GREEN);
-		frmProyecto.setBounds(50, 50, 936,512);
+		frmProyecto.setBounds(50, 50, 1006,512);
 		frmProyecto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmProyecto.getContentPane().setLayout(null);
 		
 		JPanel panelPrincipal = new JPanel();
-		panelPrincipal.setBounds(0, 0, 930, 483);
+		panelPrincipal.setBounds(0, 0, 1000, 483);
 		panelPrincipal.setForeground(Color.BLACK);
 		panelPrincipal.setBackground(Color.GRAY);
 		frmProyecto.getContentPane().add(panelPrincipal);
@@ -68,13 +72,13 @@ public GUI() {
 		
 		
 		JPanel panelUsuario = new JPanel();
-		panelUsuario.setBounds(0, 0, 930, 90);
+		panelUsuario.setBounds(0, 0, 1000, 90);
 		panelPrincipal.add(panelUsuario);
 		panelUsuario.setLayout(null);
 			
 		JLabel lblPuntaje = new JLabel("Puntaje");
 		lblPuntaje.setForeground(Color.MAGENTA);
-		lblPuntaje.setBounds(157, 0, 145, 35);
+		lblPuntaje.setBounds(175, 0, 145, 35);
 		lblPuntaje.setFont(new Font("Castellar", Font.BOLD, 27));
 		panelUsuario.add(lblPuntaje);
 		
@@ -82,31 +86,84 @@ public GUI() {
 		
 		JLabel lblTiempo = new JLabel("Tiempo");
 		lblTiempo.setForeground(Color.MAGENTA);
-		lblTiempo.setBounds(726, 0, 133, 35);
+		lblTiempo.setBounds(772, 0, 133, 35);
 		lblTiempo.setFont(new Font("Castellar", Font.BOLD, 27));
 		panelUsuario.add(lblTiempo);
 		
-		textField_Puntaje = new TextField();
-		textField_Puntaje.setEnabled(false);
-		textField_Puntaje.setEditable(false);
+		textField_Puntaje = new JLabel();
+		textField_Puntaje.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_Puntaje.setForeground(new Color(255, 0, 0));
 		textField_Puntaje.setFont(new Font("Dialog", Font.PLAIN, 40));
-		textField_Puntaje.setText("  0");
-		textField_Puntaje.setBounds(168, 37, 116, 43);
+		textField_Puntaje.setText("0");
+		textField_Puntaje.setBounds(168, 37, 152, 43);
 		
 		panelUsuario.add(textField_Puntaje);
 		
-		textField_Tiempo = new TextField();
-		textField_Tiempo.setBounds(714, 31, 180, 49);
-		textField_Tiempo.setEnabled(false);
-		textField_Tiempo.setEditable(false);
+		textField_Tiempo = new JLabel();
+		textField_Tiempo.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_Tiempo.setForeground(new Color(255, 0, 0));
+		textField_Tiempo.setBounds(749, 34, 180, 49);
 		textField_Tiempo.setFont(new Font("Dialog", Font.PLAIN, 40));
 		textField_Tiempo.setText(" 00:00:00 ");
 		panelUsuario.add(textField_Tiempo);
 		
-		JLabel label = new JLabel("");
-		label.setBounds(0, 0, 930, 90);
-		label.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/fondoPanelUsuario.png")));
-		panelUsuario.add(label);
+		JLabel labelFondoUsuario = new JLabel("");
+		labelFondoUsuario.setBounds(0, 0, 1000, 90);
+		labelFondoUsuario.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/fondoPanelUsuario.png")));
+		panelUsuario.add(labelFondoUsuario);
+		
+		JPanel panelPowerUps = new JPanel();
+		panelPowerUps.setBackground(new Color(0, 128, 0));
+		panelPowerUps.setBounds(929, 90, 71, 392);
+		panelPowerUps.setLayout(null);
+		
+		
+	
+		lblSpe=new JLabel();
+		lblSpe.setText("x0");
+		getLblSpe().setForeground(Color.RED);
+		getLblSpe().setFont(new Font("Calibri", Font.BOLD, 29));
+		getLblSpe().setBounds(15, 5, 46, 36);
+		panelPowerUps.add(getLblSpe());
+		
+		JLabel lblSpeImg = new JLabel("");
+		lblSpeImg.setBounds(20, 40, 30, 30);
+		lblSpeImg.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/PowerUp/SpeedUp.png")));
+		panelPowerUps.add(lblSpeImg);
+		
+		lblBom=new JLabel();
+		lblBom.setText("x0");
+		getLblBom().setFont(new Font("Calibri", Font.BOLD, 29));
+		getLblBom().setForeground(Color.RED);
+		getLblBom().setBounds(15, 142, 46, 36);
+		panelPowerUps.add(getLblBom());
+		
+		JLabel lblBomImg = new JLabel("");
+		lblBomImg.setBounds(20, 179, 30, 30);
+
+		lblBomImg.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/PowerUp/Bombality.png")));
+		panelPowerUps.add(lblBomImg);
+		
+		lblFat=new JLabel();
+		lblFat.setText("x0");
+		getLblFat().setForeground(Color.RED);
+		getLblFat().setFont(new Font("Calibri", Font.BOLD, 29));
+		getLblFat().setBounds(15, 74, 46, 36);
+		panelPowerUps.add(getLblFat());
+		
+		JLabel lblFatImg = new JLabel("");
+		lblFatImg.setBounds(20, 110, 30, 30);
+
+		lblFatImg.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/PowerUp/Fatality.png")));
+		panelPowerUps.add(lblFatImg);
+		
+		setLblMasImg(new JLabel(""));
+		getLblMasImg().setBounds(20, 300, 30, 30);
+		getLblMasImg().setIcon(new ImageIcon(getClass().getResource("/source/Objetos/PowerUp/Masacrality.png")));
+		panelPowerUps.add(getLblMasImg());
+		
+		
+		panelPrincipal.add(panelPowerUps);
 		
 		panelJuego = new JLayeredPane();
 		panelJuego.setOpaque(false);
@@ -114,7 +171,6 @@ public GUI() {
 		panelJuego.setBackground(new Color(34, 139, 34));
 		panelJuego.setLayout(null);
 		panelPrincipal.add(panelJuego);
-		
 		
 		
 		frmProyecto.addKeyListener(new KeyAdapter() {
@@ -175,11 +231,43 @@ public GUI() {
 		return this.direction;
 	}
 	
-	public TextField getMarcadorGUI(){
+	public JLabel getMarcadorGUI(){
 		return textField_Puntaje;
 	}
 	
-	public TextField getMarcadorTiempo(){
+	public JLabel getMarcadorTiempo(){
 		return textField_Tiempo;
+	}
+	
+	public JLabel getLblMasImg() {
+		return lblMasImg;
+	}
+
+	public void setLblMasImg(JLabel lblMasImg) {
+		this.lblMasImg = lblMasImg;
+	}
+
+	public JLabel getLblBom() {
+		return lblBom;
+	}
+
+	public void setLblBom(JLabel lblBom) {
+		this.lblBom = lblBom;
+	}
+
+	public JLabel getLblFat() {
+		return lblFat;
+	}
+
+	public void setLblFat(JLabel lblFat) {
+		this.lblFat = lblFat;
+	}
+
+	public JLabel getLblSpe() {
+		return lblSpe;
+	}
+
+	public void setLblSpe(JLabel lblSpe) {
+		this.lblSpe = lblSpe;
 	}
 }
