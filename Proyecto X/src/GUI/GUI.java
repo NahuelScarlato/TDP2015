@@ -73,33 +73,40 @@ public GUI() {
 		panelUsuario.setLayout(null);
 			
 		JLabel lblPuntaje = new JLabel("Puntaje");
-		lblPuntaje.setBounds(39, 11, 123, 49);
-		lblPuntaje.setFont(new Font("Arial", Font.PLAIN, 30));
+		lblPuntaje.setForeground(Color.MAGENTA);
+		lblPuntaje.setBounds(157, 0, 145, 35);
+		lblPuntaje.setFont(new Font("Castellar", Font.BOLD, 27));
 		panelUsuario.add(lblPuntaje);
 		
 		
 		
 		JLabel lblTiempo = new JLabel("Tiempo");
-		lblTiempo.setBounds(575, 11, 116, 49);
-		lblTiempo.setFont(new Font("Arial", Font.PLAIN, 30));
+		lblTiempo.setForeground(Color.MAGENTA);
+		lblTiempo.setBounds(726, 0, 133, 35);
+		lblTiempo.setFont(new Font("Castellar", Font.BOLD, 27));
 		panelUsuario.add(lblTiempo);
 		
 		textField_Puntaje = new TextField();
 		textField_Puntaje.setEnabled(false);
 		textField_Puntaje.setEditable(false);
 		textField_Puntaje.setFont(new Font("Dialog", Font.PLAIN, 40));
-		textField_Puntaje.setText(" 0");
-		textField_Puntaje.setBounds(168, 11, 116, 49);
+		textField_Puntaje.setText("  0");
+		textField_Puntaje.setBounds(168, 37, 116, 43);
 		
 		panelUsuario.add(textField_Puntaje);
 		
 		textField_Tiempo = new TextField();
-		textField_Tiempo.setBounds(690, 11, 180, 49);
+		textField_Tiempo.setBounds(714, 31, 180, 49);
 		textField_Tiempo.setEnabled(false);
 		textField_Tiempo.setEditable(false);
 		textField_Tiempo.setFont(new Font("Dialog", Font.PLAIN, 40));
 		textField_Tiempo.setText(" 00:00:00 ");
 		panelUsuario.add(textField_Tiempo);
+		
+		JLabel label = new JLabel("");
+		label.setBounds(0, 0, 930, 90);
+		label.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/fondoPanelUsuario.png")));
+		panelUsuario.add(label);
 		
 		panelJuego = new JLayeredPane();
 		panelJuego.setOpaque(false);

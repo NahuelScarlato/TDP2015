@@ -75,7 +75,7 @@ public abstract class Enemigo extends Entidad {
     	Celda proxima = miCelda.celdaParaAvanzar(dir);
 
 		if (proxima != null) {
-			if((proxima.getBomba() == null) && (GMod || proxima.getPared() == null)){
+			if((proxima.getBomba() == null) && (GMod || proxima.getPared() == null) && proxima.getEnemigo()==null ){
 				actualizar(proxima,dir);						
 				if (proxima.getBomberman() != null && !proxima.getBomberman().getGMod()) 
 					proxima.getBomberman().morir();
