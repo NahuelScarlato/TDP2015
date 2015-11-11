@@ -57,6 +57,9 @@ public class Nivel {
         for(int i=0;i<enemigos.length-1;i++){			
 			enemigos[i].start();
 		}        
+        
+
+        gui.getLbllblCantParedes().setText(""+cantParedes);
       
     }
     

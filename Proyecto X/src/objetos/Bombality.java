@@ -25,6 +25,10 @@ public class Bombality extends PowerUp {
      */
     public void activar(Bomberman b) {
         b.aumentarCantBombas(); 
+    	String aux=	miCelda.getMapa().getNivel().getGUI().getLblBom().getText();
+       	char valorNumerico= aux.charAt(1);
+        valorNumerico++;
+       	miCelda.getMapa().getNivel().getGUI().getLblBom().setText("x"+valorNumerico);
         super.activar(b);
     }
 }

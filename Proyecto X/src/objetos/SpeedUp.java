@@ -25,6 +25,10 @@ public class SpeedUp extends PowerUp {
      */
     public void activar(Bomberman b) {
        	b.aumentarVelocidad();
+       	String aux=	miCelda.getMapa().getNivel().getGUI().getLblSpe().getText();
+    	char valorNumerico= aux.charAt(1);
+    	valorNumerico++;
+       	miCelda.getMapa().getNivel().getGUI().getLblSpe().setText("x"+valorNumerico);
        	super.activar(b);
     }
 

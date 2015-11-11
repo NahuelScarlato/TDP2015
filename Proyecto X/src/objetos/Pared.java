@@ -34,6 +34,8 @@ public class Pared {
      */
     public int serExplotado() {
     	miCelda.getMapa().getNivel().disminuirCantP();
+    	miCelda.getMapa().getNivel().getGUI().getLbllblCantParedes().setText(""+miCelda.getMapa().getNivel().getCantP());
+        
         return puntaje;
     }
 }

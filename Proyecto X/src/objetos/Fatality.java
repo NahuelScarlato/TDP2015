@@ -25,6 +25,11 @@ public class Fatality extends PowerUp {
      */
     public void activar(Bomberman b) {
         b.aumentarRangoBombas();
+    	String aux=	miCelda.getMapa().getNivel().getGUI().getLblFat().getText();
+    	char valorNumerico= aux.charAt(1);
+        valorNumerico++;
+       	miCelda.getMapa().getNivel().getGUI().getLblFat().setText("x"+valorNumerico);
+       
         super.activar(b);
     }
 

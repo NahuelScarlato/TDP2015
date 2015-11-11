@@ -27,6 +27,7 @@ public class MiniContador extends Thread{
 		try {
 			Thread.sleep(5000);
 			bomberman.toggleGMod();
+			bomberman.getCelda().getMapa().getNivel().getGUI().getLblMasImg().setVisible(false);
 		} catch (InterruptedException e) {			
 			e.printStackTrace();
 		}		

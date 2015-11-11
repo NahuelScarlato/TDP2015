@@ -26,6 +26,10 @@ public class GUI {
 	private JLabel lblFat;
 	private JLabel lblBom;
 	private JLabel lblMasImg;
+	private JLabel lblCantParedes;
+	
+	private int colocar=-1;
+	
 	
 	private volatile boolean lock = false;
 	private int direction = -1;
@@ -39,7 +43,6 @@ public class GUI {
 				try {
 					GUI window = new GUI();
 					window.frmProyecto.setVisible(true);
-					
 					
 					
 				} catch (Exception e) {
@@ -75,10 +78,24 @@ public GUI() {
 		panelUsuario.setBounds(0, 0, 1000, 90);
 		panelPrincipal.add(panelUsuario);
 		panelUsuario.setLayout(null);
-			
+		
+		lblCantParedes = new JLabel();
+		lblCantParedes.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCantParedes.setFont(new Font("Castellar", Font.BOLD, 24));
+		lblCantParedes.setForeground(Color.RED);
+		lblCantParedes.setBounds(429, 36, 94, 35);
+		panelUsuario.add(lblCantParedes);
+		
+		JLabel lblParedes = new JLabel("Paredes");
+		lblParedes.setForeground(Color.MAGENTA);
+		lblParedes.setFont(new Font("Castellar", Font.BOLD, 24));
+		lblParedes.setBounds(419, 1, 133, 35);
+		panelUsuario.add(lblParedes);
+		
+					
 		JLabel lblPuntaje = new JLabel("Puntaje");
 		lblPuntaje.setForeground(Color.MAGENTA);
-		lblPuntaje.setBounds(175, 0, 145, 35);
+		lblPuntaje.setBounds(114, 0, 145, 35);
 		lblPuntaje.setFont(new Font("Castellar", Font.BOLD, 27));
 		panelUsuario.add(lblPuntaje);
 		
@@ -95,7 +112,7 @@ public GUI() {
 		textField_Puntaje.setForeground(new Color(255, 0, 0));
 		textField_Puntaje.setFont(new Font("Dialog", Font.PLAIN, 40));
 		textField_Puntaje.setText("0");
-		textField_Puntaje.setBounds(168, 37, 152, 43);
+		textField_Puntaje.setBounds(107, 36, 152, 43);
 		
 		panelUsuario.add(textField_Puntaje);
 		
@@ -158,8 +175,9 @@ public GUI() {
 		panelPowerUps.add(lblFatImg);
 		
 		setLblMasImg(new JLabel(""));
-		getLblMasImg().setBounds(20, 300, 30, 30);
-		getLblMasImg().setIcon(new ImageIcon(getClass().getResource("/source/Objetos/PowerUp/Masacrality.png")));
+		getLblMasImg().setBounds(15, 240, 46, 90);
+		getLblMasImg().setIcon(new ImageIcon(getClass().getResource("/source/Objetos/imgMas.png")));
+		lblMasImg.setVisible(false);
 		panelPowerUps.add(getLblMasImg());
 		
 		
@@ -171,6 +189,7 @@ public GUI() {
 		panelJuego.setBackground(new Color(34, 139, 34));
 		panelJuego.setLayout(null);
 		panelPrincipal.add(panelJuego);
+		
 		
 		
 		frmProyecto.addKeyListener(new KeyAdapter() {
@@ -269,5 +288,13 @@ public GUI() {
 
 	public void setLblSpe(JLabel lblSpe) {
 		this.lblSpe = lblSpe;
+	}
+	
+	public JLabel getLbllblCantParedes() {
+		return lblCantParedes;
+	}
+
+	public void setLbllblCantParedes(JLabel lblCantParedes) {
+		this.lblCantParedes = lblCantParedes;
 	}
 }
