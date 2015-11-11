@@ -2,11 +2,11 @@ package GUI;
 
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.TextField;
 
 import javax.swing.*;
 
 import Nivel.Nivel;
+import threads.ContadorTiempo;
 import threads.Juego;
 
 import java.awt.Color;
@@ -28,11 +28,11 @@ public class GUI {
 	private JLabel lblMasImg;
 	private JLabel lblCantParedes;
 	
-	private int colocar=-1;
-	
+	protected ContadorTiempo cT;
 	
 	private volatile boolean lock = false;
 	private int direction = -1;
+	private int colocar=-1;
 	
 	/**
 	 * Comienzo de la aplicacion.
@@ -204,8 +204,12 @@ public GUI() {
 		Nivel nivel=new Nivel(this);
 		
 		Juego juego= new Juego(nivel,this);
+		
+		cT=new ContadorTiempo(textField_Tiempo);
 				
 		juego.start();
+		
+		cT.start();
 	}
 	
 	/**
@@ -296,5 +300,9 @@ public GUI() {
 
 	public void setLbllblCantParedes(JLabel lblCantParedes) {
 		this.lblCantParedes = lblCantParedes;
+	}
+	
+	public ContadorTiempo getcT() {
+		return cT;
 	}
 }

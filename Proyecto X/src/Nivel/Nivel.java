@@ -100,7 +100,10 @@ public class Nivel {
      * Termina la ejecucion de los hilos de los enemigos.
      */ 
     public void cortar(){
-		for(int i = 0; i < enemigos.length; i++){
+		
+    	gui.getcT().toggleSeguir();
+    	
+    	for(int i = 0; i < enemigos.length; i++){
 			if(enemigos[i]!=null)
 				enemigos[i].toggleVivo();
 		}
