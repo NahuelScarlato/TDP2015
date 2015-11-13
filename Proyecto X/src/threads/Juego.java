@@ -25,14 +25,19 @@ public class Juego extends Thread{
 	/**
 	 * Inicia el hilo, ejecuta el movimiento del bomberman y los enemigos mientras el bomberman este vivo.
      */
-	public void run() {
+public void run() {
 		
 		while(nivel.getBomberman().getVivo() && nivel.getCantP()!=0){
 			
 			if(gui.getLock()){
 				nivel.mover(gui.getDirection());
 				gui.toggleLock();
-			}			
+			}	
+			
+			if(gui.getLockColoc()){
+				nivel.ponerBomba(gui.getColocar());
+				gui.toggleLockColoc();
+			}
 		}		
 		nivel.cortar();
 	}

@@ -1,5 +1,7 @@
 package Nivel;
 
+import java.awt.event.KeyEvent;
+
 import javax.swing.JLabel;
 
 import objetos.Bomba;
@@ -125,10 +127,19 @@ public class Nivel {
      * @param dir int.
      */
 	public void mover(int dir){
-		if(dir==Celda.B)
-			bomberman.ponerBomba();
-		else
+		//if(dir==Celda.B)
+		//	bomberman.ponerBomba();
+	//	else
 			bomberman.avanzar(dir);
+	}
+	
+	public void ponerBomba(int dir){
+		if(dir==KeyEvent.VK_B){
+			bomberman.ponerBomba();
+			//System.out.println("entro al poner bomba de nivel");
+		}
+		//else
+			//bomberman.avanzar(dir);
 	}
     
     /**

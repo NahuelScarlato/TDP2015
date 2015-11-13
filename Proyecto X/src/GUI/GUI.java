@@ -1,6 +1,5 @@
 package GUI;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.*;
@@ -30,38 +29,32 @@ public class GUI {
 	
 	protected ContadorTiempo cT;
 	
-	private volatile boolean lock = false;
-	private int direction = -1;
+	
+	
+
+	private String nombre;
+	
+	private volatile boolean lockColoc = false;
 	private int colocar=-1;
 	
-	/**
-	 * Comienzo de la aplicacion.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUI window = new GUI();
-					window.frmProyecto.setVisible(true);
-					
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	private volatile boolean lock = false;
+	private int direction = -1;
+	
 	/**
 	 * Crea la aplicacion.
 	 */
-public GUI() {
+public GUI(String nom) {
 		
+		nombre=nom;
+	 
 		frmProyecto = new JFrame();
 		frmProyecto.setResizable(false);
-		frmProyecto.setTitle("Proyecto X");
+		//frmProyecto.setTitle("Proyecto X");
 		frmProyecto.getContentPane().setBackground(Color.GREEN);
 		frmProyecto.setBounds(50, 50, 1006,512);
+		
+		frmProyecto.setVisible(true);
+		
 		frmProyecto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmProyecto.getContentPane().setLayout(null);
 		
@@ -71,6 +64,7 @@ public GUI() {
 		panelPrincipal.setBackground(Color.GRAY);
 		frmProyecto.getContentPane().add(panelPrincipal);
 		panelPrincipal.setLayout(null);
+		
 		
 		
 		
@@ -190,6 +184,7 @@ public GUI() {
 		panelJuego.setLayout(null);
 		panelPrincipal.add(panelJuego);
 		
+		// para mostrar el ranking
 		
 		
 		frmProyecto.addKeyListener(new KeyAdapter() {
@@ -198,15 +193,21 @@ public GUI() {
 			public void keyPressed(KeyEvent arg0) {
 				mover(arg0);
 			}
+			@Override
+			public void keyReleased(KeyEvent e) {
+				ponerBomba(e);
+			}
+			
 		});	
 		
+				
 		// Creo el nivel
 		Nivel nivel=new Nivel(this);
 		
 		Juego juego= new Juego(nivel,this);
-		
-		cT=new ContadorTiempo(textField_Tiempo);
 				
+		cT=new ContadorTiempo(textField_Tiempo);
+		
 		juego.start();
 		
 		cT.start();
@@ -231,6 +232,15 @@ public GUI() {
 		}
 	}	
 	
+	protected void ponerBomba(KeyEvent key){
+		if(!lockColoc){
+			colocar = key.getKeyCode();
+			lockColoc = true;
+		}
+	}
+	
+	
+	
 	/**
 	 * Retorna el atributo lock.
 	 * @return lock boolean.
@@ -252,6 +262,18 @@ public GUI() {
 	 */
 	public int getDirection(){
 		return this.direction;
+	}
+	
+	public int getColocar(){
+		return this.colocar;
+	}
+	
+	public boolean getLockColoc() {
+		return lockColoc;
+	}
+
+	public void toggleLockColoc() {
+		this.lockColoc = !this.lockColoc;
 	}
 	
 	public JLabel getMarcadorGUI(){
@@ -300,6 +322,15 @@ public GUI() {
 
 	public void setLbllblCantParedes(JLabel lblCantParedes) {
 		this.lblCantParedes = lblCantParedes;
+	}
+
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	public ContadorTiempo getcT() {
