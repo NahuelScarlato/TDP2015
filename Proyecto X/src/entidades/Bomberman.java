@@ -63,11 +63,13 @@ public class Bomberman extends Entidad {
     */
     public void ponerBomba() {
         if(cantBombas>0 || GMod){
-        	Bomba b=new Bomba(rangoBombas,miCelda);
-        	miCelda.setBomba(b);
-        	miCelda.getMapa().getNivel().agregarBombaGrafico(b);
-        	b.start();
-        	cantBombas--;
+        	if(miCelda.getPared()==null){
+	        	Bomba b=new Bomba(rangoBombas,miCelda);
+	        	miCelda.setBomba(b);
+	        	miCelda.getMapa().getNivel().agregarBombaGrafico(b);
+	        	b.start();
+	        	cantBombas--;
+        	}
         }
     }
     
