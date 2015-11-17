@@ -51,7 +51,8 @@ public GUI(String nom) {
 		frmProyecto.setResizable(false);
 		//frmProyecto.setTitle("Proyecto X");
 		frmProyecto.getContentPane().setBackground(Color.GREEN);
-		frmProyecto.setBounds(50, 50, 1006,512);
+		frmProyecto.setSize(1036, 535);
+		frmProyecto.setLocationRelativeTo(null);
 		
 		frmProyecto.setVisible(true);
 		
@@ -59,7 +60,7 @@ public GUI(String nom) {
 		frmProyecto.getContentPane().setLayout(null);
 		
 		JPanel panelPrincipal = new JPanel();
-		panelPrincipal.setBounds(0, 0, 1000, 483);
+		panelPrincipal.setBounds(0, 0, 1049, 509);
 		panelPrincipal.setForeground(Color.BLACK);
 		panelPrincipal.setBackground(Color.GRAY);
 		frmProyecto.getContentPane().add(panelPrincipal);
@@ -119,13 +120,13 @@ public GUI(String nom) {
 		panelUsuario.add(textField_Tiempo);
 		
 		JLabel labelFondoUsuario = new JLabel("");
-		labelFondoUsuario.setBounds(0, 0, 1000, 90);
+		labelFondoUsuario.setBounds(0, 0, 1031, 90);
 		labelFondoUsuario.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/fondoPanelUsuario.png")));
 		panelUsuario.add(labelFondoUsuario);
 		
 		JPanel panelPowerUps = new JPanel();
 		panelPowerUps.setBackground(new Color(0, 128, 0));
-		panelPowerUps.setBounds(929, 90, 71, 392);
+		panelPowerUps.setBounds(993, 91, 71, 392);
 		panelPowerUps.setLayout(null);
 		
 		
@@ -134,11 +135,11 @@ public GUI(String nom) {
 		lblSpe.setText("x0");
 		getLblSpe().setForeground(Color.RED);
 		getLblSpe().setFont(new Font("Calibri", Font.BOLD, 29));
-		getLblSpe().setBounds(15, 5, 46, 36);
+		getLblSpe().setBounds(10, 0, 46, 36);
 		panelPowerUps.add(getLblSpe());
 		
 		JLabel lblSpeImg = new JLabel("");
-		lblSpeImg.setBounds(20, 40, 30, 30);
+		lblSpeImg.setBounds(10, 40, 30, 30);
 		lblSpeImg.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/PowerUp/SpeedUp.png")));
 		panelPowerUps.add(lblSpeImg);
 		
@@ -146,11 +147,11 @@ public GUI(String nom) {
 		lblBom.setText("x0");
 		getLblBom().setFont(new Font("Calibri", Font.BOLD, 29));
 		getLblBom().setForeground(Color.RED);
-		getLblBom().setBounds(15, 142, 46, 36);
+		getLblBom().setBounds(10, 142, 46, 36);
 		panelPowerUps.add(getLblBom());
 		
 		JLabel lblBomImg = new JLabel("");
-		lblBomImg.setBounds(20, 179, 30, 30);
+		lblBomImg.setBounds(10, 179, 30, 30);
 
 		lblBomImg.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/PowerUp/Bombality.png")));
 		panelPowerUps.add(lblBomImg);
@@ -159,17 +160,17 @@ public GUI(String nom) {
 		lblFat.setText("x0");
 		getLblFat().setForeground(Color.RED);
 		getLblFat().setFont(new Font("Calibri", Font.BOLD, 29));
-		getLblFat().setBounds(15, 74, 46, 36);
+		getLblFat().setBounds(10, 74, 46, 36);
 		panelPowerUps.add(getLblFat());
 		
 		JLabel lblFatImg = new JLabel("");
-		lblFatImg.setBounds(20, 110, 30, 30);
+		lblFatImg.setBounds(10, 110, 30, 30);
 
 		lblFatImg.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/PowerUp/Fatality.png")));
 		panelPowerUps.add(lblFatImg);
 		
 		setLblMasImg(new JLabel(""));
-		getLblMasImg().setBounds(15, 240, 46, 90);
+		getLblMasImg().setBounds(10, 240, 46, 90);
 		getLblMasImg().setIcon(new ImageIcon(getClass().getResource("/source/Objetos/imgMas.png")));
 		lblMasImg.setVisible(false);
 		panelPowerUps.add(getLblMasImg());
@@ -179,7 +180,7 @@ public GUI(String nom) {
 		
 		panelJuego = new JLayeredPane();
 		panelJuego.setOpaque(false);
-		panelJuego.setBounds(0, 91, 930,391);
+		panelJuego.setBounds(0, 91, 996,417);
 		panelJuego.setBackground(new Color(34, 139, 34));
 		panelJuego.setLayout(null);
 		panelPrincipal.add(panelJuego);
