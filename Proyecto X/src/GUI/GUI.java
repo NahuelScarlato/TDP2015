@@ -28,9 +28,6 @@ public class GUI {
 	private JLabel lblCantParedes;
 	
 	protected ContadorTiempo cT;
-	
-	
-	
 
 	private String nombre;
 	
@@ -39,6 +36,8 @@ public class GUI {
 	
 	private volatile boolean lock = false;
 	private int direction = -1;
+	private JPanel panelUsuario;
+	private JLabel labelSpe;
 	
 	/**
 	 * Crea la aplicacion.
@@ -47,146 +46,123 @@ public GUI(String nom) {
 		
 		nombre=nom;
 	 
+		//Frame principal
 		frmProyecto = new JFrame();
 		frmProyecto.setResizable(false);
-		//frmProyecto.setTitle("Proyecto X");
-		frmProyecto.getContentPane().setBackground(Color.GREEN);
-		frmProyecto.setSize(1036, 535);
-		frmProyecto.setLocationRelativeTo(null);
-		
-		frmProyecto.setVisible(true);
-		
+		frmProyecto.setSize(999, 566);
+		frmProyecto.setLocationRelativeTo(null);		
+		frmProyecto.setVisible(true);		
 		frmProyecto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmProyecto.getContentPane().setLayout(null);
 		
+		//Panel principal
 		JPanel panelPrincipal = new JPanel();
-		panelPrincipal.setBounds(0, 0, 1049, 509);
-		panelPrincipal.setForeground(Color.BLACK);
-		panelPrincipal.setBackground(Color.GRAY);
-		frmProyecto.getContentPane().add(panelPrincipal);
+		panelPrincipal.setBounds(0, 0, 1049, 541);
 		panelPrincipal.setLayout(null);
+		frmProyecto.getContentPane().add(panelPrincipal);
 		
-		
-		
-		
-		JPanel panelUsuario = new JPanel();
-		panelUsuario.setBounds(0, 0, 1000, 90);
-		panelPrincipal.add(panelUsuario);
+		//Panel usuario	
+		panelUsuario = new JPanel();
+		panelUsuario.setBounds(0, 0, 1000, 122);
 		panelUsuario.setLayout(null);
+		panelPrincipal.add(panelUsuario);
 		
-		lblCantParedes = new JLabel();
-		lblCantParedes.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCantParedes.setFont(new Font("Castellar", Font.BOLD, 24));
-		lblCantParedes.setForeground(Color.RED);
-		lblCantParedes.setBounds(429, 36, 94, 35);
-		panelUsuario.add(lblCantParedes);
+		//Labels del panel usuario
+		setLblMasImg(new JLabel());
+		getLblMasImg().setIcon(new ImageIcon(getClass().getResource("/source/Objetos/imgMas.png")));
+		lblMasImg.setVisible(false);
 		
-		JLabel lblParedes = new JLabel("Paredes");
-		lblParedes.setForeground(Color.MAGENTA);
-		lblParedes.setFont(new Font("Castellar", Font.BOLD, 24));
-		lblParedes.setBounds(419, 1, 133, 35);
-		panelUsuario.add(lblParedes);
-		
-					
-		JLabel lblPuntaje = new JLabel("Puntaje");
-		lblPuntaje.setForeground(Color.MAGENTA);
-		lblPuntaje.setBounds(114, 0, 145, 35);
-		lblPuntaje.setFont(new Font("Castellar", Font.BOLD, 27));
-		panelUsuario.add(lblPuntaje);
-		
-		
-		
-		JLabel lblTiempo = new JLabel("Tiempo");
-		lblTiempo.setForeground(Color.MAGENTA);
-		lblTiempo.setBounds(772, 0, 133, 35);
-		lblTiempo.setFont(new Font("Castellar", Font.BOLD, 27));
-		panelUsuario.add(lblTiempo);
-		
-		textField_Puntaje = new JLabel();
-		textField_Puntaje.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_Puntaje.setForeground(new Color(255, 0, 0));
-		textField_Puntaje.setFont(new Font("Dialog", Font.PLAIN, 40));
-		textField_Puntaje.setText("0");
-		textField_Puntaje.setBounds(107, 36, 152, 43);
-		
-		panelUsuario.add(textField_Puntaje);
-		
-		textField_Tiempo = new JLabel();
-		textField_Tiempo.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_Tiempo.setForeground(new Color(255, 0, 0));
-		textField_Tiempo.setBounds(749, 34, 180, 49);
-		textField_Tiempo.setFont(new Font("Dialog", Font.PLAIN, 40));
-		textField_Tiempo.setText(" 00:00:00 ");
-		panelUsuario.add(textField_Tiempo);
-		
-		JLabel labelFondoUsuario = new JLabel("");
-		labelFondoUsuario.setBounds(0, 0, 1031, 90);
-		labelFondoUsuario.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/fondoPanelUsuario.png")));
-		panelUsuario.add(labelFondoUsuario);
-		
-		JPanel panelPowerUps = new JPanel();
-		panelPowerUps.setBackground(new Color(0, 128, 0));
-		panelPowerUps.setBounds(993, 91, 71, 392);
-		panelPowerUps.setLayout(null);
-		
-		
-	
 		lblSpe=new JLabel();
+		lblSpe.setBounds(162, 86, 46, 36);
+		panelUsuario.add(lblSpe);
 		lblSpe.setText("x0");
 		getLblSpe().setForeground(Color.RED);
 		getLblSpe().setFont(new Font("Calibri", Font.BOLD, 29));
-		getLblSpe().setBounds(10, 0, 46, 36);
-		panelPowerUps.add(getLblSpe());
-		
-		JLabel lblSpeImg = new JLabel("");
-		lblSpeImg.setBounds(10, 40, 30, 30);
-		lblSpeImg.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/PowerUp/SpeedUp.png")));
-		panelPowerUps.add(lblSpeImg);
 		
 		lblBom=new JLabel();
+		lblBom.setBounds(275, 86, 46, 36);		
 		lblBom.setText("x0");
-		getLblBom().setFont(new Font("Calibri", Font.BOLD, 29));
-		getLblBom().setForeground(Color.RED);
-		getLblBom().setBounds(10, 142, 46, 36);
-		panelPowerUps.add(getLblBom());
-		
-		JLabel lblBomImg = new JLabel("");
-		lblBomImg.setBounds(10, 179, 30, 30);
-
-		lblBomImg.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/PowerUp/Bombality.png")));
-		panelPowerUps.add(lblBomImg);
+		lblBom.setFont(new Font("Calibri", Font.BOLD, 29));
+		lblBom.setForeground(Color.RED);
+		panelUsuario.add(lblBom);
 		
 		lblFat=new JLabel();
+		lblFat.setBounds(219, 86, 46, 36);
 		lblFat.setText("x0");
-		getLblFat().setForeground(Color.RED);
-		getLblFat().setFont(new Font("Calibri", Font.BOLD, 29));
-		getLblFat().setBounds(10, 74, 46, 36);
-		panelPowerUps.add(getLblFat());
+		lblFat.setForeground(Color.RED);
+		lblFat.setFont(new Font("Calibri", Font.BOLD, 29));
+		panelUsuario.add(lblFat);
+		
+		
+		JLabel lblBomImg = new JLabel();
+		lblBomImg.setBounds(275, 56, 32, 32);
+		panelUsuario.add(lblBomImg);
+		lblBomImg.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/PowerUp/Bombality.png")));
 		
 		JLabel lblFatImg = new JLabel("");
-		lblFatImg.setBounds(10, 110, 30, 30);
-
+		lblFatImg.setBounds(219, 56, 32, 32);
+		panelUsuario.add(lblFatImg);
 		lblFatImg.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/PowerUp/Fatality.png")));
-		panelPowerUps.add(lblFatImg);
 		
-		setLblMasImg(new JLabel(""));
-		getLblMasImg().setBounds(10, 240, 46, 90);
-		getLblMasImg().setIcon(new ImageIcon(getClass().getResource("/source/Objetos/imgMas.png")));
-		lblMasImg.setVisible(false);
-		panelPowerUps.add(getLblMasImg());
+		JLabel lblSpeImg = new JLabel("");
+		lblSpeImg.setBounds(162, 56, 32, 32);
+		panelUsuario.add(lblSpeImg);
+		lblSpeImg.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/PowerUp/SpeedUp.png")));
 		
 		
-		panelPrincipal.add(panelPowerUps);
+		JLabel labelCPared = new JLabel();
+		labelCPared.setHorizontalAlignment(SwingConstants.CENTER);
+		labelCPared.setBounds(512, 10, 32, 32);
+		labelCPared.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/ParedDestruible.png")));
+		panelUsuario.add(labelCPared);
+		
+		lblCantParedes = new JLabel();
+		lblCantParedes.setFont(new Font("Century Gothic", Font.BOLD, 32));
+		lblCantParedes.setForeground(Color.RED);
+		lblCantParedes.setBounds(500, 50, 74, 61);
+		panelUsuario.add(lblCantParedes);
+		
+					
+		JLabel lblPuntaje = new JLabel("Puntaje");
+		lblPuntaje.setForeground(Color.DARK_GRAY);
+		lblPuntaje.setBounds(60, 10, 145, 35);
+		lblPuntaje.setFont(new Font("Castellar", Font.BOLD, 26));
+		panelUsuario.add(lblPuntaje);
+			
+		textField_Puntaje = new JLabel();
+		textField_Puntaje.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_Puntaje.setForeground(new Color(255, 0, 0));
+		textField_Puntaje.setFont(new Font("Century Gothic", Font.BOLD, 28));
+		textField_Puntaje.setText("0");
+		textField_Puntaje.setBounds(178, 3, 152, 43);		
+		panelUsuario.add(textField_Puntaje);
+		
+		
+		JLabel lblTiempo = new JLabel("Tiempo");
+		lblTiempo.setForeground(Color.DARK_GRAY);
+		lblTiempo.setBounds(685, 10, 133, 35);
+		lblTiempo.setFont(new Font("Castellar", Font.BOLD, 26));
+		panelUsuario.add(lblTiempo);
+					
+		textField_Tiempo = new JLabel();
+		textField_Tiempo.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_Tiempo.setForeground(new Color(255, 0, 0));
+		textField_Tiempo.setBounds(793, 0, 180, 49);
+		textField_Tiempo.setFont(new Font("Century Gothic", Font.BOLD, 28));
+		textField_Tiempo.setText(" 00:00:00 ");
+		panelUsuario.add(textField_Tiempo);
+		
+		JLabel labelFondoUsuario = new JLabel();
+		labelFondoUsuario.setBounds(0, 0, 1031, 122);
+		labelFondoUsuario.setIcon(new ImageIcon(getClass().getResource("/source/FondoUsuario.png")));
+		panelUsuario.add(labelFondoUsuario);
 		
 		panelJuego = new JLayeredPane();
 		panelJuego.setOpaque(false);
-		panelJuego.setBounds(0, 91, 996,417);
+		panelJuego.setBounds(0, 123, 996,417);
 		panelJuego.setBackground(new Color(34, 139, 34));
 		panelJuego.setLayout(null);
-		panelPrincipal.add(panelJuego);
-		
-		// para mostrar el ranking
-		
+		panelPrincipal.add(panelJuego);		
 		
 		frmProyecto.addKeyListener(new KeyAdapter() {
 			
@@ -207,8 +183,8 @@ public GUI(String nom) {
 		
 		Juego juego= new Juego(nivel,this);
 				
-		cT=new ContadorTiempo(textField_Tiempo);
-		
+		cT=new ContadorTiempo(textField_Tiempo);	
+				
 		juego.start();
 		
 		cT.start();
@@ -291,6 +267,8 @@ public GUI(String nom) {
 
 	public void setLblMasImg(JLabel lblMasImg) {
 		this.lblMasImg = lblMasImg;
+		lblMasImg.setBounds(772, 56, 46, 60);
+		panelUsuario.add(lblMasImg);
 	}
 
 	public JLabel getLblBom() {
