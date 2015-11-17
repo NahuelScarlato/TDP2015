@@ -18,8 +18,8 @@ public abstract class Grafica {
 	protected Icon explotar;
 	
 	//Tamaño de la imagen
-	protected final int width = 30;
-	protected final int height = 30;
+	protected final int width = 32;
+	protected final int height = 32;
 	
 	protected Point pos;
 	

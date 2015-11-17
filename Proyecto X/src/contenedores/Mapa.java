@@ -115,7 +115,7 @@ public class Mapa {
      */	
     private void crearIndestructible(int x, int y){
     	JLabel aux=new JLabel(new ImageIcon(getClass().getResource("/source/Objetos/ParedIndestructible.png")));
-		aux.setBounds(y*30, x*30, 30, 30);
+		aux.setBounds(y*32, x*32, 32, 32);
     	miNivel.getGUI().getFrame().add(aux);
     	
     	miMatriz[x][y]=null;
