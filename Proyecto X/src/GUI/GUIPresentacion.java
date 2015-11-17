@@ -2,7 +2,6 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.EventQueue;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,7 +17,6 @@ public class GUIPresentacion {
 
 	private JFrame frame;
 	private JTextField txtUser;
-	
 	private String nombre;
 
 	/**

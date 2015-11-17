@@ -254,7 +254,7 @@ public class Celda {
     	}
     	
     	exp[i]=null;
-    		
+        
         return exp;
     }
 

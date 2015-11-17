@@ -135,7 +135,7 @@ public class Mapa {
     	while(p<125){
     		rndF= nR.nextInt(filas-1);
          	rndC= nR.nextInt(columnas-1);
-    		if(miMatriz[rndF][rndC]!=null && CeldaValida(rndF,rndC) ){
+    		if(miMatriz[rndF][rndC]!=null && CeldaValida(rndF,rndC) && miMatriz[rndF][rndC].getPared()==null ){
 	    		miMatriz[rndF][rndC].setPared(new Pared(miMatriz[rndF][rndC]));
 	    		paredes[p]=miMatriz[rndF][rndC];
 	    		
