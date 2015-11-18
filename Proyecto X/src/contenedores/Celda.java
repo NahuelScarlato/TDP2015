@@ -285,7 +285,7 @@ public class Celda {
      * Explota el contenido de la celda y retorna su respectivo puntaje.
      * @return puntos int.
      */
-    public int serExplotada() {
+public int serExplotada() {
     	
     	miGrafico.explotar(this);   	
     	
@@ -300,11 +300,7 @@ public class Celda {
         	miEnemigo=null;
         }
         	
-        if(miBomba!=null){
-        	miBomba.interrupt();
-        	miBomba.explotar();       	
-        	
-        }
+       
         	
         if(miPowerUp!=null)
         	if(miPared==null){
@@ -327,6 +323,12 @@ public class Celda {
         	}
         	miPared=null;
         } 
+        
+        if(miBomba!=null){
+        	miBomba.interrupt();
+        	miBomba.explotar();       	
+        	
+        }
         
         return puntos;
 

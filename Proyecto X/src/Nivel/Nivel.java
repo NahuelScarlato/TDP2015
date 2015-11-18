@@ -168,7 +168,7 @@ public class Nivel {
      */
     public void sumarPuntaje(int m) {
         marcador+=m;
-        gui.getMarcadorGUI().setText("    "+marcador);
+        gui.getMarcadorGUI().setText(""+marcador);
     }    
     
     /**

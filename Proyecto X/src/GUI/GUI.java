@@ -30,6 +30,8 @@ public class GUI {
 	protected ContadorTiempo cT;
 
 	private String nombre;
+
+	private GUIPresentacion guiPresentacion;
 	
 	private volatile boolean lockColoc = false;
 	private int colocar=-1;
@@ -37,14 +39,14 @@ public class GUI {
 	private volatile boolean lock = false;
 	private int direction = -1;
 	private JPanel panelUsuario;
-	private JLabel labelSpe;
 	
 	/**
 	 * Crea la aplicacion.
 	 */
-public GUI(String nom) {
+public GUI(String nom, GUIPresentacion pres) {
 		
 		nombre=nom;
+		guiPresentacion = pres;
 	 
 		//Frame principal
 		frmProyecto = new JFrame();
@@ -248,7 +250,7 @@ public GUI(String nom) {
 	public boolean getLockColoc() {
 		return lockColoc;
 	}
-
+	
 	public void toggleLockColoc() {
 		this.lockColoc = !this.lockColoc;
 	}
@@ -264,33 +266,31 @@ public GUI(String nom) {
 	public JLabel getLblMasImg() {
 		return lblMasImg;
 	}
-
+	
 	public void setLblMasImg(JLabel lblMasImg) {
 		this.lblMasImg = lblMasImg;
-		lblMasImg.setBounds(772, 56, 46, 60);
-		panelUsuario.add(lblMasImg);
 	}
-
+	
 	public JLabel getLblBom() {
 		return lblBom;
 	}
-
+	
 	public void setLblBom(JLabel lblBom) {
 		this.lblBom = lblBom;
 	}
-
+	
 	public JLabel getLblFat() {
 		return lblFat;
 	}
-
+	
 	public void setLblFat(JLabel lblFat) {
 		this.lblFat = lblFat;
 	}
-
+	
 	public JLabel getLblSpe() {
 		return lblSpe;
 	}
-
+	
 	public void setLblSpe(JLabel lblSpe) {
 		this.lblSpe = lblSpe;
 	}
@@ -298,21 +298,36 @@ public GUI(String nom) {
 	public JLabel getLbllblCantParedes() {
 		return lblCantParedes;
 	}
-
+	
 	public void setLbllblCantParedes(JLabel lblCantParedes) {
 		this.lblCantParedes = lblCantParedes;
 	}
-
+	
 	
 	public String getNombre() {
 		return nombre;
 	}
-
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
 	public ContadorTiempo getcT() {
 		return cT;
+	}
+	
+	
+	
+	public void mostrarRanking() {
+		guiPresentacion.getRanking().mostrar();
+		
+	}
+	
+	public GUIPresentacion getGuiPresentacion() {
+		return guiPresentacion;
+	}
+	
+	public void setGuiPresentacion(GUIPresentacion guiPresentacion) {
+		this.guiPresentacion = guiPresentacion;
 	}
 }
