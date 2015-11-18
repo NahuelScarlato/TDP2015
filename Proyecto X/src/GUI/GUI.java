@@ -114,11 +114,12 @@ public GUI(String nom, GUIPresentacion pres) {
 		
 		JLabel labelCPared = new JLabel();
 		labelCPared.setHorizontalAlignment(SwingConstants.CENTER);
-		labelCPared.setBounds(512, 10, 32, 32);
+		labelCPared.setBounds(520, 10, 32, 32);
 		labelCPared.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/ParedDestruible.png")));
 		panelUsuario.add(labelCPared);
 		
 		lblCantParedes = new JLabel();
+		lblCantParedes.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCantParedes.setFont(new Font("Century Gothic", Font.BOLD, 32));
 		lblCantParedes.setForeground(Color.RED);
 		lblCantParedes.setBounds(500, 50, 74, 61);

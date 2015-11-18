@@ -18,7 +18,7 @@ public class Sirius extends Enemigo {
      */
     public Sirius(Celda c) {
     	super(50,c);
-    	velocidad=3;
+    	velocidad=4;
     	miGrafico=new SiriusGrafica(c.getFila(),c.getColumna());
     }
 
