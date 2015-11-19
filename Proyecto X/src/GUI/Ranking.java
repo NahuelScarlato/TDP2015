@@ -10,6 +10,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * Class Entrada
@@ -45,7 +48,7 @@ public class Ranking {
 		frame.getContentPane().setBackground(Color.BLACK);
 		frame.setResizable(false);
 
-		GridLayout layout = new GridLayout(5, 2);
+		GridLayout layout = new GridLayout(6, 1);
 		frame.getContentPane().setLayout(layout);
 
 		JLabel label1 = new JLabel(arr[0].getKey() + "   "
@@ -79,7 +82,7 @@ public class Ranking {
 		label4.setForeground(Color.YELLOW);
 		label4.setFont(new Font("Saiyan-Sans", Font.PLAIN, 30));
 		label4.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 1));
-
+		
 		JLabel label5 = new JLabel(arr[4].getKey() + "   "
 				+ arr[4].getValue()+ "   " +  arr[4].getTiempo());
 		label5.setHorizontalAlignment(SwingConstants.CENTER);
@@ -87,12 +90,26 @@ public class Ranking {
 		label5.setForeground(Color.YELLOW);
 		label5.setFont(new Font("Saiyan-Sans", Font.PLAIN, 30));
 		label5.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 1));
-
+		
+		JButton btnNewButton = new JButton("Menu Principal");
+		btnNewButton.setFont(new Font("Arial", Font.BOLD, 28));
+		btnNewButton.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 1));
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				GUIPresentacion nuevo = new GUIPresentacion();
+				nuevo.windows.main(new String[0]);
+				frame.dispose();
+			}
+		});
+		
 		frame.getContentPane().add(label1);
 		frame.getContentPane().add(label2);
-		frame.getContentPane().add(label3);
-		frame.getContentPane().add(label4);
-		frame.getContentPane().add(label5);
+		frame.getContentPane().add(label3);		
+		frame.getContentPane().add(label4);		
+		frame.getContentPane().add(label5);		
+		frame.getContentPane().add(btnNewButton);
+		
 		frame.setVisible(true);
 
 		return frame;
@@ -129,20 +146,14 @@ public class Ranking {
 		PrintWriter writer;
 		try {
 			writer = new PrintWriter("rank.txt", "UTF-8");
-			writer.println(   arr[0].getKey() + " "
-					+ arr[0].getValue()+ " "+arr[0].getTiempo() );
-			writer.println(   arr[1].getKey() + " "
-					+ arr[1].getValue()+ " "+arr[1].getTiempo());
-			writer.println(   arr[2].getKey() + " "
-					+ arr[2].getValue()+ " "+arr[2].getTiempo());
-			writer.println(   arr[3].getKey() + " "
-					+ arr[3].getValue()+ " "+arr[3].getTiempo());
-			writer.println(   arr[4].getKey() + " "
-					+ arr[4].getValue()+ " "+arr[4].getTiempo());
+			
+			for(int i=0;i<5;i++){
+				writer.println(   arr[i].getKey() + " "
+						+ arr[i].getValue()+ " "+arr[i].getTiempo());
+			}			
 			writer.close();
 
 		} catch (FileNotFoundException | UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

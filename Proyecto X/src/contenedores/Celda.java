@@ -163,8 +163,7 @@ public class Celda {
      * Retorna el grafico.
      * @return miGrafico CeldaGrafica.
      */
-    public CeldaGrafica getCeldaGrafica(){
-			
+    public CeldaGrafica getCeldaGrafica(){			
 		return miGrafico;
 	}
 	
@@ -175,16 +174,14 @@ public class Celda {
 	public void setCeldaGrafica(CeldaGrafica cg){
 		miMapa.getNivel().getGUI().getFrame().remove(this.getCeldaGrafica().getGrafico());
 		miGrafico=cg;
-	}
-    
+	}    
 
     /** 
      * Retorna la celdas que se encuentran dentro del rango r que deben explotar.
      * @param r int.
      * @return exp Celda[].
      */
-    public Celda[] celdasParaExplotar(int r) {
-        
+    public Celda[] celdasParaExplotar(int r) {        
     	
     	Celda[] exp=new Celda[(r*4)+1];   	
     	
@@ -298,9 +295,7 @@ public int serExplotada() {
         if(miEnemigo!=null){
         	puntos+=miEnemigo.serExplotado();
         	miEnemigo=null;
-        }
-        	
-       
+        }      
         	
         if(miPowerUp!=null)
         	if(miPared==null){

@@ -45,6 +45,10 @@ public abstract class PowerUp {
         return puntaje;
     }
     
+    /**
+     * Retorna el grafico asociado al powerUp.
+     * @return grafica CeldaGrafica.
+     */
     public CeldaGrafica getGraficaPU(){
     	return grafica;
     }

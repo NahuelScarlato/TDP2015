@@ -11,6 +11,8 @@ import threads.Juego;
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * Interefaz grafica del usuario.
@@ -38,7 +40,7 @@ public class GUI {
 	
 	private volatile boolean lock = false;
 	private int direction = -1;
-	private JPanel panelUsuario;
+	private JLayeredPane panelUsuario;
 	
 	/**
 	 * Crea la aplicacion.
@@ -51,7 +53,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		//Frame principal
 		frmProyecto = new JFrame();
 		frmProyecto.setResizable(false);
-		frmProyecto.setSize(999, 566);
+		frmProyecto.setSize(998, 566);
 		frmProyecto.setLocationRelativeTo(null);		
 		frmProyecto.setVisible(true);		
 		frmProyecto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -64,7 +66,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		frmProyecto.getContentPane().add(panelPrincipal);
 		
 		//Panel usuario	
-		panelUsuario = new JPanel();
+		panelUsuario = new JLayeredPane();
 		panelUsuario.setBounds(0, 0, 1000, 122);
 		panelUsuario.setLayout(null);
 		panelPrincipal.add(panelUsuario);
@@ -162,7 +164,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		
 		panelJuego = new JLayeredPane();
 		panelJuego.setOpaque(false);
-		panelJuego.setBounds(0, 123, 996,417);
+		panelJuego.setBounds(0, 122, 994,417);
 		panelJuego.setBackground(new Color(34, 139, 34));
 		panelJuego.setLayout(null);
 		panelPrincipal.add(panelJuego);		
@@ -219,7 +221,42 @@ public GUI(String nom, GUIPresentacion pres) {
 		}
 	}
 	
+	public void win(int aux){
+		guiPresentacion.getRanking().agregarEntrada(nombre, aux, textField_Tiempo.getText());
+		mostrarRanking();
+		frmProyecto.dispose();	
+	}
 	
+	public void gameOver(){		
+		panelJuego.removeAll();
+		panelUsuario.removeAll();
+		
+		JLabel gO = new JLabel();
+		gO.setIcon(new ImageIcon(getClass().getResource("/source/gameover.png")));
+		gO.setBounds(0, 0, 996,417);
+		panelJuego.add(gO);
+		
+		JLabel gOM = new JLabel();
+		gOM.setIcon(new ImageIcon(getClass().getResource("/source/gameoverMenu.png")));
+		gOM.setBounds(0, 0, 996, 122);
+		panelUsuario.add(gOM);		
+		
+		JButton retry=new JButton("Retry");
+		retry.setBounds(398, 20, 200, 80);
+		retry.setFont(new Font("Arial", Font.BOLD, 28));		
+		retry.setBackground(Color.GREEN);		
+		panelUsuario.add(retry);
+		
+		retry.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				GUIPresentacion nuevo = new GUIPresentacion();
+				nuevo.windows.main(new String[0]);
+				frmProyecto.dispose();								
+			}
+		});
+		
+	}
 	
 	/**
 	 * Retorna el atributo lock.
@@ -331,4 +368,10 @@ public GUI(String nom, GUIPresentacion pres) {
 	public void setGuiPresentacion(GUIPresentacion guiPresentacion) {
 		this.guiPresentacion = guiPresentacion;
 	}
+
+	public JFrame getFrmProyecto() {
+		return frmProyecto;
+	}
+	
+	
 }

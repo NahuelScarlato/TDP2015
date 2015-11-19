@@ -33,24 +33,28 @@ public class Juego extends Thread{
 					nivel.mover(gui.getDirection());
 					gui.toggleLock();
 				}	
-				
 				if(gui.getLockColoc()){
 					nivel.ponerBomba(gui.getColocar());
 					gui.toggleLockColoc();
 				}
-				System.out.println("marcador "+nivel.getMarcador());
-				
-			}		
-			if(nivel.getBomberman().getVivo()){
-				int aux=nivel.getMarcador();
-				//System.out.println("aux vale "+aux);
-				gui.getGuiPresentacion().getRanking().agregarEntrada(gui.getNombre(), aux , gui.getMarcadorTiempo().getText());
-				gui.mostrarRanking();
 				
 			}
 			
-	
 			nivel.cortar();
+			
+			try {
+				Thread.sleep(900);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			};
+			
+			if(nivel.getBomberman().getVivo()){
+				int aux=nivel.getMarcador();
+				gui.win(aux);							
+			}
+			else{			
+				gui.gameOver();
+			}
 			
 		}
 }

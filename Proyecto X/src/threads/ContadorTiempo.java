@@ -2,6 +2,10 @@ package threads;
 
 import javax.swing.JLabel;
 
+/**
+ * Esta clase crea un hilo que representa un contador de tiempo con precision de segundos.
+ * @author Llano Jose, Scarlato Nahuel Hernan; Tecnologia de Programacion 2015.
+ */
 public class ContadorTiempo extends Thread{
 	
 	protected int hr;
@@ -12,12 +16,19 @@ public class ContadorTiempo extends Thread{
 	
 	protected volatile boolean seguir;
 	
+	/**
+	 * Constructor de contador. Inicializa horas, minutos y segundos en 0, y guarda una referencia al label argumento.
+	 * @param tL JLabel.
+	 */
 	public ContadorTiempo(JLabel tL){
 		hr=min=seg=0;
 		seguir=true;
 		lblT=tL;
 	}
 	
+	/**
+	 * Inicia un hilo para representar el tiempo modificando el label atributo cada segundo.
+	 */
 	public void run(){
 		try {
 			
@@ -60,6 +71,9 @@ public class ContadorTiempo extends Thread{
 		}
 	}
 	
+	/*
+	 * Cambia el valor de seguir por falso.
+	 */	
 	public void toggleSeguir(){
 		seguir=false;
 	}

@@ -36,12 +36,11 @@ public class Bomba extends Thread {
 		try {
 			Thread.sleep(3000);			
 			
-			explotar();
+			explotar();			
 		} catch (InterruptedException e) {
 			
 		}		
-	}
-    
+	} 
     
 
     /**
@@ -86,6 +85,10 @@ public void explotar() {
         miCelda=c;
     }
     
+    /**
+     * Retorna el grafico asociado a la bomba.
+     * @return grafica BombaGrafica.
+     */
     public BombaGrafica getGraficaB(){
     	return grafica;
     }

@@ -39,6 +39,7 @@ public abstract class EntidadGrafica extends Grafica{
 	
 	/**
 	 * Cambia el atributo grafico por el definido de morir.
+	 * @param e Entidad.
      */
 	public void morir(Entidad e){
 		grafico.setIcon(morir);

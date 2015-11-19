@@ -49,6 +49,7 @@ public class GUIPresentacion {
 	 */
 	public GUIPresentacion() {
 		initialize();
+		frame.dispose();
 	}
 
 	/**
@@ -61,7 +62,6 @@ public class GUIPresentacion {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 601, 272);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		
 		JPanel panelPrincipal = new JPanel();
 		panelPrincipal.setBounds(0, 0, 1000, 483);
@@ -121,6 +121,7 @@ public class GUIPresentacion {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				mostrarRanking();
+				frame.dispose();
 			}
 		});
 		btnRanking.setBackground(Color.WHITE);

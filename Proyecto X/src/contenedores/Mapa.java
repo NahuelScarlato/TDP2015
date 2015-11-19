@@ -122,7 +122,8 @@ public class Mapa {
     }
     
     /**
-     * Crea las paredes y las ubica en celdas apropiadas.
+     * Crea las paredes, las ubica en celdas apropiadas y retorna un arreglo con las celdas donde se crearo paredes.
+     * @return paredes Celda[].
      */
 	public Celda[] crearParedesDestruibles() {
     	Celda[] paredes=new Celda[3];
@@ -169,6 +170,7 @@ public class Mapa {
 	
     /**
      * Crea los power up y los ubica en celdas apropiadas.
+     * @param paredes Celda[].
      */
     public void crearPowerUps(Celda [] paredes) {
     	PowerUp[] powerUps=new PowerUp[11];

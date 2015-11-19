@@ -127,19 +127,16 @@ public class Nivel {
      * @param dir int.
      */
 	public void mover(int dir){
-		//if(dir==Celda.B)
-		//	bomberman.ponerBomba();
-	//	else
-			bomberman.avanzar(dir);
+		bomberman.avanzar(dir);
 	}
 	
+	/**
+     * Dispara la accion de poner una bomba del bomberman.
+     * @param dir int.
+     */
 	public void ponerBomba(int dir){
-		if(dir==KeyEvent.VK_B){
-			bomberman.ponerBomba();
-			//System.out.println("entro al poner bomba de nivel");
-		}
-		//else
-			//bomberman.avanzar(dir);
+		if(dir==KeyEvent.VK_B)
+			bomberman.ponerBomba();		
 	}
     
     /**
@@ -158,6 +155,9 @@ public class Nivel {
     	return cantParedes;
     }
     
+    /**
+     * Disminuye la cantidad de paredes destruibles restantes en el nivel.
+     */
     public void disminuirCantP(){
     	cantParedes--;
     }
