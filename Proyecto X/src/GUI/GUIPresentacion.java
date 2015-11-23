@@ -2,7 +2,9 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.GridLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -28,7 +30,7 @@ public class GUIPresentacion {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+			EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					
@@ -97,7 +99,7 @@ public class GUIPresentacion {
 		btnComenzar.setForeground(new Color(255, 255, 255));
 		btnComenzar.setBackground(Color.WHITE);
 		btnComenzar.setFont(new Font("Arial", Font.PLAIN, 25));
-		btnComenzar.setBounds(420, 139, 165, 37);
+		btnComenzar.setBounds(418, 153, 165, 37);
 		panelPrincipal.add(btnComenzar);
 		
 		JLabel labelFondo = new JLabel("");
@@ -128,8 +130,23 @@ public class GUIPresentacion {
 		btnRanking.setOpaque(false);
 		btnRanking.setForeground(Color.WHITE);
 		btnRanking.setFont(new Font("Arial", Font.PLAIN, 25));
-		btnRanking.setBounds(418, 187, 167, 35);
+		btnRanking.setBounds(418, 197, 167, 35);
 		panelPrincipal.add(btnRanking);
+		
+		JButton btnControles = new JButton("Controles");
+		btnControles.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				mostrarAyuda();
+				frame.dispose();
+			}
+		});
+		btnControles.setBackground(Color.WHITE);
+		btnControles.setOpaque(false);
+		btnControles.setForeground(Color.WHITE);
+		btnControles.setFont(new Font("Arial", Font.PLAIN, 25));
+		btnControles.setBounds(418, 110, 167, 37);
+		panelPrincipal.add(btnControles);
 		
 		
 		JButton btnNewButton = new JButton("Comenzar");
@@ -150,6 +167,8 @@ public class GUIPresentacion {
 		
 	}
 	
+	
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -168,5 +187,52 @@ public class GUIPresentacion {
 
 	public void setRanking(Ranking ranking) {
 		this.ranking = ranking;
+	}
+	
+	/**
+	 * @wbp.parser.entryPoint
+	 */
+	public void mostrarAyuda() {
+		JFrame frame = new JFrame("HIGH SCORES");
+		frame.setBounds(170, 100, 611, 500);
+		frame.getContentPane().setBackground(Color.BLACK);
+		
+		JPanel panelPrincipal = new JPanel();
+		panelPrincipal.setBounds(0, 0, 1000, 483);
+		panelPrincipal.setForeground(Color.BLACK);
+		panelPrincipal.setBackground(new Color(0, 153, 204));
+		frame.getContentPane().add(panelPrincipal);
+		panelPrincipal.setLayout(null);
+
+		JLabel label1 = new JLabel();
+		label1.setBounds(0, -41, 692, 402);
+		label1.setIcon(new ImageIcon(getClass().getResource(
+				"/source/Objetos/fondoManual.png")));
+		label1.setForeground(Color.YELLOW);
+		label1.setFont(new Font("Saiyan-Sans", Font.PLAIN, 30));
+		label1.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 1));
+
+		panelPrincipal.add(label1);
+		
+		JButton btnNewButton_1 = new JButton("Menu Principal");
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				GUIPresentacion nuevo = new GUIPresentacion();
+				nuevo.windows.main(new String[0]);
+				frame.dispose();
+			}
+		});
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 28));
+		btnNewButton_1.setBounds(0, 360, 595, 101);
+		JButton btnNewButton = new JButton("Menu Principal");
+		btnNewButton.setFont(new Font("Arial", Font.BOLD, 28));
+		btnNewButton.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 1));
+		
+		
+		panelPrincipal.add(btnNewButton_1);
+
+		frame.setVisible(true);
+		
 	}
 }

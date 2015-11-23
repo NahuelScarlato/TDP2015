@@ -72,9 +72,11 @@ public GUI(String nom, GUIPresentacion pres) {
 		panelPrincipal.add(panelUsuario);
 		
 		//Labels del panel usuario
-		setLblMasImg(new JLabel());
-		getLblMasImg().setIcon(new ImageIcon(getClass().getResource("/source/Objetos/imgMas.png")));
+		lblMasImg=new JLabel();
+		lblMasImg.setBounds(764,50,46,61);	
+		lblMasImg.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/imgMas.png")));
 		lblMasImg.setVisible(false);
+		panelUsuario.add(lblMasImg);
 		
 		lblSpe=new JLabel();
 		lblSpe.setBounds(162, 86, 46, 36);

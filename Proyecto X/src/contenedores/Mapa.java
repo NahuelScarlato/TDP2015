@@ -126,14 +126,14 @@ public class Mapa {
      * @return paredes Celda[].
      */
 	public Celda[] crearParedesDestruibles() {
-    	Celda[] paredes=new Celda[3];
+    	Celda[] paredes=new Celda[125];
     	int p=0;
     	
         Random nR = new Random();
         int rndF;
  		int rndC;
     	
-    	while(p<3){
+    	while(p<125){
     		rndF= nR.nextInt(filas-1);
          	rndC= nR.nextInt(columnas-1);
     		if(miMatriz[rndF][rndC]!=null && CeldaValida(rndF,rndC) && miMatriz[rndF][rndC].getPared()==null ){
