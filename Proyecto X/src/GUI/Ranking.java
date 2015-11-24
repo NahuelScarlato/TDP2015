@@ -6,11 +6,13 @@ import java.awt.GridLayout;
 import java.io.*;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -19,7 +21,7 @@ import java.awt.event.MouseEvent;
  * 
  * Almacena 2 tipos de datos, de una manera parecida a un mapeo.
  * 
- * @author Peratta,Franco; Piersigilli Joaquín.
+ * 
  * 
  */
 
@@ -43,57 +45,69 @@ public class Ranking {
 	public JFrame mostrar() {
 
 		JFrame frame = new JFrame("HIGH SCORES");
-		frame.setSize(500, 500);
-		frame.setBounds(170, 100, 500, 500);
+		frame.setSize(500, 589);
+		frame.setBounds(170, 100, 500, 589);
 		frame.getContentPane().setBackground(Color.BLACK);
 		frame.setResizable(false);
-
-		GridLayout layout = new GridLayout(6, 1);
-		frame.getContentPane().setLayout(layout);
-
-		JLabel label1 = new JLabel(arr[0].getKey() + "   "
-				+ arr[0].getValue() + "   " +  arr[0].getTiempo());
-		label1.setHorizontalAlignment(SwingConstants.CENTER);
-		label1.setBounds(20, 50, 300, 100);
-		label1.setForeground(Color.YELLOW);
-		label1.setFont(new Font("Saiyan-Sans", Font.PLAIN, 30));
-		label1.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 1));
-
-		JLabel label2 = new JLabel(arr[1].getKey() + "   "
-				+ arr[1].getValue() + "   "+  arr[1].getTiempo());
-		label2.setHorizontalAlignment(SwingConstants.CENTER);
-		label2.setBounds(20, 100, 300, 100);
-		label2.setForeground(Color.YELLOW);
-		label2.setFont(new Font("Saiyan-Sans", Font.PLAIN, 30));
-		label2.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 1));
-
-		JLabel label3 = new JLabel(arr[2].getKey() + "   "
-				+ arr[2].getValue()+ "   "+  arr[2].getTiempo());
-		label3.setHorizontalAlignment(SwingConstants.CENTER);
-		label3.setBounds(20, 150, 300, 100);
-		label3.setForeground(Color.YELLOW);
-		label3.setFont(new Font("Saiyan-Sans", Font.PLAIN, 30));
-		label3.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 1));
-
-		JLabel label4 = new JLabel(arr[3].getKey() + "   "
-				+ arr[3].getValue()+ "   " +  arr[3].getTiempo());
-		label4.setHorizontalAlignment(SwingConstants.CENTER);
-		label4.setBounds(20, 300, 300, 100);
-		label4.setForeground(Color.YELLOW);
-		label4.setFont(new Font("Saiyan-Sans", Font.PLAIN, 30));
-		label4.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 1));
 		
-		JLabel label5 = new JLabel(arr[4].getKey() + "   "
-				+ arr[4].getValue()+ "   " +  arr[4].getTiempo());
+		
+
+		//GridLayout layout = new GridLayout(6, 1);
+		//frame.getContentPane().setLayout(layout);
+
+		
+
+		JPanel panelSecundario = new JPanel();
+		panelSecundario.setBounds(0, 0, 500, 500);
+		
+		frame.getContentPane().add(panelSecundario);
+		
+		
+		JLabel label1 = new JLabel(arr[0].getKey() + "      "
+				+ arr[0].getValue() + "      " +  arr[0].getTiempo());
+		label1.setHorizontalAlignment(SwingConstants.CENTER);
+		label1.setBounds(0, 0, 494, 95);
+		label1.setForeground(Color.RED);
+		label1.setFont(new Font("Dialog", Font.BOLD, 30));
+
+		JLabel label2 = new JLabel(arr[1].getKey() + "      "
+				+ arr[1].getValue() + "      "+  arr[1].getTiempo());
+		label2.setHorizontalAlignment(SwingConstants.CENTER);
+		label2.setBounds(0, 95, 494, 95);
+		label2.setForeground(Color.RED);
+		label2.setFont(new Font("Dialog", Font.BOLD, 30));
+
+		JLabel label3 = new JLabel(arr[2].getKey() + "      "
+				+ arr[2].getValue()+ "      "+  arr[2].getTiempo());
+		label3.setHorizontalAlignment(SwingConstants.CENTER);
+		label3.setBounds(0, 190, 494, 95);
+		label3.setForeground(Color.RED);
+		label3.setFont(new Font("Dialog", Font.BOLD, 30));
+
+		JLabel label4 = new JLabel(arr[3].getKey() + "      "
+				+ arr[3].getValue()+ "      " +  arr[3].getTiempo());
+		label4.setHorizontalAlignment(SwingConstants.CENTER);
+		label4.setBounds(0, 285, 494, 95);
+		label4.setForeground(Color.RED);
+		label4.setFont(new Font("Dialog", Font.BOLD, 30));
+		
+		JLabel label5 = new JLabel(arr[4].getKey() + "      "
+				+ arr[4].getValue()+ "      " +  arr[4].getTiempo());
 		label5.setHorizontalAlignment(SwingConstants.CENTER);
-		label5.setBounds(20, 350, 300, 100);
-		label5.setForeground(Color.YELLOW);
-		label5.setFont(new Font("Saiyan-Sans", Font.PLAIN, 30));
-		label5.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 1));
+		label5.setBounds(0, 380, 494, 95);
+		label5.setForeground(Color.RED);
+		label5.setFont(new Font("Dialog", Font.BOLD, 30));
+		panelSecundario.setLayout(null);
+		
+		panelSecundario.add(label1);
+		panelSecundario.add(label2);
+		panelSecundario.add(label3);		
+		panelSecundario.add(label4);		
+		panelSecundario.add(label5);		
 		
 		JButton btnNewButton = new JButton("Menu Principal");
+		btnNewButton.setBounds(0, 475, 494, 85);
 		btnNewButton.setFont(new Font("Arial", Font.BOLD, 28));
-		btnNewButton.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 1));
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -102,13 +116,18 @@ public class Ranking {
 				frame.dispose();
 			}
 		});
+		panelSecundario.add(btnNewButton);
 		
-		frame.getContentPane().add(label1);
-		frame.getContentPane().add(label2);
-		frame.getContentPane().add(label3);		
-		frame.getContentPane().add(label4);		
-		frame.getContentPane().add(label5);		
-		frame.getContentPane().add(btnNewButton);
+		JLabel fondo= new JLabel();
+		fondo.setIcon(new ImageIcon(getClass().getResource("/source/Objetos/Ranking4.png")));
+		
+		frame.getContentPane().add(panelSecundario);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, -12, 494, 582);
+		panel.add(fondo);
+		
+		panelSecundario.add(panel);
 		
 		frame.setVisible(true);
 
@@ -217,6 +236,10 @@ public class Ranking {
 		}
 
 		if (indice != -1) {
+			u=u.trim();
+			if (u.length()>13){
+				u=u.substring(0, 12);
+			}
 			Entrada e = new Entrada(u, puntos, tiempo);
 			arr[indice] = e;
 			ordenar();

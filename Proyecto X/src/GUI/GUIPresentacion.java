@@ -112,6 +112,7 @@ public class GUIPresentacion {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				nombre=txtUser.getText();
+				nombre.trim();
 				btnComenzar.setVisible(true);
 			}
 		});

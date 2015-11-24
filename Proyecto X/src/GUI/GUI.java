@@ -48,6 +48,10 @@ public class GUI {
 public GUI(String nom, GUIPresentacion pres) {
 		
 		nombre=nom;
+		nombre=nombre.trim();
+		if (nombre.length()>13){
+			nombre=nombre.substring(0, 12);
+		}
 		guiPresentacion = pres;
 	 
 		//Frame principal
