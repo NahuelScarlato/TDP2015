@@ -45,7 +45,7 @@ public class GUIPresentacion {
 	
 
 	/**
-	 * Create the application.
+	 * Creacion de la aplicacion
 	 */
 	public GUIPresentacion() {
 		initialize();
@@ -53,7 +53,7 @@ public class GUIPresentacion {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * inicializacion del contenido del frame.
 	 */
 	private void initialize() {
 		
@@ -161,29 +161,48 @@ public class GUIPresentacion {
 		
 		
 	}
-
+	
+	/*
+	 * Muestra el Ranking de mejores jugadores.
+	 */
 	public void mostrarRanking() {
 		ranking.mostrar();		
 	}	
-		
+	
+	/*
+	 * Retorna el nombre del usuario.
+	 * @return nombre, String
+	 */
 	public String getNombre() {
 		return nombre;
 	}
 
+	/*
+	 * Modifica el nombre del usuario con un nombre pasado por parametro.
+	 * @param nombre, String
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
+	/*
+	 * Retorna el ranking del juego.
+	 * @return ranking, Ranking
+	 */
 	public Ranking getRanking() {
 		return ranking;
 	}
 
+	/*
+	 * Modifica el rnking del juego.
+	 * @param ranking, Ranking
+	 */
 	public void setRanking(Ranking ranking) {
 		this.ranking = ranking;
 	}
 	
-	/**
-	 * @wbp.parser.entryPoint
+	/*
+	 * Muestra la ayuda al usuario.
 	 */
 	public void mostrarAyuda() {
 		JFrame frame = new JFrame("CONTROLES");
@@ -206,6 +225,9 @@ public class GUIPresentacion {
 
 		panelPrincipal.add(label1);
 		
+		/*
+		 * Creacion del boton que nos permitira volver al menu principal.
+		 */
 		JButton btnNewButton_1 = new JButton("Menu Principal");
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
