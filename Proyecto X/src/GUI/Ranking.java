@@ -15,12 +15,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * Class Entrada
- * 
+ * Class Entrada 
  * Almacena 2 tipos de datos, de una manera parecida a un mapeo.
- * 
- * 
- * 
  */
 
 public class Ranking {
@@ -96,6 +92,9 @@ public class Ranking {
 		panelSecundario.add(label4);		
 		panelSecundario.add(label5);		
 		
+		/*
+		 * Creacion del boton que nos permitira volver al menu principal.
+		 */
 		JButton btnNewButton = new JButton("Menu Principal");
 		btnNewButton.setBounds(0, 475, 494, 85);
 		btnNewButton.setFont(new Font("Arial", Font.BOLD, 28));
