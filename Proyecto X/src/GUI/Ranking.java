@@ -2,10 +2,8 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.io.*;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -46,17 +44,10 @@ public class Ranking {
 
 		JFrame frame = new JFrame("HIGH SCORES");
 		frame.setSize(500, 589);
-		frame.setBounds(170, 100, 500, 589);
+		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setBackground(Color.BLACK);
 		frame.setResizable(false);
 		
-		
-
-		//GridLayout layout = new GridLayout(6, 1);
-		//frame.getContentPane().setLayout(layout);
-
-		
-
 		JPanel panelSecundario = new JPanel();
 		panelSecundario.setBounds(0, 0, 500, 500);
 		
@@ -236,10 +227,6 @@ public class Ranking {
 		}
 
 		if (indice != -1) {
-			u=u.trim();
-			if (u.length()>13){
-				u=u.substring(0, 12);
-			}
 			Entrada e = new Entrada(u, puntos, tiempo);
 			arr[indice] = e;
 			ordenar();

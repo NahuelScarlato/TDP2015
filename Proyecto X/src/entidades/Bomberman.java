@@ -47,10 +47,12 @@ public class Bomberman extends Entidad {
 					morir();				
 				} 
 				else {
-					PowerUp pu = proxima.getPowerUp();
-					if (pu != null) {
-						pu.activar(this);
-						proxima.setPowerUp(null);						
+					if(proxima.getPared()==null){
+						PowerUp pu = proxima.getPowerUp();
+						if (pu != null) {
+							pu.activar(this);
+							proxima.setPowerUp(null);
+						}						
 					}
 				}
 

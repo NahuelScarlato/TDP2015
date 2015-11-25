@@ -2,9 +2,7 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.GridLayout;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -62,7 +60,8 @@ public class GUIPresentacion {
 		ranking= new Ranking();
 		
 		frame = new JFrame();
-		frame.setBounds(100, 100, 601, 272);
+		frame.setSize(601, 272);
+		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel panelPrincipal = new JPanel();
@@ -164,12 +163,9 @@ public class GUIPresentacion {
 	}
 
 	public void mostrarRanking() {
-		ranking.mostrar();
+		ranking.mostrar();		
+	}	
 		
-	}
-	
-	
-	
 	public String getNombre() {
 		return nombre;
 	}
@@ -178,13 +174,9 @@ public class GUIPresentacion {
 		this.nombre = nombre;
 	}
 
-
-
 	public Ranking getRanking() {
 		return ranking;
 	}
-
-
 
 	public void setRanking(Ranking ranking) {
 		this.ranking = ranking;
@@ -194,7 +186,7 @@ public class GUIPresentacion {
 	 * @wbp.parser.entryPoint
 	 */
 	public void mostrarAyuda() {
-		JFrame frame = new JFrame("HIGH SCORES");
+		JFrame frame = new JFrame("CONTROLES");
 		frame.setBounds(170, 100, 611, 500);
 		frame.getContentPane().setBackground(Color.BLACK);
 		
@@ -211,7 +203,6 @@ public class GUIPresentacion {
 				"/source/Objetos/fondoManual.png")));
 		label1.setForeground(Color.YELLOW);
 		label1.setFont(new Font("Saiyan-Sans", Font.PLAIN, 30));
-		label1.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 1));
 
 		panelPrincipal.add(label1);
 		
@@ -228,7 +219,6 @@ public class GUIPresentacion {
 		btnNewButton_1.setBounds(0, 360, 595, 101);
 		JButton btnNewButton = new JButton("Menu Principal");
 		btnNewButton.setFont(new Font("Arial", Font.BOLD, 28));
-		btnNewButton.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 1));
 		
 		
 		panelPrincipal.add(btnNewButton_1);
