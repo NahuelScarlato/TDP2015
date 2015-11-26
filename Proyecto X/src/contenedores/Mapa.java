@@ -34,8 +34,7 @@ public class Mapa {
     protected Nivel miNivel;
 
     /**
-     * Crea una matriz de filas filas y columnas columnas.
-     * Inicializa su nivel,filas y columnas con valores pasados por parametro.
+     * Inicializa su nivel, filas y columnas con valores pasados por parametro.
      * 
      * @param filas int.
      * @param columnas int.
@@ -111,7 +110,7 @@ public class Mapa {
     }
     
     /**
-     * Crea pared indestructible.
+     * Crea una pared indestructible.
      */	
     private void crearIndestructible(int x, int y){
     	JLabel aux=new JLabel(new ImageIcon(getClass().getResource("/source/Objetos/ParedIndestructible.png")));
@@ -122,7 +121,7 @@ public class Mapa {
     }
     
     /**
-     * Crea las paredes, las ubica en celdas apropiadas y retorna un arreglo con las celdas donde se crearo paredes.
+     * Crea las paredes, las ubica en celdas apropiadas y retorna un arreglo con las celdas donde se crearon paredes.
      * @return paredes Celda[].
      */
 	public Celda[] crearParedesDestruibles() {
@@ -169,7 +168,7 @@ public class Mapa {
 	}
 	
     /**
-     * Crea los power up y los ubica en celdas apropiadas.
+     * Crea los power up y los ubica en celdas aleatorias del arreglo pasado por parametro, segun corresponda.
      * @param paredes Celda[].
      */
     public void crearPowerUps(Celda [] paredes) {
@@ -209,7 +208,7 @@ public class Mapa {
     
    
    /**
-    * Busca una celda no nula aleatoria, sin enemigos y la retorna.
+    * Busca una celda aleatoria, del arreglo pasado por parametro, que sea valida y la retorna.
     * @return aux Celda
     */
     private Celda buscarCeldaPU(Celda [] paredes){

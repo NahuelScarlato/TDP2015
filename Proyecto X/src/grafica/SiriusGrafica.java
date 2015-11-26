@@ -9,8 +9,7 @@ import javax.swing.ImageIcon;
 public class SiriusGrafica extends EntidadGrafica{
 
 	/**
-	 * Construye una EntidadGrafica de tipo SiriusGrafica, con su velocidad y posicion (x,y). 
-	 * @param velocidad int.
+	 * Construye una EntidadGrafica de tipo SiriusGrafica, con su velocidad y posicion (x,y).
 	 * @param x int.
 	 * @param y int.
 	 */

@@ -101,6 +101,7 @@ public abstract class EntidadGrafica extends Grafica{
 	/**
 	 * Cambia la imagen del grafico realizando la transicion entre celdas de forma dinamica.
 	 *@param dir int.
+	 *@param velocidad int.
      */
 	public void mover(int dir,int velocidad){
 		

@@ -71,7 +71,7 @@ public class ContadorTiempo extends Thread{
 		}
 	}
 	
-	/*
+	/**
 	 * Cambia el valor de seguir por falso.
 	 */	
 	public void toggleSeguir(){

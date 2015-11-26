@@ -43,6 +43,7 @@ public abstract class Grafica {
 	
 	/**
      * Cambia el grafico asociado por el definido de explotar.
+     * @param c Celda.
      */
 	public void explotar(Celda c){
 		JLabel nuevo=new JLabel(explotar);

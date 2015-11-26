@@ -54,7 +54,7 @@ public class Celda {
     	miGrafico=new TransitableGrafica(fila,columna);
     }
     
-    /*
+    /**
      * Retorna el numero de fila de la celda.
      * @return fila int.
      */
@@ -63,7 +63,7 @@ public class Celda {
     }
     
     
-    /*
+    /**
      * Retorna el numero de columna de la celda.
      * @return columna int.
      */
@@ -159,7 +159,7 @@ public class Celda {
         return miMapa;
     }
     
-    /*
+    /**
      * Retorna el grafico.
      * @return miGrafico CeldaGrafica.
      */
@@ -167,8 +167,8 @@ public class Celda {
 		return miGrafico;
 	}
 	
-    /*
-     * Modifica el grafico con un grafico que es pasado por parametro.
+    /**
+     * Modifica el grafico con uno pasado por parametro.
      * @param cg CeldaGrafica.
      */
 	public void setCeldaGrafica(CeldaGrafica cg){
@@ -256,7 +256,7 @@ public class Celda {
     }
 
     /**
-     * Retorna la celda a avanzar, dpeendiendo de la direcion, que es pasada por parametro.
+     * Retorna la celda a avanzar, dependiendo de la direcion pasada por parametro.
      * @param dir int.
      * @return Celda.
      */

@@ -9,8 +9,7 @@ import javax.swing.ImageIcon;
 public class RugulosGrafica extends EntidadGrafica {
 
 	/**
-	 * Construye una EntidadGrafica de tipo RugulosGrafica, con su velocidad y posicion (x,y). 
-	 * @param velocidad int.
+	 * Construye una EntidadGrafica de tipo RugulosGrafica, con su velocidad y posicion (x,y).
 	 * @param x int.
 	 * @param y int.
 	 */

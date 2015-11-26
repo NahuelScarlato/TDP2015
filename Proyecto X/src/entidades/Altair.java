@@ -14,6 +14,7 @@ public class Altair extends Enemigo {
     /**
      * Construye un Enemigo de tipo Altair, con un puntaje y velocidad predefinido.
      * Inserta el enemigo en la celda pasada por parametro.
+     * @param c Celda.
      */
     public Altair(Celda c) {
     	super(20,c);

@@ -43,7 +43,9 @@ public class GUI {
 	private JLayeredPane panelUsuario;
 	
 	/**
-	 * Crea la aplicacion.
+	 * Crea la ventana del nivel.
+	 * @param nom String.
+	 * @param pres GUIPresentacion.
 	 */
 public GUI(String nom, GUIPresentacion pres) {
 
@@ -215,6 +217,10 @@ public GUI(String nom, GUIPresentacion pres) {
 		}
 	}	
 	
+	/**
+	 * Modifica el atributo colocar segun lockColoc.
+	 * @param key KeyEvent.
+	 */
 	protected void ponerBomba(KeyEvent key){
 		if(!lockColoc){
 			colocar = key.getKeyCode();
@@ -222,6 +228,10 @@ public GUI(String nom, GUIPresentacion pres) {
 		}
 	}
 	
+	/**
+	 * Muestra por pantalla el frame de ranking y elimina el frame del nivel.
+	 * @param aux int
+	 */
 	public void win(int aux){
 		
 		guiPresentacion.getRanking().agregarEntrada(nombre, aux, textField_Tiempo.getText());
@@ -229,6 +239,9 @@ public GUI(String nom, GUIPresentacion pres) {
 		frmProyecto.dispose();	
 	}
 	
+	/**
+	 * Modifica el frame para mostrar un boton de retry y otra imagen.
+	 */
 	public void gameOver(){		
 		panelJuego.removeAll();
 		panelUsuario.removeAll();
@@ -322,7 +335,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		return textField_Tiempo;
 	}
 
-	/*
+	/**
 	 * Retorna el label de lblMasImg
 	 * @return lblMasImg JLabel.
 	 */
@@ -330,7 +343,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		return lblMasImg;
 	}
 	
-	/*
+	/**
 	 * Modifica el lblMasImg con un JLabel pasado por parametro. 
 	 * @param lblMasImg JLabel.
 	 */
@@ -338,7 +351,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		this.lblMasImg = lblMasImg;
 	}
 	
-	/*
+	/**
 	 * Retorna el label de lblBom. 
 	 * @return lblBom JLabel.
 	 */
@@ -346,7 +359,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		return lblBom;
 	}
 	
-	/*
+	/**
 	 * Modifica el lblBom con un JLabel pasado por parametro. 
 	 * @param lblBom JLabel.
 	 */
@@ -354,7 +367,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		this.lblBom = lblBom;
 	}
 	
-	/*
+	/**
 	 * Retorna el label de lblFat. 
 	 * @return lblFat JLabel.
 	 */
@@ -362,7 +375,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		return lblFat;
 	}
 	
-	/*
+	/**
 	 * Modifica el lblFat con un JLabel pasado por parametro. 
 	 * @param lblFat JLabel.
 	 */
@@ -370,7 +383,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		this.lblFat = lblFat;
 	}
 	
-	/*
+	/**
 	 * Retorna el label de lblSpe. 
 	 * @return lblSpe JLabel.
 	 */
@@ -378,7 +391,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		return lblSpe;
 	}
 	
-	/*
+	/**
 	 * Modifica el lblSpe con un JLabel pasado por parametro. 
 	 * @param lblSpe JLabel.
 	 */
@@ -386,7 +399,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		this.lblSpe = lblSpe;
 	}
 	
-	/*
+	/**
 	 * Retorna el label de lblCantParedes. 
 	 * @return lblCantParedes JLabel.
 	 */
@@ -394,7 +407,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		return lblCantParedes;
 	}
 	
-	/*
+	/**
 	 * Modifica el lblCantParedes con un JLabel pasado por parametro. 
 	 * @param lblCantParedes JLabel.
 	 */
@@ -402,7 +415,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		this.lblCantParedes = lblCantParedes;
 	}
 	
-	/*
+	/**
 	 * Retorna el nombre del usuario. 
 	 * @return nombre String.
 	 */
@@ -410,7 +423,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		return nombre;
 	}
 	
-	/*
+	/**
 	 * Modifica el nombre con un String pasado por parametro. 
 	 * @param nombre String.
 	 */
@@ -418,7 +431,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		this.nombre = nombre;
 	}
 	
-	/*
+	/**
 	 * Retorna el contador de tiempo del juego. 
 	 * @return cT ContadorTiempo.
 	 */
@@ -426,7 +439,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		return cT;
 	}
 	
-	/*
+	/**
 	 * Muestra el ranking de mejores jugadores.
 	 */
 	public void mostrarRanking() {
@@ -434,7 +447,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		
 	}
 	
-	/*
+	/**
 	 * Retorna el frame de presentacion del juego. 
 	 * @return guiPresentacion GUIPresentacion.
 	 */
@@ -442,7 +455,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		return guiPresentacion;
 	}
 	
-	/*
+	/**
 	 * Modifica la guiPresentacion con una GUIPresentacion pasada por parametro. 
 	 * @param guiPresentacion GUIPresentacion.
 	 */
@@ -450,7 +463,7 @@ public GUI(String nom, GUIPresentacion pres) {
 		this.guiPresentacion = guiPresentacion;
 	}
 
-	/*
+	/**
 	 * Retorna el frame principal. 
 	 * @return frmProyecto JFrame.
 	 */

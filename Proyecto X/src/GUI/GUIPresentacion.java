@@ -24,8 +24,10 @@ public class GUIPresentacion {
 	private Ranking ranking;
 	private String nombre;
 	static GUIPresentacion windows;
+	
 	/**
-	 * Launch the application.
+	 * Inicia la aplicacion.
+	 * @param args String[].
 	 */
 	public static void main(String[] args) {
 			EventQueue.invokeLater(new Runnable() {
@@ -162,14 +164,14 @@ public class GUIPresentacion {
 		
 	}
 	
-	/*
+	/**
 	 * Muestra el Ranking de mejores jugadores.
 	 */
 	public void mostrarRanking() {
 		ranking.mostrar();		
 	}	
 	
-	/*
+	/**
 	 * Retorna el nombre del usuario.
 	 * @return nombre, String
 	 */
@@ -177,7 +179,7 @@ public class GUIPresentacion {
 		return nombre;
 	}
 
-	/*
+	/**
 	 * Modifica el nombre del usuario con un nombre pasado por parametro.
 	 * @param nombre, String
 	 */
@@ -185,7 +187,7 @@ public class GUIPresentacion {
 		this.nombre = nombre;
 	}
 
-	/*
+	/**
 	 * Retorna el ranking del juego.
 	 * @return ranking, Ranking
 	 */
@@ -193,7 +195,7 @@ public class GUIPresentacion {
 		return ranking;
 	}
 
-	/*
+	/**
 	 * Modifica el rnking del juego.
 	 * @param ranking, Ranking
 	 */
@@ -201,7 +203,7 @@ public class GUIPresentacion {
 		this.ranking = ranking;
 	}
 	
-	/*
+	/**
 	 * Muestra la ayuda al usuario.
 	 */
 	public void mostrarAyuda() {
@@ -225,7 +227,7 @@ public class GUIPresentacion {
 
 		panelPrincipal.add(label1);
 		
-		/*
+		/**
 		 * Creacion del boton que nos permitira volver al menu principal.
 		 */
 		JButton btnNewButton_1 = new JButton("Menu Principal");
@@ -249,7 +251,7 @@ public class GUIPresentacion {
 		
 	}
 	
-	/*
+	/**
 	 * Retorna un string sin espacios y de longitud maxima 13.
 	 * @param n String.
 	 */

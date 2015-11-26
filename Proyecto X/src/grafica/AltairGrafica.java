@@ -9,8 +9,7 @@ import javax.swing.ImageIcon;
 public class AltairGrafica extends EntidadGrafica{
 
 	/**
-	 * Construye una EntidadGrafica de tipo AltairGrafica, con su velocidad y posicion (x,y). 
-	 * @param velocidad int.
+	 * Construye una EntidadGrafica de tipo AltairGrafica, con su velocidad y posicion (x,y).
 	 * @param x int.
 	 * @param y int.
 	 */

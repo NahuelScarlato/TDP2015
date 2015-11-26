@@ -25,7 +25,7 @@ public class Entrada{
 		this.tiempo=tiempo;
 	}
 	
-	 /*
+	 /**
      * Retorna la clave de la entrada.
      * @return clave String.
      */
@@ -33,7 +33,7 @@ public class Entrada{
 		return clave;
 	}
 	
-	 /*
+	 /**
      * Retorna el valor de la entrada.
      * @return valor int.
      */
@@ -57,7 +57,7 @@ public class Entrada{
 		valor=v;
 	}
 	
-	 /*
+	 /**
      * Retorna el tiempo de la entrada.
      * @return tiempo String.
      */

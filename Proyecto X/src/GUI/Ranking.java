@@ -33,8 +33,8 @@ public class Ranking {
 	}
 
 	/**
-	 * Crea un nuevo JFrame que muestra el estado actual de la tabla de puntajes
-	 * @wbp.parser.entryPoint
+	 * Crea un nuevo JFrame que muestra el estado actual de la tabla de puntajes.
+	 * @return frame JFrame.
 	 */
 	public JFrame mostrar() {
 
@@ -92,9 +92,6 @@ public class Ranking {
 		panelSecundario.add(label4);		
 		panelSecundario.add(label5);		
 		
-		/*
-		 * Creacion del boton que nos permitira volver al menu principal.
-		 */
 		JButton btnNewButton = new JButton("Menu Principal");
 		btnNewButton.setBounds(0, 475, 494, 85);
 		btnNewButton.setFont(new Font("Arial", Font.BOLD, 28));
@@ -126,7 +123,7 @@ public class Ranking {
 
 	/**
 	 * Ordena el arreglo de entradas de mayor a menor segun la cantidad de
-	 * puntos de cada entrada
+	 * puntos de cada entrada.
 	 */
 	private void ordenar() {
 		for (int i = 0; i < (arr.length - 1); i++) {
@@ -205,8 +202,11 @@ public class Ranking {
 	/**
 	 * Verifica si el puntaje es mayor a alguno de las entradas existentes y lo
 	 * inserta.
+	 * @param u String. Nombre.
+	 * @param puntos int.
+	 * @param tiempo String.
 	 * 
-	 * @return Si inserto o no
+	 * @return true si inserto o false en caso contrario.
 	 */
 	public boolean agregarEntrada(String u, int puntos, String tiempo) {
 		int indice = -1;

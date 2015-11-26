@@ -14,6 +14,7 @@ public class Pared {
 
     /**
      * Construye un objeto de tipo Pared con un puntaje predefinido.
+     * @param c Celda.
      */
     public Pared(Celda c) {
         puntaje=10;

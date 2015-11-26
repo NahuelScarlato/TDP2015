@@ -77,8 +77,8 @@ public class Nivel {
     }
     
     /**
-     * Agrega la grafica de la celda pasada por prametro al contenedor.
-     * @param c Celda.
+     * Agrega la grafica de la entidad pasada por prametro al contenedor.
+     * @param e Entidad.
      */
     public void agregarEntidadGrafico(Entidad e){
     	EntidadGrafica cAux=e.getGrafico();
@@ -88,8 +88,8 @@ public class Nivel {
     }
  
     /**
-     * Agrega la grafica de la celda pasada por prametro al contenedor.
-     * @param c Celda.
+     * Agrega la grafica de la bomba pasada por prametro al contenedor.
+     * @param b Bomba.
      */
     public void agregarBombaGrafico(Bomba b){
     	BombaGrafica cAux=b.getGraficaB();
