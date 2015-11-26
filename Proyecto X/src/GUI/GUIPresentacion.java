@@ -248,7 +248,11 @@ public class GUIPresentacion {
 		frame.setVisible(true);
 		
 	}
-		
+	
+	/*
+	 * Retorna un string sin espacios y de longitud maxima 13.
+	 * @param n String.
+	 */
 	private String sinEspacios(String n){
 		String resu="";
 		for (int x=0; x < n.length() && x<13; x++) {
