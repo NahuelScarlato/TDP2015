@@ -287,94 +287,177 @@ public GUI(String nom, GUIPresentacion pres) {
 		return this.direction;
 	}
 	
+	/**
+	 * Retorna el atributo colocar.
+	 * @return colocar int.
+	 */
 	public int getColocar(){
 		return this.colocar;
 	}
 	
+	/**
+	 * Retorna el atributo lockColoc.
+	 * @return lockColoc boolean.
+	 */
 	public boolean getLockColoc() {
 		return lockColoc;
 	}
 	
+	/**
+	 * Cambia el estado del atributo lockColoc por su negacion.
+	 */
 	public void toggleLockColoc() {
 		this.lockColoc = !this.lockColoc;
 	}
 	
+	/**
+	 * Retorna el marcador de puntaje del frame.
+	 * @return textField_Puntaje JLabel.
+	 */
 	public JLabel getMarcadorGUI(){
 		return textField_Puntaje;
 	}
 	
+	/**
+	 * Retorna el marcador de tiempo del frame.
+	 * @return textField_Tiempo JLabel.
+	 */
 	public JLabel getMarcadorTiempo(){
 		return textField_Tiempo;
 	}
-	
+
+	/*
+	 * Retorna el label de lblMasImg
+	 * @return lblMasImg JLabel.
+	 */
 	public JLabel getLblMasImg() {
 		return lblMasImg;
 	}
 	
+	/*
+	 * Modifica el lblMasImg con un JLabel pasado por parametro. 
+	 * @param lblMasImg JLabel.
+	 */
 	public void setLblMasImg(JLabel lblMasImg) {
 		this.lblMasImg = lblMasImg;
 	}
 	
+	/*
+	 * Retorna el label de lblBom. 
+	 * @return lblBom JLabel.
+	 */
 	public JLabel getLblBom() {
 		return lblBom;
 	}
 	
+	/*
+	 * Modifica el lblBom con un JLabel pasado por parametro. 
+	 * @param lblBom JLabel.
+	 */
 	public void setLblBom(JLabel lblBom) {
 		this.lblBom = lblBom;
 	}
 	
+	/*
+	 * Retorna el label de lblFat. 
+	 * @return lblFat JLabel.
+	 */
 	public JLabel getLblFat() {
 		return lblFat;
 	}
 	
+	/*
+	 * Modifica el lblFat con un JLabel pasado por parametro. 
+	 * @param lblFat JLabel.
+	 */
 	public void setLblFat(JLabel lblFat) {
 		this.lblFat = lblFat;
 	}
 	
+	/*
+	 * Retorna el label de lblSpe. 
+	 * @return lblSpe JLabel.
+	 */
 	public JLabel getLblSpe() {
 		return lblSpe;
 	}
 	
+	/*
+	 * Modifica el lblSpe con un JLabel pasado por parametro. 
+	 * @param lblSpe JLabel.
+	 */
 	public void setLblSpe(JLabel lblSpe) {
 		this.lblSpe = lblSpe;
 	}
 	
+	/*
+	 * Retorna el label de lblCantParedes. 
+	 * @return lblCantParedes JLabel.
+	 */
 	public JLabel getLbllblCantParedes() {
 		return lblCantParedes;
 	}
 	
+	/*
+	 * Modifica el lblCantParedes con un JLabel pasado por parametro. 
+	 * @param lblCantParedes JLabel.
+	 */
 	public void setLbllblCantParedes(JLabel lblCantParedes) {
 		this.lblCantParedes = lblCantParedes;
 	}
 	
-	
+	/*
+	 * Retorna el nombre del usuario. 
+	 * @return nombre String.
+	 */
 	public String getNombre() {
 		return nombre;
 	}
 	
+	/*
+	 * Modifica el nombre con un String pasado por parametro. 
+	 * @param nombre String.
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
+	/*
+	 * Retorna el contador de tiempo del juego. 
+	 * @return cT ContadorTiempo.
+	 */
 	public ContadorTiempo getcT() {
 		return cT;
 	}
 	
-	
-	
+	/*
+	 * Muestra el ranking de mejores jugadores.
+	 */
 	public void mostrarRanking() {
 		guiPresentacion.getRanking().mostrar();
 		
 	}
 	
+	/*
+	 * Retorna el frame de presentacion del juego. 
+	 * @return guiPresentacion GUIPresentacion.
+	 */
 	public GUIPresentacion getGuiPresentacion() {
 		return guiPresentacion;
 	}
 	
+	/*
+	 * Modifica la guiPresentacion con una GUIPresentacion pasada por parametro. 
+	 * @param guiPresentacion GUIPresentacion.
+	 */
 	public void setGuiPresentacion(GUIPresentacion guiPresentacion) {
 		this.guiPresentacion = guiPresentacion;
 	}
 
+	/*
+	 * Retorna el frame principal. 
+	 * @return frmProyecto JFrame.
+	 */
 	public JFrame getFrmProyecto() {
 		return frmProyecto;
 	}
