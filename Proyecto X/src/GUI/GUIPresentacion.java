@@ -110,8 +110,8 @@ public class GUIPresentacion {
 		btnConfirmar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				nombre=txtUser.getText();
-				nombre.trim();
+				String aux=txtUser.getText();
+				nombre=sinEspacios(aux);
 				btnComenzar.setVisible(true);
 			}
 		});
@@ -248,4 +248,14 @@ public class GUIPresentacion {
 		frame.setVisible(true);
 		
 	}
+		
+	private String sinEspacios(String n){
+		String resu="";
+		for (int x=0; x < n.length() && x<13; x++) {
+			  if (n.charAt(x) != ' ')
+			    resu += n.charAt(x);
+			}
+		return resu;
+	}
+	
 }

@@ -46,14 +46,9 @@ public class GUI {
 	 * Crea la aplicacion.
 	 */
 public GUI(String nom, GUIPresentacion pres) {
-		
+
 		nombre=nom;
-		nombre=nombre.trim();
-		if (nombre.length()>13){
-			nombre=nombre.substring(0, 12);
-		}
 		guiPresentacion = pres;
-	 
 		//Frame principal
 		frmProyecto = new JFrame();
 		frmProyecto.setResizable(false);
@@ -228,6 +223,7 @@ public GUI(String nom, GUIPresentacion pres) {
 	}
 	
 	public void win(int aux){
+		
 		guiPresentacion.getRanking().agregarEntrada(nombre, aux, textField_Tiempo.getText());
 		mostrarRanking();
 		frmProyecto.dispose();	
@@ -461,6 +457,5 @@ public GUI(String nom, GUIPresentacion pres) {
 	public JFrame getFrmProyecto() {
 		return frmProyecto;
 	}
-	
 	
 }
